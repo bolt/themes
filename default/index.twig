@@ -1,0 +1,24 @@
+{% include '_header.twig' %}
+
+
+{% setcontent entries = "entries/latest/3" allowpaging %}
+
+{% for entry in entries %}
+<article>
+    {% if entry.image!="" %}
+        <div class='imageholder'><img src="{{ entry.image|thumbnail(120, 120) }}"></div>
+    {% endif %}
+    
+    <h2><a href="{{ entry.link }}">{{ entry.title }}</a></h2>
+    
+    {{ entry.teaser|raw }}
+
+    <p class="meta"><a href="{{ entry.link }}">Link</a> - Posted by {{ entry.username }} on {{ entry.datecreated|date("M d, ’y")}}</p>
+    
+</article>    
+{% endfor %}
+
+{{ pager() }}
+
+{% include '_footer.twig' %}
+

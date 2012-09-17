@@ -1,0 +1,21 @@
+{% include '_header.twig' %}
+
+
+<article>
+
+    <h1><a href="{{ record.link }}">{{ record.title|editable(content, 'title') }}</a></h1>
+    
+    {% if content.image!="" %}
+        <div class='imageholder-wide'><img src="{{ record.image|thumbnail(320, 240) }}"></div>
+    {% endif %}
+    
+
+    {{ record.teaser|editable(content, 'teaser') }}
+
+    {{ record.body|editable(content, 'body') }}
+
+    <p class="meta">Posted by {{ record.username }} on {{ record.datecreated|date("M d, ’y")}}</p>
+    
+</article>  
+
+{% include '_footer.twig' %}

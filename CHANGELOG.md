@@ -1,11 +1,14 @@
 Changelog
 =========
 
-Version 3.0, 2017-07-14
+Version 1.0, 2017-07-14
 
  - Updating a handful of dependencies in 'base-2016'
  - Added 'skeleton' theme
  - Move to bolt/themes repo.
+
+Previous versions, as Base 2016 
+------------------------------
 
 Version 2.2
 

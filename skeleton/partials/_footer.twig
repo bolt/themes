@@ -7,11 +7,11 @@
 
     <hr>
 
+    <h4>{{ __('Search') }}</h3>
+
     <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
-        <ul>
-            <li><input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search"></li>
-            <li><button type="submit">{{ __('general.phrase.search') }}</button></li>
-        </ul>
+        <input type="search" value="{{ search|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" >
+        <button type="submit">{{ __('general.phrase.search') }}</button>
     </form>
 
     <hr>

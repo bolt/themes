@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 3.0, 2017-07-14
+
+ - Updating a handful of dependencies in 'base-2016'
+ - Added 'skeleton' theme
+ - Move to bolt/themes repo.
+
 Version 2.2
 
  - Replaced `gulp-minify-css` with `cssnano`.
@@ -14,6 +20,6 @@ Version 2.0
 
  - Updated for Foundation 6.3
 
-Version 1.0 
+Version 1.0
 
  - Initial release.

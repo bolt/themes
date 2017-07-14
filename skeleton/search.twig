@@ -24,7 +24,7 @@
 
         <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
             <input type="search" value="{{ search|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" >
-            <button type="submit" class="button">{{ __('general.phrase.search') }}</button>
+            <button type="submit">{{ __('general.phrase.search') }}</button>
         </form>
 
         {% for record in records %}

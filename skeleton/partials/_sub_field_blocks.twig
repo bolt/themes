@@ -71,7 +71,7 @@
 
     {# Checkbox fields #}
     {% if fieldtype == "checkbox" %}
-        <p>Checkbox {{ key }}: {{value ? "checked" : "not checked"}}</p>
+        <p>Checkbox {{ key }}: {{ value ? "checked" : "not checked" }}</p>
     {% endif %}
 
     {# Imagelist fields #}

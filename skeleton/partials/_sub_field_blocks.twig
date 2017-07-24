@@ -41,7 +41,7 @@
     {% endif %}
 
     {# Image fields #}
-    {% if fieldtype == "image" and value['file'] is not empty %}
+    {% if fieldtype == "image" and value.file|default is not empty %}
         {{ value|showimage('684') }}
     {% endif %}
 
@@ -58,7 +58,7 @@
 {% block extended_fields %}
 
     {# Geolocation field #}
-    {% if fieldtype == "geolocation" and value.latitude is defined %}
+    {% if fieldtype == "geolocation" and value.latitude|default is not empty %}
         <img src="http://maps.googleapis.com/maps/api/staticmap?center={{ value.latitude }},{{ value.longitude }}&amp;zoom=14&amp;size=617x300&amp;sensor=false&amp;markers={{ value.latitude }},{{ value.longitude }}">
     {% endif %}
 

@@ -23,11 +23,11 @@ headerimage:
 # the filenames of the templates here. The templates you will set in this config
 # file will override the ones in the global app/config/config.yml, so beware!
 # maintenance_template: maintenance_default.twig
-homepage_template: index.twig
-record_template: record.twig
-listing_template: listing.twig
-search_results_template: search.twig
-notfound: notfound.twig
+#homepage_template: index.twig
+#record_template: record.twig
+#listing_template: listing.twig
+#search_results_template: search.twig
+#notfound: notfound.twig
 
 # Optional overrides. These override the ones in config.yml, but can be set in
 # either place.

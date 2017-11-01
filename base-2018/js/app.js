@@ -1,0 +1,1 @@
+jQuery(document).ready(function(a){a("#navbar-toggle").click(function(s){s.preventDefault(),1!=a(this).hasClass("is-active")?(a(this).addClass("is-active"),a(this).parents(".navbar").find(".navbar-menu").addClass("is-active")):(a(this).removeClass("is-active"),a(this).parents(".navbar").find(".navbar-menu").removeClass("is-active"))})});

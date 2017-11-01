@@ -11,14 +11,19 @@
                 {{ config.get('general/sitename') -}}
             {% if record.title is not defined and config.get('general/payoff') %} | {{ config.get('general/payoff') }}{% endif -%}
         </title>
+        <link href="https://fonts.googleapis.com/css?family=Bitter|Roboto:300,300i,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/bulma.css', 'theme') }}">
         <link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
     </head>
-    <body>
+    <body{% if app.request.get('_route') == "homepage" %} class="front"{% endif %}>
 
         {% block body %}
 
-            {{ include('partials/_header.twig') }}
+            {{ include('partials/_sub_menu.twig') }}
+
+            {% if app.request.get('_route') == "homepage" %}
+            {{ include('partials/_header_fp.twig') }}
+            {% endif %}
 
             {{ widgets('main_top') }}
 

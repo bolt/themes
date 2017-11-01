@@ -1,0 +1,79 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+<section class="section section-listing">
+        {# This template is used for search results. If 'search' is defined,
+           we display an appropriate title. The 'records' array contains all of the
+           records matching the current query. If there are no results, the
+           code in the 'else' part of the for-loop is used. #}
+
+    <header class="header hero">
+         <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                {% if search is not empty %}
+                    {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+                {% else %}
+                    {{ __('general.phrase.search') }}
+                {% endif %}
+                </h1>
+
+        {# Perhaps we post a small teaser, stored in the 'block' named 'Search teaser' #}
+        {% setcontent block = "block/search-teaser" %}
+            </div>
+        </div>
+    </header>
+
+        {# check if we have 'content'. If so, we know we have have a teaser to display. #}
+        {% if block.content is defined %}
+            <div class="container">
+            {{ block.content }}
+            </div>
+        {% endif %}
+
+        <div class="container">
+            <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
+                <input type="search" value="{{ search|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" >
+                <button type="submit">{{ __('general.phrase.search') }}</button>
+            </form>
+        </div>
+
+        {% for record in records %}
+            <div class="container">
+             <article class="record media">
+
+                    {% if record.image is not empty %}
+                    <figure class="image media-left">
+                        <img src="{{ record.image|image(256, 256, "r") }}" alt="" />
+                        <figcaption>This is a caption</figcaption>
+                    </figure>
+                    {% endif %}
+
+                <div class="media-content">
+                    <header>
+                        <h1 class="small-title"><a href="{{ record.link }}">{{ record.title }}</a></h1>
+                    </header>
+
+                    {# display something introduction-like.. #}
+                    <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+                </div>
+            </article>
+
+            </div>
+
+
+        {% else %}
+            <div class="container">
+            <article class="record media">
+                <div class="media-content">
+                    <p>{{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}</p>
+                </div>
+            </article>
+            </div>
+        {% endfor %}
+
+        {# If there are more records than will fit on one page, the pager is shown. #}
+        {{ pager(template = 'partials/_sub_pager.twig') }}
+
+</section>
+{% endblock main %}

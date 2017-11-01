@@ -1,0 +1,62 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+<article class="record">
+<div class="container">
+    <!-- Header bar -->
+    <header class="header">
+        <h1 class="title">{{ record.title }}</h1>
+
+        {% if record.subtitle is not empty %}
+        <h2>{{ record.subtitle }}</h2>
+        {% endif %}
+
+
+        <p class="meta">
+            {% if record.editlink() %}
+                <span class="edit-link"><a href="{{ record.editlink() }}"><strong>Edit</strong></a></span> -
+            {% endif %}
+            {{ __('general.phrase.written-by-on', {
+                '%name%': record.user.displayname|default(__('Unknown')),
+                '%date%': record.datepublish|localedatetime("%A %B %e, %Y")
+            }) }}
+        </p>
+    </header>
+
+    {% if record.teaser is not empty %}
+    <div class="record-teaser">
+        {{ record.teaser }}
+    </div>
+    {% endif %}
+
+    {% if record.image is not empty %}
+    <div class="record-image">
+        <figure class="image">
+            <img src="{{ record.image|image(1200, 800, "r") }}" alt="" />
+            <figcaption>This is a caption</figcaption>
+        </figure>
+    </div>
+    {% endif %}
+
+    {% if record.body is not empty %}
+    <div class="record-body">
+
+        {# Output all fields, in the order as defined in the contenttype.
+        To change the generated html and configure the options, see:
+        https://docs.bolt.cm/templating #}
+        {% with { 'record': record, 'common': true, 'extended': true, 'repeaters': true } %}
+            {{ block('sub_fields', 'partials/_sub_fields.twig') }}
+        {% endwith %}
+
+    </div>
+    {% endif %}
+
+    {# Uncomment this if you wish to dump the entire record to the client, for debugging purposes.
+    {{ dump(record) }}
+    #}
+
+    {% include 'partials/_recordfooter.twig' with { 'record': record, 'extended': true } %}
+</div>
+</article>
+
+{% endblock main %}

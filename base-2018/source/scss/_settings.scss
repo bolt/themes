@@ -1,72 +1,63 @@
-
-
 // Show the current breakpoints in the lower left corner.
 $debug-breakpoint: false;
-
-// Colors
-$color-accent: rgb(0, 20, 160);
-$color-body: lighten(rgb(251, 251, 246),2);
-$color-text-body: rgb(60, 60, 60);
-$color-text-light: rgb(184, 186, 188);
-$color-ui-light: lighten($color-text-light, 14%);
-
-// Font stacks
-$font-sans-serif  : 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
-$font-serif       : 'Cardo', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 
 // ------------ Settings for Bulma ---------------
 
 // 1. Import the initial variables
 @import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
 
-$tablet: 767px;
-$fullhd: 2000px;
+// 2. Set your own initial variables
 
-$primary: $color-accent;
-$primary-invert: $color-body;
-$family-primary: $font-serif;
+// Colors
+//$color-accent       : rgb(0, 20, 160);
+//$color-body         : lighten(rgb(251, 251, 246),2);
+//$color-text-body    : rgb(60, 60, 60);
+//$color-text-light   : rgb(184, 186, 188);
+//$color-ui-light     : lighten($color-text-light, 14%);
+//$color-link         : red;
+//$color-heading      : #000000;
 
-// ------------ Settings for Magnific Popup ---------------
+$light: rgb(240, 239, 239);
 
-// overlay
-$mfp-overlay-color: #EEE !default;                       // Color of overlay screen
-$mfp-overlay-opacity: 0.8 !default;                        // Opacity of overlay screen
-$mfp-shadow: 0 !default; // Shadow on image or iframe
+//$body-background-color: rgb(240, 239, 239);
+$body-background-color: $light;
+// Fonts
+$font-sans-serif    : 'Roboto', sans-serif;     // Base font
+$font-serif         : 'Bitter', serif;          // Headings
 
-// spacing
-$mfp-popup-padding-left: 8px!default ;                        // Padding from left and from right side
-$mfp-popup-padding-left-mobile: 6px !default;                        // Same as above, but is applied when width of window is less than 800px
+// 3. Set the derived variables
 
-$mfp-z-index-base: 1040 !default;                       // Base z-index of popup
+//$primary: $color-accent;
+//$primary-invert: $color-body;
+//$black: $color-heading;
+//$text: $black;
+//$link: $color-link;
+//$family-primary: $font-sans-serif;
 
-// controls
-$mfp-include-arrows: true !default;                       // Include styles for nav arrows
-$mfp-controls-opacity: 0.65 !default;                       // Opacity of controls
-$mfp-controls-color: #333 !default;                       // Color of controls
-$mfp-controls-border-color: #3F3F3F !default;                      // Border color of controls
-$mfp-inner-close-icon-color: #333 !default;                       // Color of close button when inside
-$mfp-controls-text-color: #555 !default;                       // Color of preloader and "1 of X" indicator
-$mfp-controls-text-color-hover: #333 !default;                       // Hover color of preloader and "1 of X" indicator
-$mfp-IE7support: true !default;                       // Very basic IE7 support
+//$body-weight: $weight-light;
 
-// Iframe-type options
-$mfp-include-iframe-type: true !default;                       // Enable Iframe-type popups
-$mfp-iframe-padding-top: 40px !default;                       // Iframe padding top
-$mfp-iframe-background: #000 !default;                       // Background color of iframes
-$mfp-iframe-max-width: 900px !default;                      // Maximum width of iframes
-$mfp-iframe-ratio: 9/16 !default;                       // Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
+$radius: 0;
 
-// Image-type options
-$mfp-include-image-type: true !default;                       // Enable Image-type popups
-$mfp-image-background: #FFF !default;
-$mfp-image-padding-top: 40px !default;                       // Image padding top
-$mfp-image-padding-bottom: 40px !default;                       // Image padding bottom
-$mfp-include-mobile-layout-for-image: true !default;                       // Removes paddings from top and bottom
+// Title
+$title-color: $black;
+$title-weight: $weight-normal;
 
-// Image caption options
-$mfp-caption-title-color: #333 !default;                    // Caption title color
-$mfp-caption-subtitle-color: #555 !default;                    // Caption subtitle color
+// Box
+$box-radius: 0;
+$box-shadow: 0;
 
-// A11y
-$mfp-use-visuallyhidden: false !default;                      // Hide content from browsers, but make it available for screen readers
+
+
+
+// 4. Setup your Custom Colors
+$linkedin: #0077b5;
+$linkedin-invert: findColorInvert($linkedin);
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+$github: #333;
+$github-invert: findColorInvert($github);
+
+// 5. Add new color variables to the color map.
+@import "../node_modules/bulma/sass/utilities/derived-variables.sass";
 

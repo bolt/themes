@@ -11,3 +11,5 @@
 # listing_template: listing.twig
 # search_results_template: search.twig
 # notfound: notfound.twig
+
+template_directory: templates

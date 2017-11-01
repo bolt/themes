@@ -1,8 +1,167 @@
-@import 'settings';
-@import 'fonts';
-@import 'breakpointdebug';
-@import 'prism';
+// Theme specific styling.
 
-h1 {
-  color: red;
+@import 'settings';
+@import 'typography';
+@import 'breakpointdebug';
+
+
+.control {
+
+    .input,
+    .button {
+        margin-top: 0;
+        height: 52px;
+    }
+
+}
+
+
+// siteheader
+.header-fp {
+    height: 70vh;
+    position: relative;
+    background-color: #2C1C1C;
+
+    .header-fp-wrapper { // vertical alignment of th econtent in this container
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        width: 90vw;
+    }
+
+    .header-fp-content {
+        text-align: center;
+        color: $white;
+
+        a {
+            color: $white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+    }
+
+}
+
+.image {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+// notification
+.notification {
+    border-radius: 0;
+}
+
+.notification > .delete {
+    right: .5rem;
+    top: .5rem;
+}
+
+
+
+// main-article
+.main-article {
+    padding: 1.5rem;
+}
+
+.front .main-article {
+
+}
+
+
+
+
+// about us
+.section-about-us,
+.section-collection {
+    text-align: center;
+}
+
+.section-about-us {
+    background-color: $white;
+}
+
+
+
+
+// buttons
+
+.button {
+    margin-top: 1rem;
+
+    &.transparent {
+        background-color: transparent;
+    }
+
+    &#navbar-toggle {
+        margin-top: 0;
+    }
+
+}
+
+// records
+
+.header {
+    margin-top: 52px; // the height of the navbar
+}
+
+.record-teaser {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.record-body {
+    padding: 1.5rem;
+}
+
+.record-footer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.meta {
+
+    &.paging {
+        text-align: center;
+        padding: 1.5rem 0;
+        margin: 1.5rem 0;
+        border: 1px solid $black;
+    }
+
+}
+
+
+
+// listing
+
+.section-listing {
+
+    .record {
+
+        .image {
+
+        }
+
+    }
+
+}
+
+.image.small-left-image {
+            float: left;
+            width: 20%;
+            margin: 0 1.5rem 0 0;
+}
+
+// footer
+
+.sitefooter {
+    padding: 0 1.5rem 3rem 1.5rem;
 }

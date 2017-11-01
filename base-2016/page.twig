@@ -15,7 +15,7 @@
     {{ record.body }}
 
     {# If there are repeaters, we should output them. #}
-    {% with { 'record': record, 'common': false, 'repeaters': true, 'exclude': ['teaser', 'body', 'image'] } %}
+    {% with { 'record': record, 'common': false, 'repeaters': true, 'blocks': true, 'exclude': ['teaser', 'body', 'image'] } %}
     {{ block('sub_fields', 'partials/_sub_fields.twig') }}
     {% endwith %}
 

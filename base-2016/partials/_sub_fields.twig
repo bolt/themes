@@ -8,7 +8,7 @@
       ContentType definitions as well as passed in variables.
     - The last section is where the actual looping is done, and the relevant
       {{ block() }} function is called, for the 'ContentType fields',
-      'repeater fields' and 'template fields' in turn.
+      'repeater fields', 'block fields' and 'template fields' in turn.
 
    Read the relevant section in the documentation on usage of this
    functionality: https://docs.bolt.cm/templating
@@ -63,8 +63,9 @@
 
         {% endif %}
 
-        {# Finally, the repeaters #}
-        {% if repeaters|default(false) == true and record.fieldtype(key) == "repeater" %}
+        {# Finally, the repeaters and blocks #}
+        {% if (repeaters|default(false) == true and record.fieldtype(key) == "repeater") or
+              (blocks|default(false) == true and record.fieldtype(key) == "block") %}
 
             {% if (global.request.get('_route') != "preview") %}
 
@@ -86,7 +87,7 @@
                 fixed properly for Bolt 4, but for now we just output a notice, and prevent crashes.
                 See also: https://github.com/bolt/bolt/issues/6605 #}
                 <p>
-                Unfortunately, Repeater fields do not work correctly with the generic
+                Unfortunately, Repeater and Block fields do not work correctly with the generic
                 <code>block()</code> function, when using Preview. To view these fields, please
                 save the record, and view the page normally.
                 </p>

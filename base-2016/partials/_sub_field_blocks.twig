@@ -19,7 +19,7 @@
 {# Sub-block for 'imagelist' fields #}
 {% block imagelist_field %}
     <div class="bolt-imagelist">
-        {% for image in images %}
+        {% for image in value %}
             <div class="bolt-imageholder">
                 {{ popup(image.filename, 200, 0) }}
             </div>

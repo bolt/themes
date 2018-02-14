@@ -1,57 +1,8 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-serif;
-    line-height: 1.125;
-    font-weight: normal;
-    margin-bottom: .75rem;
 }
 
-
-// Hier kun je wellicht subtitle gebruiken, dit is ook een Bulma class.
-.small-title {
-    font-size: 1.75rem;
-}
-
-pre {
-    margin-bottom: .75rem;
-}
-
-blockquote {
-    font-style: italic;
-    padding: 1.5rem;
-    font-size: 1.5rem;
-}
-
-figcaption {
-    text-align: center;
-    margin-top: .75rem;
-    font-style: italic;
-}
-
-// used for buttons
-.expanded {
-    width: 100%;
-}
-
-p.meta {
-    font-size: .9rem;
-}
-
-.record {
-
-    &.listing-record {
-        margin-bottom: 1.5rem;
-    }
-
-    p, li {
-        margin-bottom: .75rem;
-    }
-
-    ul {
-
-        li {
-        list-style: disc;
-        }
-
-    }
-
+p a,
+li a {
+    text-decoration: underline;
 }

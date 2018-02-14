@@ -11,28 +11,27 @@
                 {{ config.get('general/sitename') -}}
             {% if record.title is not defined and config.get('general/payoff') %} | {{ config.get('general/payoff') }}{% endif -%}
         </title>
-        <link href="https://fonts.googleapis.com/css?family=Bitter|Roboto:300,300i,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bitter|Roboto:400,400i,700" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('css/bulma.css', 'theme') }}">
         <link rel="stylesheet" href="{{ asset('css/theme.css', 'theme') }}">
     </head>
     <body{% if app.request.get('_route') == "homepage" %} class="front"{% endif %}>
+        <a href="#main-content" class="visually-hidden focusable skip-link">Skip to main content</a>
 
         {% block body %}
 
-            {{ include('partials/_sub_menu.twig') }}
-
-            {% if app.request.get('_route') == "homepage" %}
-            {{ include('partials/_header_fp.twig') }}
-            {% endif %}
+            <header role="banner" class="header">
+            {{ include('partials/_navbar.twig') }}
+            {{ include('partials/_header.twig') }}
+            </header>
 
             {{ widgets('main_top') }}
 
+            <a id="main-content"></a>
             {% block main %}
             {% endblock main %}
 
             {{ widgets('main_bottom') }}
-
-            {{ include('partials/_aside.twig') }}
 
         {% endblock body %}
 
@@ -40,3 +39,5 @@
 
     </body>
 </html>
+
+

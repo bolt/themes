@@ -1,0 +1,13 @@
+{% if not (record.contenttype.slug == 'showcases' or record.contenttype.slug == 'entries')  %}
+{% setcontent homepage = "homepage" limit 1 returnsingle %}
+<section class="hero hero-image is-primary is-medium{% if app.request.get('_route') == "homepage" %} is-large{% endif %}" data-background-image="{{ asset(homepage.image, 'files') }}" style="background-image: url({{ asset(homepage.image, 'files') }})">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title">{{ config.get('general/sitename') }}</h1>
+            {% if config.get('general/payoff') %}
+            <h2 class="subtitle">{{ config.get('general/payoff') }}</h2>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}

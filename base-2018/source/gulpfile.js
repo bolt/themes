@@ -24,9 +24,9 @@ var PATHS = {
   ]
 };
 
-
 var javascriptFiles = [
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
 ];
 
 // Compile Foundation Sass into CSS. In production, the CSS is compressed
@@ -59,8 +59,8 @@ gulp.task('theme-sass', function() {
         browsers: COMPATIBILITY
       }))
       // If you _do_ want to compress this file on 'production', uncomment the the lines below.
-      // .pipe($.if(PRODUCTION, $.cssnano()))
-      // .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
+      .pipe($.if(PRODUCTION, $.cssnano()))
+      .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
       .pipe(gulp.dest('../css'));
   });
 

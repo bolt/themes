@@ -3,3 +3,7 @@
 @import 'settings';
 @import '../node_modules/bulma/bulma';
 
+// Override, until https://github.com/jgthms/bulma/issues/1428 is in a release version
+.media-content {
+    overflow: inherit;
+}

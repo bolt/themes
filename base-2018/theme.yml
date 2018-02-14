@@ -2,7 +2,7 @@
 
 # Variables that are in this file, can be used in your twig template like {{ theme.foo }}
 
-# Template filenames. If you 're creating a theme for distribution, you can specify
+# Template filenames. If you're creating a theme for distribution, you can specify
 # the filenames of the templates here. The templates you will set in this config
 # file will override the ones in the global app/config/config.yml, so beware!
 # maintenance_template: maintenance_default.twig
@@ -10,6 +10,20 @@
 # record_template: record.twig
 # listing_template: listing.twig
 # search_results_template: search.twig
-# notfound: notfound.twig
+# notfound: not-found.twig
 
-template_directory: templates
+# Optional overrides. These override the ones in config.yml, but can be set in
+# either place.
+# taxonomy_sort: DESC
+# homepage: page/1
+# listing_sort: datepublish DESC
+# listing_records: 6
+# search_results_records: 10
+
+# Aliases can be set to restrict images to a specific set of available
+# resolutions or to decouple image sizes from template files.
+thumbnails:
+    aliases:
+        myimageformat:
+            size: [400,300]
+            cropping: crop

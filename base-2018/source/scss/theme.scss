@@ -3,63 +3,102 @@
 @import 'settings';
 @import 'typography';
 @import 'breakpointdebug';
+@import 'node_modules/magnific-popup/src/css/main.scss';
 
-
-.control {
-
-    .input,
-    .button {
-        margin-top: 0;
-        height: 52px;
-    }
-
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+.skip-link {
+    font-family: $font-serif;
+    font-size: $size-large;
+    font-weight: bold;
+    position: absolute;
+    top: 60px;
+    z-index: 1;
 }
 
-
-// siteheader
-.header-fp {
-    height: 70vh;
-    position: relative;
-    background-color: #2C1C1C;
-
-    .header-fp-wrapper { // vertical alignment of th econtent in this container
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        -webkit-transform: translateX(-50%) translateY(-50%);
-        transform: translateX(-50%) translateY(-50%);
-        width: 90vw;
+.navbar-brand {
+    .navbar-item {
+        font-family: $font-serif;
+        font-size: $size-large;
+        font-weight: bold;
     }
-
-    .header-fp-content {
-        text-align: center;
-        color: $white;
-
-        a {
-            color: $white;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-
-        }
-
-        h2 {
-            font-size: 1.75rem;
-        }
-
-    }
-
 }
 
-.image {
-    margin-top: 1rem;
+.navbar-end {
+    align-items: center;
+    @include mobile {
+        form {
+            padding: 1rem;
+            .control:first-child {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.teaser {
+    font-weight: bold;
     margin-bottom: 1rem;
 }
 
-// notification
-.notification {
-    border-radius: 0;
+.card {
+    height: 100%;
+}
+
+.section-latest-entries {
+    .buttons {
+        margin-top: 1.5rem;
+    }
+}
+
+.tags {
+    margin-top: 3rem;
+    .label {
+        margin-right: .5em;
+    }
+}
+
+.section-record {
+    .image {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.button {
+    text-decoration: none;
+}
+
+p.meta {
+    margin-top: 1rem;
+    color: $medium;
+    font-size: 90%;
+}
+
+.media {
+    @include mobile {
+        flex-direction: column;
+    }
+}
+.media-right {
+    flex-shrink: 1;
+    margin-left: 0;
+    @include mobile {
+        order: -1;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+.imageholder {
+    img {
+        width: 100%;
+    }
 }
 
 .notification > .delete {
@@ -68,100 +107,65 @@
 }
 
 
-
-// main-article
-.main-article {
-    padding: 1.5rem;
+.hero-image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-top: 52px;
 }
 
-.front .main-article {
-
-}
-
-
-
-
-// about us
-.section-about-us,
-.section-collection {
-    text-align: center;
-}
-
-.section-about-us {
-    background-color: $white;
-}
-
-
-
-
-// buttons
-
-.button {
-    margin-top: 1rem;
-
-    &.transparent {
-        background-color: transparent;
+.hero.is-large .hero-body {
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+    h1.title,
+    h2.subtitle {
+        text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
     }
-
-    &#navbar-toggle {
-        margin-top: 0;
+    h1.title  {
+        font-size: $title-size;
+        font-weight: bold;
     }
-
-}
-
-// records
-
-.header {
-    margin-top: 52px; // the height of the navbar
-}
-
-.record-teaser {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-}
-
-.record-body {
-    padding: 1.5rem;
-}
-
-.record-footer {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-}
-
-.meta {
-
-    &.paging {
-        text-align: center;
-        padding: 1.5rem 0;
-        margin: 1.5rem 0;
-        border: 1px solid $black;
+    h2.subtitle  {
+        font-size: $subtitle-size;
     }
-
-}
-
-
-
-// listing
-
-.section-listing {
-
-    .record {
-
-        .image {
-
+    @include tablet {
+        padding-bottom: 12rem;
+        padding-top: 12rem;
+        h1.title  {
+            font-size: $title-size * 1.25;
         }
-
+        h2.subtitle  {
+            font-size: $subtitle-size * 1.25;
+        }
+    }
+    @include desktop {
+        padding-bottom: 16rem;
+        padding-top: 16rem;
+        h1.title  {
+            font-size: $title-size * 1.5;
+        }
+        h2.subtitle  {
+            font-size: $subtitle-size * 1.5;
+        }
     }
 
 }
 
-.image.small-left-image {
-            float: left;
-            width: 20%;
-            margin: 0 1.5rem 0 0;
-}
+// https://antoningrele.github.io/img-brightness-normalization/normalizeBrightness.css
+[data-background-image] { position: relative; }
 
-// footer
+[data-background-image] .dark-overlay {
 
-.sitefooter {
-    padding: 0 1.5rem 3rem 1.5rem;
+	/*	This is the element that is going to darken the background image
+	By default, it's entirely black, but the JS code will give it
+	some transparency by setting its opacity to a calculated value.
+	The brighter the image, the higher the opacity, to compensate ! */
+
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background-color: black;
+
 }

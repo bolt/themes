@@ -1,0 +1,26 @@
+<p class="meta is-hidden-touch">
+    {% if record.link() and (record.link != global.request.server.get('REQUEST_URI')) %}
+    <a href="{{ record.link() }}" class="button is-link {% if extended|default() %}is-outlined{% endif %}">
+        {{ __('general.phrase.read-more') }}
+    </a>
+    {% elseif record.contentlink %}
+    <a href="{{ relative_path(homepage.contentlink|e) }}" class="button is-link {% if extended|default() %}is-outlined{% endif %}">
+        {{ __('general.phrase.read-more') }}
+    </a>
+    {% endif %}
+    {% if record.editlink() %}
+        <span class="edit-link">
+            <a href="{{ record.editlink() }}" class="button is-info is-outlined">
+                {{ __('general.phrase.edit') }}
+            </a>
+        </span>
+    {% endif %}
+</p>
+{% if extended|default() %}
+<p class="meta">
+    {{ __('general.phrase.written-by-on', {
+        '%name%': record.user.displayname|default(__('Unknown')),
+        '%date%': record.datepublish|localedatetime("%A %B %e, %Y")
+    }) }}
+</p>
+{% endif %}

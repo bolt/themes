@@ -18,10 +18,10 @@
 
 {# Sub-block for 'imagelist' fields #}
 {% block imagelist_field %}
-    <div class="bolt-imagelist">
-        {% for image in images %}
-            <div class="bolt-imageholder">
-                {{ popup(image.filename, 200, 0) }}
+    <div class="imagelist columns is-multiline is-mobile">
+        {% for image in value %}
+            <div class="imageholder column">
+                {{ popup(image.filename, 320, 240) }}
             </div>
         {% endfor %}
     </div>
@@ -42,7 +42,7 @@
 
     {# Image fields #}
     {% if fieldtype == "image" and value.file|default is not empty %}
-        {{ value|showimage('684') }}
+        {{ value|showimage('752') }}
     {% endif %}
 
     {# Video fields #}
@@ -71,7 +71,8 @@
 
     {# Checkbox fields #}
     {% if fieldtype == "checkbox" %}
-        <p>Checkbox {{ key }}: {{ value ? "checked" : "not checked" }}</p>
+        <p><strong>Checkbox {{ key }}: </strong>
+        {{ value ? "checked" : "not checked" }}</p>
     {% endif %}
 
     {# Imagelist fields #}

@@ -6,49 +6,68 @@ $debug-breakpoint: false;
 // 1. Import the initial variables
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
+@import "../node_modules/bulma/sass/utilities/mixins";
 
 // 2. Set your own initial variables
 
 // Colors
-//$color-accent       : rgb(0, 20, 160);
-//$color-body         : lighten(rgb(251, 251, 246),2);
-//$color-text-body    : rgb(60, 60, 60);
-//$color-text-light   : rgb(184, 186, 188);
-//$color-ui-light     : lighten($color-text-light, 14%);
-//$color-link         : red;
-//$color-heading      : #000000;
-
 $light: rgb(240, 239, 239);
+$dark: #444;
+$medium: #777;
 
-//$body-background-color: rgb(240, 239, 239);
-$body-background-color: $light;
 // Fonts
 $font-sans-serif    : 'Roboto', sans-serif;     // Base font
 $font-serif         : 'Bitter', serif;          // Headings
 
 // 3. Set the derived variables
 
-//$primary: $color-accent;
-//$primary-invert: $color-body;
-//$black: $color-heading;
-//$text: $black;
-//$link: $color-link;
-//$family-primary: $font-sans-serif;
+// Option 1: https://color.adobe.com/ims-construction-colors-color-theme-10555392/
+$link: #DF1C31;
+$info: #1B2A3F;
+$primary: #2873A4;
+$success: #F1A42C;
 
-//$body-weight: $weight-light;
+// Option 2: https://color.adobe.com/mapa-laranja-color-theme-10556928/
+// $primary: #C97B5C;
+// $info: #3F3430;
+// $link: #3F271D;
+// $success: #8B7368;
 
-$radius: 0;
+// Option 3: https://color.adobe.com/WASD-color-theme-10551808/
+// $primary: #0D6545;
+// $info: #373B3A;
+// $link: #0E724E;
+// $success: #8B7368;
+
+// Option 4: https://color.adobe.com/Palette-de-couleurs-1-color-theme-10564608/
+// $primary: darken(#9FD4F1, 10);
+// $info: #9B8D1F;
+// $link: #385681;
+// $success: #9C8754;
+
+// Option 5: Black & White
+// $primary: #444;
+// $info: #888;
+// $link: #385691;
+// $success: #777;
+
+$pre-background: $grey-lighter;
+$family-primary: $font-sans-serif;
+
+// Generic variables
+$body-background-color: $white;
+$body-weight: $weight-light;
+$column-gap: 1.5rem;
 
 // Title
 $title-color: $black;
 $title-weight: $weight-normal;
+$title-size: 2rem;
+$subtitle-size: 1.5rem;
 
 // Box
 $box-radius: 0;
 $box-shadow: 0;
-
-
-
 
 // 4. Setup your Custom Colors
 $linkedin: #0077b5;

@@ -351,30 +351,24 @@ files. If you don't have Node and NPM yet, install them from [Nodejs.org](https:
 To install the themes dependencies, run the following in the source directory:
 
 ```
-npm install
+yarn install
 ```
 
-Now you can simply run `npm start` to compile the javascript and sass files.
-This will build the files, and it will continue to monitor changes to the
-`.scss` files. If you make a change, the compiled files will be updated
+Now you can simply run `yarn run start` to compile the javascript and sass
+files. This will build the files, and it will continue to monitor changes to
+the `.scss` files. If you make a change, the compiled files will be updated
 immediately. When you're ready to deploy, and put the site in production, be
 sure to build the files and minify them:
 
 ```
-npm run-script build
+yarn run build
 ```
 
 This will build the files that you can deploy, or put into your versioning
 system.
 
-The build process has been tested on NPM 3.10 and Node v7.2. If you do not
-have the correct versions you can use [n](https://www.npmjs.com/package/n) to
-manage your Node and NPM versions:
-
-```
-sudo npm install -g n;
-sudo n stable
-```
+The build process has been tested on Yarn 1.5.1. If you do not have Yarn
+installed, or need to update it, see: https://yarnpkg.com/lang/en/docs/install/
 
 And then go through the above steps again.
 

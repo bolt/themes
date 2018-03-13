@@ -11,22 +11,21 @@ var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
 // Define base paths for Sass and Javascript.
 // File paths to various assets are defined here.
 var PATHS = {
-  //assets: [
-  //  'src/assets/**/*',
-  //  '!src/assets/{img,js,scss}/**/*'
-  //],
   sass: [
     'node_modules',
-  ],
-  javascript: [
-    'src/assets/js/**/!(app).js',
-    'src/assets/js/app.js'
   ]
 };
 
 var javascriptFiles = [
-    'node_modules/jquery/dist/jquery.js',
-    'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+    'javascript/app.js',
+    'node_modules/baguettebox.js/src/baguetteBox.js',
+    'node_modules/prismjs/prism.js',
+    'node_modules/prismjs/components/prism-php.js',
+    'node_modules/prismjs/components/prism-json.js',
+    'node_modules/prismjs/components/prism-yaml.js',
+    'node_modules/prismjs/components/prism-bash.js',
+    'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js',
+    'node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js'
 ];
 
 // Compile Foundation Sass into CSS. In production, the CSS is compressed
@@ -66,25 +65,18 @@ gulp.task('theme-sass', function() {
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
-  return gulp.src('javascript/*.js')
-    .pipe($.uglify())
+  return gulp.src(javascriptFiles)
+    .pipe($.if(PRODUCTION, $.uglify()))
+    .pipe($.concat('app.js'))
     .pipe(gulp.dest('../js'));
 });
 
-
-gulp.task('copyjavascript', function() {
-   gulp.src(javascriptFiles)
-   .pipe($.uglify())
-   .pipe(gulp.dest('javascript'));
-});
-
-
 // Set up 'default' task, with watches.
-gulp.task('default', ['copyjavascript', 'compress', 'bulma-sass', 'theme-sass'], function() {
+gulp.task('default', ['compress', 'bulma-sass', 'theme-sass'], function() {
   gulp.watch(['scss/**/*.scss'], ['theme-sass', 'bulma-sass']);
   gulp.watch(['javascript/**/*.js'], ['compress']);
 });
 
 // Build
-gulp.task('build', ['copyjavascript', 'compress', 'bulma-sass', 'theme-sass']);
+gulp.task('build', ['compress', 'bulma-sass', 'theme-sass']);
 

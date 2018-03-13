@@ -3,7 +3,8 @@
 @import 'settings';
 @import 'typography';
 @import 'breakpointdebug';
-@import 'node_modules/magnific-popup/src/css/main.scss';
+@import 'node_modules/baguettebox.js/src/baguetteBox';
+@import 'node_modules/prismjs/themes/prism';
 
 .visually-hidden:not(:focus):not(:active) {
     position: absolute !important;

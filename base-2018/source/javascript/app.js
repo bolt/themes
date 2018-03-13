@@ -21,26 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+    baguetteBox.run('.container');
 
     normalizeBrightness();
-});
 
-$('.magnific, .imageholder a').magnificPopup({
-    type: 'image',
-    gallery: { enabled: true },
-    disableOn: 400,
-    closeBtnInside: true,
-    enableEscapeKey: true,
-    mainClass: 'mfp-with-zoom',
-    zoom: {
-        enabled: true,
-        duration: 300,
-        easing: 'ease-in-out'
-    }
+    document.querySelector('.notification > button.delete').addEventListener('click', function(e) {
+        e.target.parentElement.style.display = 'none';
+    }, false);
 });
-
-$('.notification > button.delete').click(function (e) {
-    e.preventDefault();
-    $(this).parent().addClass('is-hidden');
-});
-

@@ -28,9 +28,6 @@ function normalizeBrightness(coeff=1.25, callback=null) {
 				rgba(0,0,0,${darkOverlayOpacity})),
 				url(${imageUrl})
 				`
-			/* In case you want to do something else with that div, while you're at it*/
-			callback(div)
-
 		}
 	})
 }

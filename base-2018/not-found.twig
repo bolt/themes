@@ -1,0 +1,42 @@
+{% extends 'partials/_master.twig' %}
+
+{% setcontent record = 'blocks/404-not-found' %}
+
+{% block main %}
+
+<section class="section section-not-found">
+    <div class="container">
+        <div class="content">
+            {% if record %}
+                <h1 class="title">{{ record.title|default('404 not found') }}</h1>
+                {{ record.content|default('<p>The requested page was not found.</p>')|raw }}
+            {% else %}
+                <h1 class="title">404 not found</h1>
+                <p>
+                    The requested page was not found.
+                </p>
+
+                <div class="notification is-warning">
+                    {# <button class="delete"></button> #}
+                    Add a Blocks record with slug '404-not-found' to customize this message.
+                    If it's not showing up here, doublecheck that the <tt>slug</tt> is correct, and that the Block is published.
+                </div>
+            {% endif %}
+        </div>
+
+        <form class="field has-addons" method="get" action="{{ path('search') }}" enctype="text/plain">
+            <label class="label is-hidden" for="search-box">Search</label>
+            <div class="control">
+                <input class="input" type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" id="search-box">
+            </div>
+            <div class="control">
+                <button class="button is-primary" type="submit">{{ __('general.phrase.search') }}</button>
+            </div>
+        </form>
+
+    </div>
+</section
+{% endblock main %}
+ 
+
+ 

@@ -1,0 +1,79 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+<section class="section section-listing">
+    <div class="container">
+    {# This template is used for 'listings': Generic pages that list a number of
+        records from a certain contenttype. These records are available as an array
+        called 'records'. In the for-loop below, we iterate over the records that
+        are on this page. It can be used for overview pages like 'all entries', or
+        'all records tagged with kittens'. #}
+
+    {# If used for listing a taxonomy, we add a heading.: #}
+    {% if taxonomytype is defined %}
+        <div class="content">
+            <h1 class="title is-size-2 is-size-4-mobile">
+                {{ __('general.phrase.overview-for') }}
+                {% if taxonomy.options[slug] is defined %}
+                    {{ taxonomy.options[slug] }}
+                {% else %}
+                    {{ slug }}
+                {% endif %}
+            </h1>
+
+            {# Taxonomies are fetched unordered by design except if 'has_sortorder'
+                is set to true. This way we keep 'grouping' intact in the listing. #}
+            {% if not taxonomy.has_sortorder %}
+            {# If we specified an order in config.yml, sort them here, accordingly: #}
+            {% set records = records|order(config.get('general/listing_sort')) %}
+            {% endif %}
+        </div>
+    {% else %}
+        <h1 class="title is-size-2 is-size-4-mobile">{{contenttype}}</h1>
+    {% endif %}
+
+    {% for record in records %}
+        <article role="article" class="media columns">
+            <div class="media-content column is-7">
+                <div class="content">
+                    <h2 class="title"><a href="{{ record.link }}">{{ record.title }}</a></h2>
+
+                    {# display something introduction-like.. #}
+                    {% if record.introduction %}
+                        {{ record.introduction }}
+                    {% elseif record.teaser %}
+                        {{ record.teaser }}
+                    {% else %}
+                        <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+                    {% endif %}
+
+                    {% include 'partials/_record_meta.twig' with {'extended': true} %}
+
+                </div>
+            </div>
+            {% if record.image is not empty %}
+            <div class="media-right column">
+                <figure class="image">
+                    {{ popup(record.values.image, 480, 320) }}
+                </figure>
+            </div>
+            {% endif %}
+
+        </article>
+    {% else %}
+        <article role="article">
+            <div class="content">
+                <h2 class="title">{{ __('general.phrase.no-content-found') }}</h2>
+
+                <p>
+                    {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
+                </p>
+            </div>
+        </article>
+    {% endfor %}
+
+    {# If there are more records than will fit on one page, the pager is shown. #}
+    {{ pager(template = 'partials/_sub_pager.twig') }}
+    </div>
+</section>
+{% endblock main %}

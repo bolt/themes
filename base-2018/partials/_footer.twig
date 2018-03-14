@@ -1,0 +1,26 @@
+{# Footer #}
+<footer role="contentinfo" class="footer">
+    <div class="container">
+        <nav class="level" role="navigation" aria-label="footer navigation">
+            <div class="level-left">
+                <div class="level-item">
+                    <p>
+                        &copy; 2018 &bullet;
+                        {{ __("This website is Built with <a href='%bolt%' target='_blank' title='Sophisticated, lightweight & simple CMS'>Bolt</a> and <a href='%bulma' target='_blank' title='Free and open source CSS framework based on Flexbox'>Bulma</a>.",{'%bolt%':'http://bolt.cm','%bulma':'http://bulma.io'}) }}
+                    </p>
+                </div>
+            </div>
+            <div class="level-right">
+                {{ menu(
+                    identifier = 'main',
+                    template = 'partials/_sub_menu_footer.twig',
+                    params = {'withsubmenus': false}
+                ) }}
+            </div>
+        </nav>
+        {{ widgets('footer') }}
+    </div>
+</footer>
+
+<script src="{{ asset('js/normalizeBrightness.js', 'theme') }}"></script>
+<script src="{{ asset('js/app.js', 'theme') }}"></script>

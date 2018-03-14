@@ -1,0 +1,33 @@
+@if ($debug-breakpoint==true) {
+    body:before {
+        content: 'mobile';
+        position: fixed;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        background: rgba(0, 0, 0, 0.85);
+        color: #FFF;
+        font-weight: bold;
+        z-index: 999;
+        padding: 0.5em 2em;
+
+        @include tablet {
+            content: 'tablet';
+        }
+
+        @include desktop {
+            content: 'desktop';
+        }
+
+        @include widescreen {
+            content: 'widescreen';
+        }
+
+        @include fullhd {
+            content: 'fullhd';
+        }
+
+    }
+
+}

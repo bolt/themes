@@ -1,0 +1,42 @@
+{# Sidebar #}
+<aside role="complementary" class="sidebar">
+
+    {% if haswidgets('aside_top') %}
+
+        {{ widgets('aside_top') }}
+
+    {% else %}
+
+    {# This part is only shown if there are no widgets in the 'aside_top' widgets slot. #}
+    <div class="content">
+        {# The next section attempts to fill the panel in the sidebar with the contents of the
+            'about-us'-block, if it exists. First, attempt to fetch the block with slug 'about-us' #}
+        {% setcontent block = "block/about-us" %}
+
+        {# check if we have a title. If so, we know we have content to display. Otherwise, we will
+            output a default text, telling the user to create the 'blocks' in the backend. #}
+        {% if block.title is defined %}
+
+            {{ popup(block.values.image, 480, 320) }}
+
+            <h2 class="title">{{ block.title }}</h2>
+            {{ block.content }}
+
+            {% include 'partials/_record_meta.twig' with {'record': block } %}
+
+        {% else %}
+
+            <h2 class="title">{{ __('general.phrase.missing-about-page') }}</h2>
+
+            <p>{{ __('general.phrase.missing-about-page-block') }}</p>
+
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+    {{ widgets('aside_bottom') }}
+
+</aside>
+{# End Sidebar #}

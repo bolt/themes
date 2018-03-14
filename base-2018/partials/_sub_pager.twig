@@ -1,0 +1,38 @@
+{%- set link = pager.makelink() -%}
+{%- if pager.totalpages > 1 -%}
+<nav class="media pagination is-centered {{ class }}" role="navigation" aria-label="pagination">
+    {# 'prev' and 'next' #}
+    {%- if pager.current > 1 and class != "narrow" -%}
+    <a class="pagination-previous" href="{{ link }}{{ pager.current - 1 }}" rel="noindex, follow">Previous</a>
+    {%- endif -%}
+    {%- if pager.current < pager.totalpages and class != "narrow" -%}
+    <a class="pagination-next" href="{{ link }}{{ pager.current + 1 }}" rel="noindex, follow">Next page</a>
+    {%- endif -%}
+
+    <ul class="pagination-list">
+        {# 'first' #}
+        {%- if pager.current > (surr + 1) -%}
+        <li><a class="pagination-link" href="{{ link }}{{ 1 }}">1</a></li>
+        {%- endif -%}
+
+        {# start with '..' if there are more than surr+1 before currentpage.. #}
+        {%- if pager.current > (surr + 2) -%}
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        {%- endif -%}
+
+        {%- for i in max(1, pager.current - surr)..min(pager.current + surr, pager.totalpages) -%}
+        <li><a class="pagination-link{% if i == pager.current %} is-current{% endif %}" href="{{ link }}{{ i }}" {% if i != 1 %}rel="noindex, follow"{% endif %}>{{ i }}</a></li>
+        {%- endfor -%}
+
+        {# end with '..' if there are more than surr+1 after currentpage.. #}
+        {%- if pager.current < (pager.totalpages - surr - 1) -%}
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        {%- endif -%}
+
+        {# 'last' #}
+        {%- if pager.current < (pager.totalpages - surr) -%}
+        <li><a class="pagination-link" href="{{ link }}{{ pager.totalpages }}" rel="noindex, follow">{{ pager.totalpages }}</a></li>
+        {%- endif -%}
+    </ul>
+</nav>
+{%- endif -%}

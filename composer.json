@@ -11,7 +11,7 @@
         "twig/twig": "^1.32 || ^2.0"
     },
     "conflict": {
-        "bolt/bolt": "< 3.3"
+        "bolt/bolt": "< 3.5"
     },
     "autoload": {
     },

@@ -1,0 +1,89 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-two-thirds">
+
+                {# Remove this include if you don't need it anymore. #}
+                {{ include('partials/_fresh_install.twig') }}
+
+                <div class="content">
+                    {% setcontent homepage = "homepage" limit 1 returnsingle %}
+                    <h2 class="title is-size-1 is-size-3-mobile">{{ homepage.title }}</h2>
+                    <div class="teaser">{{ homepage.teaser }}</div>
+                    {{ homepage.content }}
+
+                    {% include 'partials/_record_meta.twig' with {'record': homepage } %}
+
+                </div>
+            </div>
+            <div class="column">
+                {{ include('partials/_aside.twig') }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{# Pages section #}
+
+<section class="section section-pages hero is-success is-bold">
+    <div class="container">
+        <h2 class="title">Pages</h2>
+        <div class="columns">
+            {% setcontent pages = 'pages/latest/3' %}
+            {% for page in pages %}
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-3by2">
+                            {{ popup(page.values.image, 480, 320) }}
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h3><a href="{{ page.link() }}">{{ page.title }}</a></h3>
+                            <p>{{ page.excerpt }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# Latest entries #}
+
+<section class="section section-latest-entries">
+    <div class="container">
+        <h2 class="title">Latest Entries</h2>
+        {% setcontent entries = 'entries/latest/3' %}
+        {% for entry in entries %}
+        <article role="article" class="media columns">
+            <div class="media-content column is-7">
+                <div class="content">
+                    <h3><a href="{{ entry.link }}">{{ entry.title }}</a></h3>
+                    {{ entry.teaser }}
+
+                    {% include 'partials/_record_meta.twig' with {'extended': true} %}
+                </div>
+            </div>
+            <div class="media-right column">
+                <figure class="image">
+                    {{ popup(entry.values.image, 480, 320) }}
+                </figure>
+            </div>
+        </article>
+        {% endfor %}
+        <div class="buttons has-addons is-right">
+            <a class="button is-primary" href="{{ path('contentlisting', {'contenttypeslug': 'entries'}) }}">Read more <span class="is-hidden"> Entries</span></a>
+        </div>
+    </div>
+</section>
+
+{% include "partials/_sub_recent_records.twig" %}
+
+{% endblock main %}

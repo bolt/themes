@@ -1,0 +1,33 @@
+{# This file is inserted as the 'footer' of each listed record. #}
+{% if extended|default() %}
+
+    {# include the 'default' links to taxonomies. Check the documentation for ways to modify and customize
+        what is output to the browser: https://docs.bolt.cm/contenttypes/taxonomies#displaying-taxonomies-in-templates #}
+    {{ include('partials/_sub_taxonomylinks.twig', { record: record }) }}
+
+    {% set previous = record.previous('id') %}
+    {% set next = record.next('id') %}
+    {% if previous or next %}
+        <nav class="pagination" role="navigation" aria-label="pagination">
+            {% if previous %}
+                <a href="{{ previous.link }}" class="pagination-previous">&laquo; {{ previous.title }}</a>
+            {% endif %}
+            {% if next %}
+                <a href="{{ next.link }}" class="pagination-next">{{ next.title }} &raquo;</a>
+            {% endif %}
+        </nav>
+    {% endif %}
+
+    {% set relatedrecords = record.related() %}
+    {% if relatedrecords is not empty %}
+        <p class="meta">
+            <h2 class="is-size-4">{{ __('general.phrase.related-content') }}</h2>
+            <ul>
+                {% for related in relatedrecords %}
+                    <li><a href="{{ related.link }}">{{ related.title }}</a></li>
+                {%  endfor %}
+            </ul>
+        </p>
+    {% endif %}
+
+{% endif %}

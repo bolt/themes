@@ -6,9 +6,9 @@
     <div class="container">
         {% if record.image is not empty %}
         <figure class="image is-2by1">
-            <img src="{{ record.image|image(1280, 660) }}" alt="{{ record.values.image.alt }}" />
+            <img src="{{ record.image|image(1280, 660) }}" alt="{{ record.values.image.alt|default() }}" />
             <figcaption>
-                {{ record.values.image.title }}
+                {{ record.values.image.title|default() }}
             </figcaption>
         </figure>
         {% endif %}
@@ -34,10 +34,6 @@
                     {{ include('partials/_recordfooter.twig', { 'record': record, 'extended': true }) }}
                 </div>
             </article>
-            {# -- TODO: decide if we want the aside on "record" detail pages.
-            <div class="column">
-                {{ include('partials/_aside.twig') }}
-            </div> #}
         </div>
     </div>
 </section>

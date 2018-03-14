@@ -164,7 +164,6 @@ p.meta {
 [data-background-image] { position: relative; }
 
 [data-background-image] .dark-overlay {
-
 	/*	This is the element that is going to darken the background image
 	By default, it's entirely black, but the JS code will give it
 	some transparency by setting its opacity to a calculated value.
@@ -176,5 +175,15 @@ p.meta {
 	top: 0; left: 0;
 	width: 100%; height: 100%;
 	background-color: black;
+}
 
+.tag {
+    // Fix tags in prism.
+    &:not(.code-toolbar) {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        display: inherit;
+        font-size: inherit
+    }
 }

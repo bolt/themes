@@ -17,7 +17,7 @@
             output a default text, telling the user to create the 'blocks' in the backend. #}
         {% if block.title is defined %}
 
-            {{ popup(block.image, 480, 320) }}
+            {{ popup(block.values.image, 480, 320) }}
 
             <h2 class="title">{{ block.title }}</h2>
             {{ block.content }}

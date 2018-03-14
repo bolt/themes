@@ -54,7 +54,7 @@
             {% if record.image is not empty %}
             <div class="media-right column">
                 <figure class="image">
-                    <img src="{{ record.image|image(480, 320, "r") }}" alt="{{ record.values.image.alt }}" />
+                    {{ popup(record.values.image, 480, 320) }}
                 </figure>
             </div>
             {% endif %}

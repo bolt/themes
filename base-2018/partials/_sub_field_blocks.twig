@@ -42,7 +42,7 @@
 
     {# Image fields #}
     {% if fieldtype == "image" and value.file|default is not empty %}
-        {{ value|showimage('752') }}
+        {{ value|showimage(752, 400) }}
     {% endif %}
 
     {# Video fields #}

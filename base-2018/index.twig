@@ -68,7 +68,7 @@
                     <h3><a href="{{ entry.link }}">{{ entry.title }}</a></h3>
                     {{ entry.teaser }}
 
-                    {% include 'partials/_record_meta.twig' with {'extended': true} %}
+                    {% include 'partials/_record_meta.twig' with {'extended': true, 'record': entry} %}
                 </div>
             </div>
             <div class="media-right column">

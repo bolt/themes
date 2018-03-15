@@ -177,13 +177,16 @@ p.meta {
 	background-color: black;
 }
 
-.tag {
+pre {
     // Fix tags in prism.
-    &:not(.code-toolbar) {
+    .tag {
         margin: 0;
         padding: 0;
         background-color: transparent;
         display: inherit;
         font-size: inherit
+    }
+    .number {
+        font-size: 1em;
     }
 }

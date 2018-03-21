@@ -40,45 +40,7 @@ These are the most important files, included in this theme.
 ```
 .
 ├── css/
-│   ├── foundation.css       - The compiled Foundation CSS framework
-│   └── theme.css            - Theme-specific CSS
-├── images/                  - Image files for this theme are put here
-├── js/
-│   ├── app.js               - Theme-specific Javascript
-│   ├── foundation.js        - The compiled Foundation javascript library
-│   └── jquery.min.js        - The jQuery javascript library
-├── partials/
-│   ├── _aside.twig          - Partial for the sidebar. With fixed content, or widgets
-│   ├── _footer.twig         - Partial for the footer below every page
-│   ├── _fresh_install.twig  - Partial that's shown on fresh installs with some instructions
-│   ├── _header.twig         - Partial for the header banner with the site title.
-│   ├── _master.twig         - Twig template, that is uses to 'extend' all pages (See 'template inheritance')
-│   ├── _recordfooter.twig   - Partial with meta-information below a page or entry
-│   ├── _sub_menu.twig       - Partial with macro for rendering the drop-down menu
-│   └── _topbar.twig         - Partial containing the top menu bar
-├── source/
-│   ├── scss/
-│   │   ├── _settings.scss   - SCSS source file for Foundation. Is used by `css/foundation.css`
-│   │   ├── foundation.scss  - SCSS source file for Foundation. Is compiled to `scss/foundation.scss`
-│   │   └── theme.scss       - SCSS source file for the theme. Is compiled to `css/theme.css`
-│   ├── .babelrc             - Helper file for gulp / npm
-│   ├── bower.json           - Configuration for used Bower packages.
-│   ├── gulpfile.js          - Build task script for Gulp.
-│   └── package.json         - Configuration for used Node / Gulp packages.
-├── CHANGELOG.md             - List of versions, and their respective changes.
-├── index.twig               - Template used for 'home'
-├── listing.twig             - Template used for 'listings', like `/pages` or `/category/movies`
-├── notfound.twig            - Template used for the '404 not found' pages
-├── page.twig                - Template used for single record pages, like `/page/lorem-ipsum`
-├── readme.md                - This file. :-)
-├── record.twig              - Generic template used for single record pages, that don't have a specific template set.
-├── search.twig              - Template used for listing search results.
-├── styleguide.twig          - Static page, that shows all Foundation elements on one long page. Go to `/styleguide` to see it in the browser.
-└── theme.yml                - Theme-specific configuration.
-
-.
-├── css/
-│   ├── bulma.css                 - The compiled Foundation CSS framework
+│   ├── bulma.css                 - The compiled Bulma CSS framework
 │   └── theme.css                 - Theme-specific CSS
 ├── js/
 │   ├── app.js                    - Theme-specific Javascript
@@ -271,73 +233,6 @@ This theme comes with its own configuration file, named `theme.yml`. In this
 file you can set certain specific options for the theme, such as the default
 images for the header, the position of the 'aside' sidebar, and the global
 layout.
-
-### Setting `layout:variant`
-
-You can select a global layout, which determines if the way the website looks.
-Possible options are:
-
-`centered`: Centers the layout on wide screens, so that the 'main content' is in
-the middle of the screen.
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│ o o o      browser window                                              │
-├─────┬────────────────────────────────────────────┬───────────────┬─────┤
-│     │  Home link1 link2 link3                    │______ [Search]│     │
-│     └────────────────────────────────────────────┴───────────────┘     │
-│     ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••     │
-│     ••••••••••••••••••••••••(header image)••••••••••••••••••••••••     │
-│     ••••••••••••••••••••••••(name of site)••••••••••••••••••••••••     │
-│     ••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••     │
-│       ┌──────────────────(main content)─┐ ┌────────────(aside)─┐       │
-│       │Lorem ipsum dolor sit amet       │ │Lorem ipsum dolor   │       │
-│       │                                 │ │sit amet. Consec-   │       │
-│       │Consectetur adipiscing elit. Nunc│ │tetur adipiscing.   │       │
-│       │omni virtuti vitium contrario    │ │                    │       │
-│       │nominehgpponitur. Non enim, si   │ │Latest X            │       │
-│       │malum est dolor, carere eo malo  │ │ - intellegetur     │       │
-│       └─────────────────────────────────┘ │ - Expectoque       │       │
-│       ┌─────────────────────────────────┐ │ - videantur        │       │
-│       │Lorem ipsum dolor sit amet       │ │                    │       │
-│       │                                 │ │Latest Y            │       │
-│       │Consectetur adipiscing elit. Nunc│ │ - intellegetur     │       │
-└───────┴─────────────────────────────────┴─┴────────────────────┴───────┘
-```
-
-`wide`: uses a 'wide' layout, meaning the header and top bar are streched to the
-edges of the browser on large screens:
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│ o o o      browser window                                              │
-├────────────────────────────────────────────────────────┬───────────────┤
-│  Home link1 link2 link3                                │______ [Search]│
-├────────────────────────────────────────────────────────┴───────────────┤
-│••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••│
-│•••••••••••••••••••••••••••••(header image)•••••••••••••••••••••••••••••│
-│•••••••••••••••••••••••••••••(name of site)•••••••••••••••••••••••••••••│
-│••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••│
-│       ┌──────────────────(main content)─┐ ┌────────────(aside)─┐       │
-│       │Lorem ipsum dolor sit amet       │ │Lorem ipsum dolor   │       │
-│       │                                 │ │sit amet. Consec-   │       │
-│       │Consectetur adipiscing elit. Nunc│ │tetur adipiscing.   │       │
-│       │omni virtuti vitium contrario    │ │                    │       │
-│       │nominehgpponitur. Non enim, si   │ │Latest X            │       │
-│       │malum est dolor, carere eo malo  │ │ - intellegetur     │       │
-│       └─────────────────────────────────┘ │ - Expectoque       │       │
-│       ┌─────────────────────────────────┐ │ - videantur        │       │
-│       │Lorem ipsum dolor sit amet       │ │                    │       │
-│       │                                 │ │Latest Y            │       │
-│       │Consectetur adipiscing elit. Nunc│ │ - intellegetur     │       │
-└───────┴─────────────────────────────────┴─┴────────────────────┴───────┘
-```
-
-
-The `theme.yml` file also defines the default images, that are used in the
-header of the website. Feel free to change these for other images. A lot of
-royalty-free images to be used, can be found at
-[visualhunt.com](http://visualhunt.com).
 
 Finally, the last section defines the settings for which templates are used for
 which types of pages. The templates you will set in this config file will

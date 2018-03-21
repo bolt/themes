@@ -12,12 +12,13 @@
 
                 <div class="content">
                     {% setcontent homepage = "homepage" limit 1 returnsingle %}
-                    <h2 class="title is-size-1 is-size-3-mobile">{{ homepage.title }}</h2>
-                    <div class="teaser">{{ homepage.teaser }}</div>
-                    {{ homepage.content }}
+                    {% if homepage %}
+                        <h2 class="title is-size-1 is-size-3-mobile">{{ homepage.title }}</h2>
+                        <div class="teaser">{{ homepage.teaser }}</div>
+                        {{ homepage.content }}
 
-                    {% include 'partials/_record_meta.twig' with {'record': homepage } %}
-
+                        {% include 'partials/_record_meta.twig' with {'record': homepage } %}
+                    {% endif %}
                 </div>
             </div>
             <div class="column">

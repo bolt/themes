@@ -14,7 +14,7 @@
 {% macro display_menu_item(item, loop, extraclass, withsubmenus) %}
     {% from _self import display_menu_item %}
     {% spaceless %}
-    {% if item.submenu|default() is empty %}
+    {% if item.submenu|default is empty %}
     <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='navbar-item {{ item|current ? 'is-active' }} {{ item.class|default('') }}'>
         {{- item.label|default('-') -}}
     </a>
@@ -28,7 +28,7 @@
             {{- item.label|default('-') -}}
         </a>
         <div class="navbar-dropdown">
-            {% for submenu in item.submenu %}
+            {% for submenu in item.submenu|default %}
                 {{ display_menu_item(submenu, loop) }}
             {% endfor %}
         </div>

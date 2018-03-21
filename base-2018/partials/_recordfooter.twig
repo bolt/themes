@@ -10,10 +10,10 @@
     {% if previous or next %}
         <nav class="pagination" role="navigation" aria-label="pagination">
             {% if previous %}
-                <a href="{{ previous.link }}" class="pagination-previous">&laquo; {{ previous.title }}</a>
+                <a href="{{ previous.link }}" class="pagination-previous">&laquo; {{ previous.title|excerpt(44) }}</a>
             {% endif %}
             {% if next %}
-                <a href="{{ next.link }}" class="pagination-next">{{ next.title }} &raquo;</a>
+                <a href="{{ next.link }}" class="pagination-next">{{ next.title|excerpt(44) }} &raquo;</a>
             {% endif %}
         </nav>
     {% endif %}

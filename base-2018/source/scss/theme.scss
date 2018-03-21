@@ -42,6 +42,13 @@
     }
 }
 
+.notification {
+    ul {
+        margin: 0.5em 1.4em;
+        list-style-type: disc;
+    }
+}
+
 .teaser {
     font-weight: bold;
     margin-bottom: 1rem;
@@ -158,6 +165,10 @@ p.meta {
         }
     }
 
+}
+
+.footer {
+  padding: 2rem 1.5rem
 }
 
 // https://antoningrele.github.io/img-brightness-normalization/normalizeBrightness.css

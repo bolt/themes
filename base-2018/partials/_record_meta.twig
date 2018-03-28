@@ -4,7 +4,7 @@
         {{ __('general.phrase.read-more') }}
     </a>
     {% elseif record.contentlink %}
-    <a href="{{ relative_path(homepage.contentlink|e) }}" class="button is-link {% if extended|default() %}is-outlined{% endif %}">
+    <a href="{{ relative_path(record.contentlink|e) }}" class="button is-link {% if extended|default() %}is-outlined{% endif %}">
         {{ __('general.phrase.read-more') }}
     </a>
     {% endif %}

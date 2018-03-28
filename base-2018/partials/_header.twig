@@ -1,6 +1,10 @@
 {% if record.contenttype.slug|default() not in ['showcases', 'entries'] %}
 {% setcontent homepage = "homepage" limit 1 returnsingle %}
-<section class="hero hero-image is-primary is-medium{% if app.request.get('_route') == "homepage" %} is-large{% endif %}" data-background-image="{{ asset(homepage.image|default, 'files') }}" style="background-image: url({{ asset(homepage.image|default, 'files') }})">
+<section class="hero hero-image is-primary is-bold is-medium {% if app.request.get('_route') == "homepage" %}is-large{% endif %}"
+    {%- if homepage.image|default %}
+        data-background-image="{{ asset(homepage.image, 'files') }}" style="background-image: url({{ asset(homepage.image, 'files') }})"
+    {% endif -%}
+    >
     <div class="hero-body">
         <div class="container has-text-centered">
             <h1 class="title">{{ config.get('general/sitename') }}</h1>

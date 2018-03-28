@@ -1,0 +1,11 @@
+<div class="notification is-primary">
+    <button class="delete">Close</button>
+    <h2>{{ __("general.phrase.no-content-found") }}</h2>
+    <p>
+        {{ __("page.dashboard.empty-database") }}
+        {% if isallowed('prefill') %}
+            {{ __("page.dashboard.quickstart", {'%url%': path('prefill', {'force': 1})}) }}
+        {% endif %}
+    </p>
+</div>
+

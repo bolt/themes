@@ -46,15 +46,13 @@
                                 {{ popup(page.values.image, 480, 320) }}
                             </figure>
                         </div>
-                        <div class="card-content">
-                            <div class="content">
-                                <h3><a href="{{ page.link() }}">{{ page.title }}</a></h3>
-                                <p>{{ page.excerpt }}</p>
-                                <a class="button is-primary" href="{{ page.link() }}">
-                                    {{ __('general.phrase.read-more') }}
-                                </a>
-                            </div>
-                        </div>
+                        <div class="card-content content">
+                            <h3><a href="{{ page.link() }}">{{ page.title }}</a></h3>
+                            <p>{{ page.excerpt }}</p>
+                            <a class="button is-primary" href="{{ page.link() }}">
+                                {{ __('general.phrase.read-more') }}
+                            </a>
+                        <div>
                     </div>
                 </div>
             {% else %}

@@ -299,7 +299,7 @@ immediately. When you're ready to deploy, and put the site in production, be
 sure to build the files and minify them:
 
 ```
-yarn run gulp build --production
+yarn run gulp build
 ```
 
 This will build the files that you can deploy, or put into your versioning

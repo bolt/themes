@@ -71,6 +71,10 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('../js'));
 });
 
+gulp.task('setproduction', function() {
+  PRODUCTION = true;
+});
+
 // Set up 'default' task, with watches.
 gulp.task('default', ['compress', 'bulma-sass', 'theme-sass'], function() {
   gulp.watch(['scss/**/*.scss'], ['theme-sass', 'bulma-sass']);
@@ -78,5 +82,5 @@ gulp.task('default', ['compress', 'bulma-sass', 'theme-sass'], function() {
 });
 
 // Build
-gulp.task('build', ['compress', 'bulma-sass', 'theme-sass']);
+gulp.task('build', ['setproduction', 'compress', 'bulma-sass', 'theme-sass']);
 

@@ -1,6 +1,6 @@
 // From: https://github.com/antoningrele/img-brightness-normalization
 
-function normalizeBrightness(coeff=1.25, callback=null) {
+function normalizeBrightness(coeff=1.25) {
 
 	document.querySelectorAll('[data-background-image]').forEach(function(div) {
 
@@ -28,6 +28,7 @@ function normalizeBrightness(coeff=1.25, callback=null) {
 				rgba(0,0,0,${darkOverlayOpacity})),
 				url(${imageUrl})
 				`
+			div.style.backgroundSize = "cover"
 		}
 	})
 }

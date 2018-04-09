@@ -7,3 +7,38 @@
 .media-content {
     overflow: inherit;
 }
+
+// Some overrides to set a good default for Symfony Forms / Boltforms styles
+.boltform {
+    & label {
+        @extend .label;
+        line-height: 2em;
+    }
+
+    & input {
+        @extend .input;
+    }
+
+    & textarea {
+        @extend .textarea;
+    }
+
+    & select {
+        @extend .select;
+    }
+
+    & input[type='checkbox'] {
+        @extend .checkbox;
+    }
+
+    & input[type='radio'] {
+        @extend .radio;
+    }
+
+    & button {
+        @extend .button;
+        @extend .is-primary;
+    }
+
+}
+

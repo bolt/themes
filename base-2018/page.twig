@@ -15,10 +15,10 @@
 
                     {% if record.image is not empty %}
                     <figure class="image">
-                        <img src="{{ record.image|image(640, 360, "r") }}" alt="{{ record.values.image.alt }}" />
+                        <img src="{{ record.image|image(640, 360, "r") }}" alt="{{ record.values.image.alt|default() }}" />
                         {# <img src="https://bulma.io/images/placeholders/640x360.png"> #}
                         <figcaption>
-                            {{ record.values.image.title }}
+                            {{ record.values.image.title|default() }}
                             {# Figure 1: Some beautiful placeholders #}
                         </figcaption>
                     </figure>

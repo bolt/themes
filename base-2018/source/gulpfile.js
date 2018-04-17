@@ -24,6 +24,7 @@ var javascriptFiles = [
     'node_modules/prismjs/components/prism-json.js',
     'node_modules/prismjs/components/prism-yaml.js',
     'node_modules/prismjs/components/prism-bash.js',
+    'node_modules/prismjs/components/prism-markup-templating.js',
     'node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js',
     'node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js'
 ];

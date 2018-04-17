@@ -7,7 +7,7 @@
         we display an appropriate title. The 'records' array contains all of the
         records matching the current query. If there are no results, the
         code in the 'else' part of the for-loop is used. #}
-    
+
         <h1 class="title is-size-2 is-size-4-mobile">
         {% if search is not empty %}
             {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
@@ -64,7 +64,7 @@
             {% if record.image is not empty %}
             <div class="media-right column">
                 <figure class="image">
-                    <img src="{{ record.image|image(480, 320, "r") }}" alt="{{ record.values.image.alt }}" />
+                    <img src="{{ record.image|image(480, 320, "r") }}" alt="{{ record.values.image.alt|default() }}" />
                 </figure>
             </div>
             {% endif %}

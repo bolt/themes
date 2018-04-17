@@ -4,10 +4,7 @@ $debug-breakpoint: false;
 // ------------ Settings for Bulma ---------------
 
 // 1. Import the initial variables
-@import "../node_modules/bulma/sass/utilities/initial-variables";
-@import "../node_modules/bulma/sass/utilities/derived-variables";
-@import "../node_modules/bulma/sass/utilities/functions";
-@import "../node_modules/bulma/sass/utilities/mixins";
+@import "../node_modules/bulma/sass/utilities/all";
 
 // 2. Set your own initial variables
 

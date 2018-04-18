@@ -5,10 +5,6 @@ Base-2018 is a clean theme for Bolt, built on top of [Bulma][bulma].
 To learn more about specific Bulma components, check out the
 [Bulma Documentation][bulma-docs].
 
-The documentation laid in this README will cover how to get started with
-Foundation for Bolt and how some Foundation components, are integrated with
-Bolt.
-
 Features included with Base-2018
 --------------------------------
 
@@ -28,9 +24,9 @@ nothing at all. It’s completely up to you how you decide to build your theme �
 Bulma for Bolt will stay out of your workflow as much as possible.
 
 This theme does include Sass, Javascript and Gulp files, and is optimized for a
-Gulp-based workflow. To get the most out of Foundation for Bolt, Gulp
-is highly recommended. However, if you're not using Gulp yet, you can
-also modify the compiled CSS files as is.
+Gulp-based workflow. To get the most out of this theme, Gulp is highly
+recommended. However, if you're not using Gulp yet, you can also modify the
+compiled CSS files as is.
 
 File Structure
 --------------
@@ -49,9 +45,10 @@ These are the most important files, included in this theme.
 │   ├── _aside.twig               - Partial for the sidebar. With fixed content, or widgets
 │   ├── _footer.twig              - Partial for the footer below every page
 │   ├── _fresh_install.twig       - Partial that's shown on fresh installs with some instructions
-│   ├── _header.twig              - Partial for the header banner with the site title.
+│   ├── _header.twig              - Partial for the header banner with the site title
 │   ├── _master.twig              - Twig template, that is uses to 'extend' all pages (See 'template inheritance')
 │   ├── _navbar.twig              - Partial with the navigation bar shown on top of every page
+│   ├── _no_content.twig          - Partial that's shown when there is no homepage present
 │   ├── _record_meta.twig         - Partial with meta-information shown at the top of a page or entry
 │   ├── _recordfooter.twig        - Partial with meta-information below a page or entry
 │   ├── _sub_field_blocks.twig    - Partial with blocks, used by `_sub_fields.twig`
@@ -264,7 +261,7 @@ familiar with the concept of Template Inheritance. The main templates are:
    `/pages` for all records in the 'pages ContentType' or `category/movies` for
    all records that have the 'movies' category assigned to them. Note that
    'search' uses its own template, though.
- - `notfound.twig`: This template is used as the template that's shown when the
+ - `not-found.twig`: This template is used as the template that's shown when the
    visitor hits a non-existing page on the website.
  - `page.twig`: The detail page for a single record of the 'pages' ContentType.
    Automatically picked up by Bolt, if the name matches.
@@ -273,10 +270,6 @@ familiar with the concept of Template Inheritance. The main templates are:
    page.
  - `search.twig`: This page displays the search results and a search box, to
    search again.
- - `styleguide.twig`: A sample page, showing most of the common typograhy
-   options, form elements, as well as other components supplied by Foundation 6.
-   Use your browser to go to `/styleguide` to view this page.
-
 
 Working with the `.scss` files
 ------------------------------

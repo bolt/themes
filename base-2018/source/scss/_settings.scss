@@ -4,7 +4,8 @@ $debug-breakpoint: false;
 // ------------ Settings for Bulma ---------------
 
 // 1. Import the initial variables
-@import "../node_modules/bulma/sass/utilities/all";
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
 
 // 2. Set your own initial variables
 
@@ -75,6 +76,5 @@ $twitter-invert: findColorInvert($twitter);
 $github: #333;
 $github-invert: findColorInvert($github);
 
-// 5. Add new color variables to the color map.
-@import "../node_modules/bulma/sass/utilities/derived-variables.sass";
-
+// 5. Import the rest of the "utilities".
+@import "../node_modules/bulma/sass/utilities/all";

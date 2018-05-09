@@ -15,7 +15,7 @@
   "main": "gulpfile.js",
   "dependencies": {
     "baguettebox.js": "^1.10.0",
-    "bulma": "^0.7.0",
+    "bulma": "^0.7.1",
     "gulp-concat": "^2.6.1",
     "prismjs": "^1.14.0"
   },

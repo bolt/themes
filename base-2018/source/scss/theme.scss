@@ -192,13 +192,13 @@ p.meta {
 }
 
 pre {
-    // Fix tags in prism.
+    // Fix tags in PrismJS.
     .tag {
         margin: 0;
         padding: 0;
         background-color: transparent;
         display: inherit;
-        font-size: inherit
+        font-size: inherit;
     }
     .number {
         font-size: 1em;

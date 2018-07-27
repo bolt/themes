@@ -72,16 +72,17 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('../js'));
 });
 
-gulp.task('setproduction', function() {
+gulp.task('setproduction', function(done) {
   PRODUCTION = true;
+  done();
 });
 
 // Set up 'default' task, with watches.
-gulp.task('default', ['compress', 'bulma-sass', 'theme-sass'], function() {
-  gulp.watch(['scss/**/*.scss'], ['theme-sass', 'bulma-sass']);
-  gulp.watch(['javascript/**/*.js'], ['compress']);
-});
+gulp.task('default', gulp.series(gulp.parallel('compress', 'bulma-sass', 'theme-sass'), function watch() {
+  gulp.watch(['scss/**/*.scss'], gulp.series('theme-sass', 'bulma-sass'));
+  gulp.watch(['javascript/**/*.js'], gulp.series('compress'));
+}));
 
-// Build
-gulp.task('build', ['setproduction', 'compress', 'bulma-sass', 'theme-sass']);
+// Set up 'build' task, without watches and force 'production'.
+gulp.task('build', gulp.series(gulp.parallel('setproduction', 'compress', 'bulma-sass', 'theme-sass')));
 

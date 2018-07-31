@@ -2,7 +2,8 @@
 {% setcontent homepage = "homepage" limit 1 returnsingle %}
 <section class="hero hero-image is-primary is-bold is-medium {% if app.request.get('_route') == "homepage" %}is-large{% endif %}"
     {%- if homepage.image|default %}
-        data-background-image="{{ asset(homepage.image, 'files') }}" style="background-image: url({{ asset(homepage.image, 'files') }})"
+        {% set filename = homepage.image.file|default(homepage.image) %}
+        data-background-image="{{ asset(filename, 'files') }}" style="background-image: url({{ asset(filename, 'files') }})"
     {% endif -%}
     >
     <div class="hero-body">

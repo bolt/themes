@@ -32,7 +32,8 @@
 
     {# HTML, Textarea, Text fields #}
     {% if fieldtype in ['html', 'textarea', 'text'] %}
-        {{ block('text_field') }}
+        {% set tag = (key in ['title', 'name', 'caption', 'subject', 'heading']) ? 'h3' : 'p' %}
+        <{{tag}}>{{ block('text_field') }}</{{tag}}>
     {% endif %}
 
     {# Markdown fields #}

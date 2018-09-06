@@ -63,10 +63,13 @@
 
         {% endif %}
 
-        {# Finally, the repeaters #}
-        {% if repeaters|default(false) == true and record.fieldtype(key) == "repeater" %}
+        {# Finally, the repeaters and blocks #}
+        {% if (repeaters|default(false) == true and record.fieldtype(key) == "repeater") or
+              (blocks|default(false) == true and record.fieldtype(key) ==  "block") %}
 
-            {% if (global.request.get('_route') != "preview") %}
+            {# Get the current route from either '_internal_route' or '_route' #}
+            {% set route = global.request.get('_internal_route', global.request.get('_route')) %}
+            {% if route != "preview" %}
 
                 {% for repeater in value %}
 
@@ -82,14 +85,16 @@
 
             {% else %}
                 {# @deprecated
-                `blocks()` does not work correctly when _previewing_ repeater fields. This will be
+                `blocks()` does not work correctly when _previewing_ repeater/block fields. This will be
                 fixed properly for Bolt 4, but for now we just output a notice, and prevent crashes.
                 See also: https://github.com/bolt/bolt/issues/6605 #}
-                <p>
-                Unfortunately, Repeater fields do not work correctly with the generic
-                <code>block()</code> function, when using Preview. To view these fields, please
-                save the record, and view the page normally.
+
+                <p style="border: 1px solid #CCC; background-color: #F8F8F8; color: #333; padding: 1em; max-width: 38em;">
+                Unfortunately, Repeater fields and Block Fields do not work correctly
+                with the generic <code>block()</code> function, when using the "Preview" button. <br>
+                To view these fields, please save the record, and view the page normally.
                 </p>
+
             {% endif %}
         {% endif %}
 

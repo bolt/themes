@@ -6,9 +6,9 @@
            we display an appropriate title. The 'records' array contains all of the
            records matching the current query. If there are no results, the
            code in the 'else' part of the for-loop is used. #}
-        <h1>
-            {% if search is not empty %}
-                {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+        <h1 class="search-results">
+            {% if searchTerm is not empty %}
+                {{ __('general.phrase.search-results-for', { '%search%': searchTerm }) }}
             {% else %}
                 {{ __('general.phrase.search') }}
             {% endif %}
@@ -18,28 +18,28 @@
         {% setcontent block = "block/search-teaser" %}
 
         {# check if we have 'content'. If so, we know we have have a teaser to display. #}
-        {% if block.content is defined %}
+        {% if block and block.content %}
             {{ block.content }}
         {% endif %}
 
-        <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
-            <input type="search" value="{{ search|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" >
+        <form method="get" action="{{ path('search') }}" id="searchform-main" enctype="text/plain">
+            <input type="search" value="{{ searchTerm|default() }}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="searchTerm" >
             <button type="submit">{{ __('general.phrase.search') }}</button>
         </form>
 
         {% for record in records %}
             <article>
 
-                <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+                <h2><a href="{{ record|link }}">{{ record|title }}</a></h2>
 
-                {% if record.image!="" %}
-                    <a href="{{ image(record.image) }}">
-                        <img src="{{ thumbnail(record.image, 400, 260) }}">
+                {% if record|image %}
+                    <a href="{{ image(record|image) }}">
+                        <img src="{{ thumbnail(record|image, 400, 260) }}" alt="{{ (record|image).alt|default(record|title) }}">
                     </a>
                 {% endif %}
 
                 {# display something introduction-like.. #}
-                <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+                <p>{{ record|excerpt(300, false, search|default('')) }}</p>
 
             </article>
 
@@ -48,16 +48,20 @@
             {% endif %}
 
         {% else %}
-            <article>
 
-                <p>
-                    {{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}
+            {% if searchTerm is not empty %}
+                <p class="search-results-description">
+                    {{ __('general.phrase.no-search-results-for', { '%search%': searchTerm|escape }) }}
                 </p>
+            {% else %}
+                <p class="search-results-description">
+                    {{ __('general.phrase.no-search-term-provided') }}
+                </p>
+            {% endif %}
 
-            </article>
         {% endfor %}
 
         {# If there are more records than will fit on one page, the pager is shown. #}
-        {{ pager(template = 'partials/_sub_pager.twig') }}
+        {{ pager(records, template = 'partials/_sub_pager.twig') }}
 
 {% endblock main %}

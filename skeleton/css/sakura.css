@@ -82,7 +82,9 @@ blockquote {
   border-left: 3px solid #2c8898; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  display: block;
+}
 
 /* Pre and Code */
 pre {
@@ -169,7 +171,8 @@ label, legend, fieldset {
 .callout {
   border: 1px solid rgba(0, 0, 0, 0.4);
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 1em;
+  padding: 0 1rem 1rem;
+  margin: 1rem 0;
 }
 
 .meta {
@@ -177,12 +180,53 @@ label, legend, fieldset {
   font-size: 0.9em;
 }
 
-ul.pagination li {
-  list-style-type: none;
-  display: inline;
-  color: #999;
+/* Default pagerfanta styles, for pagination */
+.pagination {
 }
 
-ul.pagination li+li:before {
-  content: " | ";
+.pagination a,
+.pagination span {
+  display: inline-block;
+  background: #f4f9fa;
+  border: 1px solid #96c4cc;
+  color: #2c8898;
+  margin-right: .2em;
+  padding: .25em .35em;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background: #c0dbe0;
+  color: #982c61;
+}
+
+.pagination .dots {
+  border-width: 0;
+}
+
+.pagination .current {
+  background: #c0dbe0;
+  font-weight: bold;
+}
+
+.pagination .disabled {
+  border-color: #c0dbe0;
+  color: #abcfd6;
+}
+
+/* Image holder */
+div.imageholder {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+
+div.imageholder small {
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 0.5rem;
 }

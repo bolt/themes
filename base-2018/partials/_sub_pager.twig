@@ -1,7 +1,21 @@
+{% if records.haveToPaginate|default() %}
+
+    {# The Pagerfanta function allows you to configure what is paginated,
+       the theme (template) to use for it, as well as a number of other options.
+       See: https://github.com/whiteoctober/WhiteOctoberPagerfantaBundle #}
+
+    <div class="{{ class }}">
+        {{ pagerfanta(records, theme, {
+            'proximity': surround
+        }) }}
+    </div>
+{% endif %}
+
+{#
 {%- set link = pager.makelink() -%}
 {%- if pager.totalpages > 1 -%}
 <nav class="media pagination is-centered {{ class }}" role="navigation" aria-label="pagination">
-    {# 'prev' and 'next' #}
+    {# 'prev' and 'next' # }
     {%- if pager.current > 1 and class != "narrow" -%}
     <a class="pagination-previous" href="{{ link }}{{ pager.current - 1 }}" rel="noindex, follow">Previous</a>
     {%- endif -%}
@@ -10,12 +24,12 @@
     {%- endif -%}
 
     <ul class="pagination-list">
-        {# 'first' #}
+        {# 'first' # }
         {%- if pager.current > (surr + 1) -%}
         <li><a class="pagination-link" href="{{ link }}{{ 1 }}">1</a></li>
         {%- endif -%}
 
-        {# start with '..' if there are more than surr+1 before currentpage.. #}
+        {# start with '..' if there are more than surr+1 before currentpage.. # }
         {%- if pager.current > (surr + 2) -%}
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         {%- endif -%}
@@ -24,15 +38,17 @@
         <li><a class="pagination-link{% if i == pager.current %} is-current{% endif %}" href="{{ link }}{{ i }}" {% if i != 1 %}rel="noindex, follow"{% endif %}>{{ i }}</a></li>
         {%- endfor -%}
 
-        {# end with '..' if there are more than surr+1 after currentpage.. #}
+        {# end with '..' if there are more than surr+1 after currentpage.. # }
         {%- if pager.current < (pager.totalpages - surr - 1) -%}
         <li><span class="pagination-ellipsis">&hellip;</span></li>
         {%- endif -%}
 
-        {# 'last' #}
+        {# 'last' # }
         {%- if pager.current < (pager.totalpages - surr) -%}
         <li><a class="pagination-link" href="{{ link }}{{ pager.totalpages }}" rel="noindex, follow">{{ pager.totalpages }}</a></li>
         {%- endif -%}
     </ul>
 </nav>
 {%- endif -%}
+
+#}

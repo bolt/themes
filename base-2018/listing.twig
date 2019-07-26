@@ -29,14 +29,14 @@
             {% endif %}
         </div>
     {% else %}
-        <h1 class="title is-size-2 is-size-4-mobile">{{contenttype}}</h1>
+        <h1 class="title is-size-2 is-size-4-mobile">{{ contenttype.name }}</h1>
     {% endif %}
 
     {% for record in records %}
         <article role="article" class="media columns">
             <div class="media-content column is-7">
                 <div class="content">
-                    <h2 class="title"><a href="{{ record.link }}">{{ record.title }}</a></h2>
+                    <h2 class="title"><a href="{{ record|link }}">{{ record|title }}</a></h2>
 
                     {# display something introduction-like.. #}
                     {% if record.introduction %}
@@ -54,7 +54,7 @@
             {% if record.image is not empty %}
             <div class="media-right column">
                 <figure class="image">
-                    {{ popup(record.values.image, 480, 320) }}
+                    {{ popup(record|image, 480, 320) }}
                 </figure>
             </div>
             {% endif %}
@@ -73,7 +73,7 @@
     {% endfor %}
 
     {# If there are more records than will fit on one page, the pager is shown. #}
-    {{ pager(template = 'partials/_sub_pager.twig') }}
+    {{ pager(records, template = 'partials/_sub_pager.twig') }}
     </div>
 </section>
 {% endblock main %}

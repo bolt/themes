@@ -5,30 +5,31 @@ function normalizeBrightness(coeff=1.25) {
 	document.querySelectorAll('[data-background-image]').forEach(function(div) {
 
 		/* Get the div's image background url and apply to the style */
-		var imageUrl = div.dataset.backgroundImage
-		div.style.background = "url('" + imageUrl + "')"
+		var imageUrl = div.dataset.backgroundImage;
+		div.style.background = "url('" + imageUrl + "')";
 
 		/* Prepare a dom image for canvas manipulation*/
-		var background = new Image()
-		background.src = imageUrl
+		var background = new Image();
+		background.src = imageUrl;
 
 		/* When the dom image loads, proceed with the calculations */
 		background.onload = function() {
 
-			var brightness = getBrightness(background)
-			div.dataset.brightness = brightness
+			var brightness = getBrightness(background);
+			div.dataset.brightness = brightness;
 
 			/* The more opaque the overlay, the darker the image.
 			A coefficient of 1 will equate the overlay's opacity with the image's brightness.
 			A higher coefficient will leave more room for differences between the images, but
 			will avoid darkening your images too much. */
-			var darkOverlayOpacity = brightness / coeff
+			var darkOverlayOpacity = brightness / coeff;
 			div.style.background =  `
 				linear-gradient(rgba(0,0,0,${darkOverlayOpacity}),
 				rgba(0,0,0,${darkOverlayOpacity})),
 				url(${imageUrl})
-				`
-			div.style.backgroundSize = "cover"
+				`;
+			div.style.backgroundSize = "cover";
+			div.style.backgroundPosition = "center";
 		}
 	})
 }

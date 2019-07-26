@@ -1,9 +1,8 @@
 {% if record.contenttype.slug|default() not in ['showcases', 'entries'] %}
 {% setcontent homepage = "homepage" limit 1 returnsingle %}
 <section class="hero hero-image is-primary is-bold is-medium {% if app.request.get('_route') == "homepage" %}is-large{% endif %}"
-    {%- if homepage.image|default %}
-        {% set filename = homepage.image.file|default(homepage.image) %}
-        data-background-image="{{ asset(filename, 'files') }}" style="background-image: url({{ asset(filename, 'files') }})"
+    {%- if homepage|image %}
+         data-background-image="{{ homepage|image.path }}" style="background-image: url({{ homepage|image.path }})"
     {% endif -%}
     >
     <div class="hero-body">

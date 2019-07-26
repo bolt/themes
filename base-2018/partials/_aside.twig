@@ -11,15 +11,15 @@
     <div class="content">
         {# The next section attempts to fill the panel in the sidebar with the contents of the
             'about-us'-block, if it exists. First, attempt to fetch the block with slug 'about-us' #}
-        {% setcontent block = "block/about-us" %}
+        {% setcontent block = "blocks/about" %}
 
         {# check if we have a title. If so, we know we have content to display. Otherwise, we will
             output a default text, telling the user to create the 'blocks' in the backend. #}
-        {% if block.title is defined %}
+        {% if block|title %}
 
-            {{ popup(block.values.image, 480, 320) }}
+            <img src="{{ thumbnail(block|image, 480, 320) }}" alt="block|image.alt">
 
-            <h2 class="title">{{ block.title }}</h2>
+            <h2 class="title">{{ block|title }}</h2>
             {{ block.content }}
 
             {% include 'partials/_record_meta.twig' with {'record': block } %}

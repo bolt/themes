@@ -43,13 +43,13 @@
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-3by2">
-                                {{ popup(page.values.image, 480, 320) }}
+                                {{ popup(page|image, 480, 320) }}
                             </figure>
                         </div>
                         <div class="card-content content">
-                            <h3><a href="{{ page.link() }}">{{ page.title }}</a></h3>
-                            <p>{{ page.excerpt }}</p>
-                            <a class="button is-primary" href="{{ page.link() }}">
+                            <h3><a href="{{ page|link }}" class="is-success">{{ page|title }}</a></h3>
+                            <p>{{ page|excerpt }}</p>
+                            <a class="button is-primary" href="{{ page|link }}">
                                 {{ __('general.phrase.read-more') }}
                             </a>
                         </div>
@@ -82,7 +82,7 @@
                 </div>
                 <div class="media-right column">
                     <figure class="image">
-                        {{ popup(entry.values.image, 480, 320) }}
+                        {{ popup(entry|image, 480, 320) }}
                     </figure>
                 </div>
             </article>

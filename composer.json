@@ -1,23 +1,16 @@
 {
     "name": "bolt/themes",
     "description": "Starter themes for Bolt",
-    "homepage": "http://bolt.cm",
+    "homepage": "http://boltcms.io",
     "keywords": [
         "CMS",
         "Twig"
     ],
     "license": "MIT",
     "require": {
-        "twig/twig": "^1.32 || ^2.0"
+        "twig/twig": "^2.0"
     },
     "conflict": {
-        "bolt/bolt": "< 3.5"
-    },
-    "autoload": {
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.x-dev"
-        }
+        "bolt/bolt": "< 3.999"
     }
 }

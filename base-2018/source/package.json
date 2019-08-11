@@ -32,6 +32,6 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp sass"
+    "build": "gulp build"
   }
 }

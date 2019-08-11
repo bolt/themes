@@ -19,7 +19,7 @@
 {% if extended|default() %}
 <p class="meta">
     {{ __('general.phrase.written-by-on', {
-        '%name%': record.user.displayname|default(__('Unknown')),
+        '%name%': record.author.displayname|default(__('Unknown')),
         '%date%': record.datepublish|localedatetime("%A %B %e, %Y")
     }) }}
 </p>

@@ -4,11 +4,11 @@
 
 <section class="section section-record">
     <div class="container">
-        {% if record.image is not empty %}
+        {% if record|image  %}
         <figure class="image is-2by1">
-            <img src="{{ record|image(1280, 660) }}" alt="{{ record|image.alt|default() }}" />
+            <img src="{{ record|image|thumbnail(1080, 540, fit='crop') }}" alt="{{ record|image.alt|default() }}" />
             <figcaption>
-                {{ record.values.image.title|default() }}
+                {{ record|image.title|default() }}
             </figcaption>
         </figure>
         {% endif %}
@@ -28,7 +28,7 @@
                     {% endwith %}
 
                     {# Uncomment this if you wish to dump the entire record to the client, for debugging purposes. #}
-                    {{ dump(record) }}
+                    {# {{ dump(record) }} #}
 
                     {{ include('partials/_recordfooter.twig', { 'record': record, 'extended': true }) }}
                 </article>

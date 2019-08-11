@@ -74,9 +74,8 @@
             <article role="article" class="media columns">
                 <div class="media-content column is-7">
                     <div class="content">
-                        <h3><a href="{{ entry.link }}">{{ entry.title }}</a></h3>
+                        <h3><a href="{{ entry|link }}">{{ entry|title }}</a></h3>
                         {{ entry.teaser }}
-
                         {% include 'partials/_record_meta.twig' with {'extended': true, 'record': entry} %}
                     </div>
                 </div>

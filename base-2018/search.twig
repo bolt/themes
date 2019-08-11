@@ -27,12 +27,12 @@
         {% endif %}
 
         <form class="field has-addons" action="{{ path('search') }}">
-            <label class="label is-hidden" for="search-form">Search</label>
+            <label class="label is-hidden" for="search-form">{{ __('general.phrase.search') }}</label>
             <div class="control">
                 <input class="input" type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" id="search-form">
             </div>
             <div class="control">
-                <button class="button is-primary" type="submit">{{ __('general.phrase.search') }}</button>
+                <button class="button is-primary" type="submit">{{ __('action.search') }}</button>
             </div>
         </form>
     </div>
@@ -44,24 +44,25 @@
         <article role="article" class="media columns">
             <div class="media-content column is-7">
                 <div class="content">
-                    <h2 class="title"><a href="{{ record.link }}">{{ record.title }}</a></h2>
+                    <h2 class="title"><a href="{{ record|link }}">{{ record|title }}</a></h2>
 
                     <p class="meta is-hidden-touch">
-                        {% if record.editlink() %}
-                            <span class="edit-link"><a href="{{ record.editlink() }}"><strong>Edit</strong></a></span> &bullet;
+                    {{ dump(record.extras)}}
+                        {% if record|edit_link %}
+                            <span class="edit-link"><a href="{{ record|edit_link }}"><strong>Edit</strong></a></span> &bullet;
                         {% endif %}
-                        <a href="{{ record.link() }}">{{ __('general.phrase.permalink') }}</a> &bullet;
+                        <a href="{{ record|link }}">{{ __('general.phrase.permalink') }}</a> &bullet;
                         {{ __('general.phrase.written-by-on', {
-                            '%name%': record.user.displayname|default(__('Unknown')),
+                            '%name%': record.author.displayname|default(__('Unknown')),
                             '%date%': record.datepublish|localedatetime("%A %B %e, %Y")
                         }) }}
                     </p>
 
                     {# display something introduction-like.. #}
-                    <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+                    <p>{{ record|excerpt(300, false, search|default('')) }}</p>
                 </div>
             </div>
-            {% if record.image is not empty %}
+            {% if record|image is not empty %}
             <div class="media-right column">
                 <figure class="image">
                     <img src="{{ record|image(480, 320, "r") }}" alt="{{ record|image.alt|default() }}" />
@@ -83,7 +84,7 @@
         {% endfor %}
 
         {# If there are more records than will fit on one page, the pager is shown. #}
-        {{ pager(template = 'partials/_sub_pager.twig') }}
+        {{ pager(records, template = 'partials/_sub_pager.twig') }}
 
     </div>
 </section>

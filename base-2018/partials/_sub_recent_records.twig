@@ -15,7 +15,7 @@
                         <h2 class="is-size-4">{{ __('contenttypes.generic.recent', {'%contenttypes%': ct.name}) }}</h2>
                         <ul>
                             {% for record in records %}
-                                <li><a href="{{ record.link }}">{{ record.title }}</a></li>
+                                <li><a href="{{ record|link }}">{{ record|title }}</a></li>
                             {% else %}
                                 <li>{{ __('contenttypes.generic.no-recent', {'%contenttype%': ct.slug}) }}</li>
                             {% endfor %}

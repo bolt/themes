@@ -47,7 +47,6 @@
                     <h2 class="title"><a href="{{ record|link }}">{{ record|title }}</a></h2>
 
                     <p class="meta is-hidden-touch">
-                    {{ dump(record.extras)}}
                         {% if record|edit_link %}
                             <span class="edit-link"><a href="{{ record|edit_link }}"><strong>Edit</strong></a></span> &bullet;
                         {% endif %}

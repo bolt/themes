@@ -9,14 +9,14 @@
     {# Output all fields, in the order as defined in the content type.
        To change the generated html and configure the options, see:
        https://docs.bolt.cm/templating #}
-    {% with { 'record': record, 'common': true, 'extended': true, 'repeaters': true, 'blocks': true, 'exclude': ['title', record|imagename] } %}
+    {% with { 'record': record, 'common': true, 'extended': true, 'repeaters': true, 'blocks': true, 'exclude': ['title', record|image.fieldname] } %}
         {{ block('sub_fields', 'partials/_sub_fields.twig') }}
     {% endwith %}
 
     {# Uncomment this if you wish to dump the entire record to the client, for debugging purposes.
-    {{ dump(record) }} 
+    {{ dump(record) }}
     #}
-    
+
 
     {% include 'partials/_recordfooter.twig' with { 'record': record, 'extended': true } %}
 

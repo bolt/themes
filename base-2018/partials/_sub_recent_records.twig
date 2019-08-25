@@ -20,7 +20,7 @@
                                 <li>{{ __('contenttypes.generic.no-recent', {'%contenttype%': ct.slug}) }}</li>
                             {% endfor %}
                         </ul>
-                        <a class="button is-primary" href="{{ path('contentlisting', {'contenttypeslug': ct.slug}) }}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct.name}) }}</a>
+                        <a class="button is-primary" href="{{ path('listing', {'contentTypeSlug': ct.slug}) }}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct.name}) }}</a>
                     </div>
                 </div>
             </div>

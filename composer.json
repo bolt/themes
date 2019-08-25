@@ -1,6 +1,7 @@
 {
     "name": "bolt/themes",
     "description": "🎨 Starter themes for Bolt",
+    "type": "bolt-theme",
     "homepage": "http://boltcms.io",
     "keywords": [
         "CMS",
@@ -12,5 +13,15 @@
     },
     "conflict": {
         "bolt/bolt": "< 3.999"
+    },
+    "extra": {
+        "screenshots": [
+            "screenshots/screenshot1.png",
+            "screenshots/screenshot2.png"
+        ],
+        "themes": [
+            "skeleton",
+            "base-2018"
+        ]
     }
 }

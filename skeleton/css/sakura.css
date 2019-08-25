@@ -184,8 +184,7 @@ label, legend, fieldset {
 .pagination {
 }
 
-.pagination a,
-.pagination span {
+.pagination li {
   display: inline-block;
   background: #f4f9fa;
   border: 1px solid #96c4cc;

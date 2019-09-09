@@ -16,10 +16,15 @@
                 {{ menu(template = 'partials/_sub_menu.twig') }}
             </div>
             <div class="navbar-end">
+                <div class="select ">
+                    {% include 'helpers/_languageselect.html.twig' with {'type': 'select', 'style': 'width: 13rem;'} %}
+                </div>
+                &nbsp;
+
                 <form class="field has-addons" method="get" action="{{ path('search') }}" enctype="text/plain">
                     <label class="label is-hidden" for="search">Search</label>
                     <div class="control">
-                        <input class="input" type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" id="search">
+                        <input class="input" type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search" id="search" style="width: 9rem;">
                     </div>
                     <div class="control">
                         <button class="button is-black" type="submit">{{ __('general.phrase.search') }}</button>

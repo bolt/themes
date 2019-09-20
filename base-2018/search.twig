@@ -72,13 +72,15 @@
 
         {% else %}
 
-        <article role="article" class="media">
-            <div class="media-content">
-                <div class="content">
-                    <p>{{ __('general.phrase.no-result-for-search-term', { '%SEARCHTERM%': search|escape }) }}</p>
-                </div>
+            <div class="content">
+                <p>
+                {% if searchTerm is not empty %}
+                    {{ __('general.phrase.no-search-results-for', { '%search%': searchTerm|escape }) }}
+                {% else %}
+                    {{ __('general.phrase.no-search-term-provided') }}
+                {% endif %}
+                </p>
             </div>
-        </article>
 
         {% endfor %}
 

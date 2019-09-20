@@ -49,15 +49,13 @@
 
         {% else %}
 
-            {% if searchTerm is not empty %}
-                <p class="search-results-description">
+            <p class="search-results-description">
+                {% if searchTerm is not empty %}
                     {{ __('general.phrase.no-search-results-for', { '%search%': searchTerm|escape }) }}
-                </p>
-            {% else %}
-                <p class="search-results-description">
+                {% else %}
                     {{ __('general.phrase.no-search-term-provided') }}
-                </p>
-            {% endif %}
+                {% endif %}
+            </p>
 
         {% endfor %}
 

@@ -5,9 +5,6 @@ var argv = require('yargs').argv;
 // Check for --production flag
 var PRODUCTION = !!(argv.production);
 
-// Browsers to target when prefixing CSS.
-var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
-
 // Define base paths for Sass and Javascript.
 // File paths to various assets are defined here.
 var PATHS = {
@@ -38,9 +35,7 @@ gulp.task('bulma-sass', function() {
         includePaths: PATHS.sass
       })
         .on('error', $.sass.logError))
-      .pipe($.autoprefixer({
-        browsers: COMPATIBILITY
-      }))
+      .pipe($.autoprefixer())
       .pipe($.if(PRODUCTION, $.cssnano()))
       .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
       .pipe(gulp.dest('../css'));
@@ -55,9 +50,7 @@ gulp.task('theme-sass', function() {
         includePaths: PATHS.sass
       })
         .on('error', $.sass.logError))
-      .pipe($.autoprefixer({
-        browsers: COMPATIBILITY
-      }))
+      .pipe($.autoprefixer())
       // If you _do_ want to compress this file on 'production', uncomment the the lines below.
       .pipe($.if(PRODUCTION, $.cssnano()))
       .pipe($.if(!PRODUCTION, $.sourcemaps.write()))

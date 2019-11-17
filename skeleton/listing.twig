@@ -21,8 +21,8 @@
                 <h2><a href="{{ record|link }}">{{ record|title }}</a></h2>
 
                 {% if record|image %}
-                    <a href="{{ image(record|image) }}">
-                        <img src="{{ thumbnail(record|image, 400, 260) }}" alt="{{ (record|image).alt|default(record|title) }}">
+                    <a href="{{ record|image }}">
+                        <img src="{{ record|thumbnail(480, 320) }}" alt="{{ record|image.alt|default() }}" />
                     </a>
                 {% endif %}
 

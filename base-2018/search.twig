@@ -64,7 +64,7 @@
             {% if record|image is not empty %}
             <div class="media-right column">
                 <figure class="image">
-                    <img src="{{ record|image(480, 320, "r") }}" alt="{{ record|image.alt|default() }}" />
+                    <img src="{{ record|thumbnail(480, 320) }}" alt="{{ record|image.alt|default() }}" />
                 </figure>
             </div>
             {% endif %}

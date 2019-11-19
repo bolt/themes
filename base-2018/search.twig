@@ -61,10 +61,10 @@
                     <p>{{ record|excerpt(300, false, search|default('')) }}</p>
                 </div>
             </div>
-            {% if record|image is not empty %}
+            {% if record|image %}
             <div class="media-right column">
                 <figure class="image">
-                    <img src="{{ record|thumbnail(480, 320) }}" alt="{{ record|image.alt|default() }}" />
+                    <img src="{{ record|thumbnail(480, 320) }}" alt="{{ record|image.alt }}" />
                 </figure>
             </div>
             {% endif %}

@@ -6,9 +6,9 @@
     <div class="container">
         {% if record|image  %}
         <figure class="image is-2by1">
-            <img src="{{ record|thumbnail(1080, 540, fit='crop') }}" alt="{{ record|image.alt }}" />
+            <img src="{{ record|image|thumbnail(1080, 540, fit='crop') }}" alt="{{ record|image.alt|default() }}" />
             <figcaption>
-                {{ record|image.alt }}
+                {{ record|image.alt|default() }}
             </figcaption>
         </figure>
         {% endif %}

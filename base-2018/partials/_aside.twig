@@ -15,12 +15,12 @@
 
         {# check if we have a title. If so, we know we have content to display. Otherwise, we will
             output a default text, telling the user to create the 'blocks' in the backend. #}
-        {% if block|title %}
+        {% if block %}
 
             <img src="{{ thumbnail(block|image, 480, 320) }}" alt="block|image.alt">
 
             <h2 class="title">{{ block|title }}</h2>
-            {{ block.content }}
+            <p>{{ block.content|default(block|excerpt) }}</p>
 
             {% include 'partials/_record_meta.twig' with {'record': block } %}
 

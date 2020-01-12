@@ -6,7 +6,7 @@
 <section class="section section-pages hero is-primary is-bold">
     <div class="container">
         <div class="columns">
-            {% for ct in config.get('contenttypes') if not ct.viewless|default(false) %}
+            {% for ct in config.get('contenttypes')|filter(ct => not ct.viewless) %}
             <div class="column">
                 <div class="card">
                     <div class="content card-content">

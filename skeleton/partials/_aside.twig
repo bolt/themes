@@ -49,7 +49,7 @@
         The 'else' in the inner for-loop is only used if there are no 'records',
         so we can use it to print a helpful message.
         Lastly, "path('listing', {'contentTypeSlug': ct.slug})" will output something like '/pages',
-        effectively creating a working link to that contenttpye's listing page. #}
+        effectively creating a working link to that contenttype's listing page. #}
 
     {% for ct in config.get('contenttypes')|filter(ct => not ct.viewless) %}
 

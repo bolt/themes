@@ -78,14 +78,14 @@ These are the most important files, included in this theme.
 ├── page.twig
 ├── record.twig
 ├── search.twig
-└── theme.yml
+└── theme.yaml
 ```
 
 Installation
 ------------
 
 No need to install anything. This theme comes with Bolt. Don't forget to set
-`theme: base-2018` in your `config.yml` file, if it doesn't show up already.
+`theme: base-2018` in your `config.yaml` file, if it doesn't show up already.
 
 Getting Started
 ---------------
@@ -223,17 +223,17 @@ The basic HTML structure, and a handful of other included partials.
                                            _master.twig
 ```
 
-Options in `theme.yml`
-----------------------
+Options in `theme.yaml`
+-----------------------
 
-This theme comes with its own configuration file, named `theme.yml`. In this
+This theme comes with its own configuration file, named `theme.yaml`. In this
 file you can set certain specific options for the theme, such as the default
 images for the header, the position of the 'aside' sidebar, and the global
 layout.
 
 Finally, the last section defines the settings for which templates are used for
 which types of pages. The templates you will set in this config file will
-override the ones in the global app/config/config.yml, so beware!
+override the ones in the global `config/bolt/config.yaml`, so beware!
 
 ```
 # maintenance_template: maintenance_default.twig
@@ -274,41 +274,35 @@ familiar with the concept of Template Inheritance. The main templates are:
 Working with the `.scss` files
 ------------------------------
 
-This theme uses Node, Yarn and Gulp to run the tasks to compile and minify the
-Sass an Javascript files. If you don't have Node, Yarn and Gulp yet, install
-them from [Nodejs.org](https://nodejs.org), [Yarnpkg.com](https://yarnpkg.com)
-and [Gulpjs.com](https://gulpjs.com).
+This theme uses Node, NPM and Gulp to run the tasks to compile and minify the
+Sass and Javascript files. If you don't have Node, NPM and Gulp yet, install
+them from [Nodejs.org](https://nodejs.org) and [Gulpjs.com](https://gulpjs.com).
 
-To install the themes dependencies, run the following in the source directory:
+To install the theme's dependencies, run the following in the source directory:
 
 ```
-yarn install
+npm install
 ```
 
-Now you can simply run `yarn run gulp` to compile the javascript and sass
+Now you can simply run `npm run start` to compile the javascript and sass
 files. This will build the files, and it will continue to monitor changes to
 the `.scss` files. If you make a change, the compiled files will be updated
 immediately. When you're ready to deploy, and put the site in production, be
 sure to build the files and minify them:
 
 ```
-yarn run gulp build
+npm run build
 ```
 
 This will build the files that you can deploy, or put into your versioning
 system.
-
-The build process has been tested on Yarn 1.5.1. If you do not have Yarn
-installed, or need to update it, see: https://yarnpkg.com/lang/en/docs/install/
-
-And then go through the above steps again.
 
 If you're interested to learn more about the process, these two tutorials on
 Gulp (which is what we use under the hood) might be of interest to you:
 
  - https://markgoodyear.com/2014/01/getting-started-with-gulp/
  - https://travismaynard.com/writing/getting-started-with-gulp
-
+ 
 [bulma]: http://bulma.io/
 [bulma-docs]: https://bulma.io/documentation/overview/start/
 [inheritance]: http://twig.sensiolabs.org/doc/tags/extends.html

@@ -1,13 +1,13 @@
 {# The next section iterates over all of the contenttypes, and prints a list
     of the five latest records of each of them. The 'magic' happens in the
-    setcontent tag.. ct.slug ~ "/latest/3" concatenates the slug of the
-    contenttype with /latest/3, so it becomes something like "pages/latest/3".
+    setcontent tag.. `ct.slug` is set to each of the (visible) contenttypes,
+    and `latest limit 5` ensures we grab the 5 latest published records.
 #}
 <section class="section section-pages hero is-primary is-bold">
     <div class="container">
         <div class="columns">
             {% for ct in config.get('contenttypes')|filter(ct => not ct.viewless) %}
-                {% setcontent records = ct.slug ~ "/latest/5" %}
+                {% setcontent records = ct.slug latest limit 5 %}
                 {% if records|length %}
                     <div class="column">
                         <div class="card">

@@ -43,16 +43,17 @@
 
     {# The next section iterates over all of the content types, and prints a list
         of the five latest records of each of them. The 'magic' happens in the
-        setcontent tag.. ct.slug ~ "/latest/3" concatenates the slug of the
-        content type with /latest/3, so it becomes something like "pages/latest/3".
-        The 'else' in the inner for-loop is only used if there are no 'records',
+        setcontent tag.. `ct.slug` is set to each of the (visible) contenttypes,
+        and `latest limit 5` ensures we grab the 5 latest published records.
+        The `else` in the inner for-loop is only used if there are no 'records',
         so we can use it to print a helpful message.
-        Lastly, "path('listing', {'contentTypeSlug': ct.slug})" will output something like '/pages',
-        effectively creating a working link to that contenttype's listing page. #}
+        Lastly, `path('listing', {'contentTypeSlug': ct.slug})` will output
+        something like `/pages`, effectively creating a working link to that
+        contenttype's listing page. #}
 
     {% for ct in config.get('contenttypes')|filter(ct => not ct.viewless) %}
 
-        {% setcontent records = ct.slug ~ "/latest/3" %}
+        {% setcontent records = ct.slug latest limit 3 %}
 
         <h5>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct.name}) }}</h5>
         {% if records|length %}

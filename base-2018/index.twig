@@ -37,7 +37,7 @@
     <div class="container">
         <h2 class="title">Pages</h2>
         <div class="columns">
-            {% setcontent pages = 'pages/latest/3' %}
+            {% setcontent pages = 'pages' latest limit 3 %}
             {% for page in pages %}
                 <div class="column">
                     <div class="card">
@@ -69,7 +69,7 @@
 <section class="section section-latest-entries">
     <div class="container">
         <h2 class="title">Latest Entries</h2>
-        {% setcontent entries = 'entries/latest/3' %}
+        {% setcontent entries = 'entries' latest limit 3 %}
         {% for entry in entries %}
             <article role="article" class="media columns">
                 <div class="media-content column is-7">

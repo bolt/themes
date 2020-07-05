@@ -8,7 +8,7 @@
             {% endif %}
         </span>
         {% for taxonomy in taxonomies %}
-            <a href="{{ taxonomy.link }}" class="tag is-dark">{{ taxonomy.name }}</a>
+            <a href="{{ taxonomy|link }}" class="tag is-dark">{{ taxonomy.name }}</a>
         {% else %}
             {{ __('general.phrase.none') }}
         {% endfor %}

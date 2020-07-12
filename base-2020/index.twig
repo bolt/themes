@@ -5,22 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bolt 2020 theme</title>
-
+  <title>
+    {%- if record|default and record.title -%}
+      {{- record.title ~ ' | ' -}}
+    {%- endif -%}
+    {{- config.get('general/sitename') -}}
+    {%- if record|default == null and config.has('general/payoff') -%}
+      {{- ' | ' ~ config.get('general/payoff') -}}
+    {%- endif -%}
+  </title>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800&display=swap" rel="stylesheet" />
-
   <script src="{{ asset('js/modernizr-custom.js', 'theme') }}"></script>
-
-  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 </head>
 
 <body class="home">
   <header>
     <nav>
       <div class="logo">
-        BOLT 2020 THEME
+        {{- config.get('general/sitename') -}}
       </div>
       <ul>
         <li><a class="link-effect" href="">Menu</a></li>
@@ -37,7 +41,7 @@
   </header>
   <main>
     <article>
-      <h1>De titel van het artikel</h1>
+      <h1>{{ record|title }}</h1>
       <div class="social">
         <a href=""><svg height="26" viewBox="0 0 26 26" width="26" xmlns="http://www.w3.org/2000/svg">
             <g>
@@ -59,17 +63,15 @@
             </svg></a>
       </div>
       <picture>
-        <source srcset="../img/article-image.jpg" media="(min-width: 800px)" />
-        <img src="../img/article-image.jpg" alt="" />
+        <source srcset="{{ record|thumbnail(1280, 700) }}" media="(min-width: 800px)" />
+        <img src="{{ record|thumbnail(1280, 700) }}" alt="" />
       </picture>
       <div class="copy">
         <div class="meta">
           news
         </div>
         <p>
-          Hoc sic expositum dissimile est superiori. Est, ut dicis, inquit; Quid ei reliquisti, nisi te, quoquo modo
-          loqueretur, intellegere, quid
-          diceret? Nunc de hominis summo bono quaeritur; Haec et tu ita posuisti, et verba vestra sunt.
+          {{ record|excerpt }}
         </p>
         <a class="btn" href="pagina.html">Read more</a>
       </div>
@@ -77,8 +79,8 @@
     <aside>
       <div class="card">
         <picture class="aspect-ratio-wide">
-          <source srcset="../img/article-image.jpg" media="(min-width: 800px)" />
-          <img src="../img/article-image.jpg" alt="" />
+          <source srcset="{{ record|thumbnail(800) }}" media="(min-width: 800px)" />
+          <img src="{{ record|thumbnail(800) }}" alt="" />
         </picture>
         <div>
           <h2>Header</h2>

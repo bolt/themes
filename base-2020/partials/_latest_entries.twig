@@ -1,0 +1,17 @@
+{% setcontent entries = "entries" latest limit 4 %}
+
+{% for entry in entries %}
+    <div class="card">
+        {% if loop.index <= 2 %}
+        <picture class="aspect-ratio-wide">
+            <source srcset="{{ entry|thumbnail(800, 600) }}" media="(min-width: 800px)" />
+            <img src="{{ entry|thumbnail(800, 600) }}" alt="" />
+        </picture>
+        {% endif %}
+        <div>
+            <h2>{{ entry|title }}</h2>
+            <p>{{ entry|excerpt(260) }}</p>
+        </div>
+        <a class="btn" href="">Read more</a>
+    </div>
+{% endfor %}

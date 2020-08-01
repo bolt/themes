@@ -20,8 +20,8 @@
     <div class="navbar-item
         {{ (item.submenu|default(false) and withsubmenus) ? ' has-dropdown is-hoverable' -}}">
 
-        <a href="{{ item.uri }}" title='{{ item.title|default('')|escape }}' class='navbar-link {{ item.current ? 'is-active' }}{{ item.class|default('') }}'>
-            {{- item.label|default('-') -}}
+        <a href="{{ item.uri }}" title='{{ item.title|default('')|escape }}' class='navbar-link {{ item|current ? 'is-active' }}{{ item.class|default('') }}'>
+            {{- item.label|default(item.title) -}}
         </a>
         <div class="navbar-dropdown">
             {% for submenu in item.submenu|default %}
@@ -30,8 +30,8 @@
         </div>
     </div>
     {% else %}
-        <a href="{{ item.uri }}" title='{{ item.title|default('')|escape }}' class='navbar-item {{ item.current ? 'is-active' }} {{ item.class|default('') }}'>
-            {{- item.label|default('-') -}}
+        <a href="{{ item.uri }}" title='{{ item.title|default('')|escape }}' class='navbar-item {{ item|current ? 'is-active' }} {{ item.class|default('') }}'>
+            {{- item.label|default(item.title) -}}
         </a>
     {% endif %}
 

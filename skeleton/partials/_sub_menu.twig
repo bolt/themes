@@ -14,10 +14,10 @@
         {{ loop.first ? ' first' -}}
         {{ loop.last ? ' last' -}}
         {{ with_submenu ? ' has-submenu' -}}
-        {{ item.current ? ' active' }}">
+        {{ item|current ? ' active' }}">
 
         <a href="{{ item.uri }}" title='{{ item.title }}' class='{{ item.class }}'>
-            {{- item.label -}}
+            {{- item.label|default(item.title) -}}
         </a>
 
         {% if with_submenu %}

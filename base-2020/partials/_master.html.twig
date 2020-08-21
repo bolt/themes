@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html class="no-js" lang="nl_NL" data-theme="light">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -21,38 +19,36 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 </head>
 
-<body class="home">
-{% include 'partials/_header.twig' %}
-<main>
-    <article>
-        {% block main %}
-            (This is <code>block main</code>)
-        {% endblock main %}
-    </article>
-    <aside>
-        {% block aside %}
-            {% include 'partials/_latest_entries.twig' %}
-        {% endblock aside %}
-    </aside>
+<body class="{% block bodyclass %}home{% endblock %}">
+    <header>
+        {% include 'partials/_header.html.twig' %}
+        {% block pageheader %}
+            (The pageheader goes here)
+        {% endblock %}
+    </header>
+    <main>
 
-</main>
-<section>
-    <div class="block">
-        <p>Omnes enim iucundum motum, quo sensus hilaretur</p>
-        <a class="link-effect" href="">Read more</a>
-    </div>
-</section>
-<footer>
-    <nav>
-        <ul>
-            <li><a class="link-effect" href="">Menu</a></li>
-            <li><a class="link-effect" href="">Menu</a></li>
-            <li><a class="link-effect" href="">Menu</a></li>
-            <li><a class="link-effect" href="">Menu</a></li>
-        </ul>
-    </nav>
-    <a class="back link-effect" href="#top">To the top <span class="arrow" aria-hidden="true">↑</span></a>
-</footer>
+        {% block main %}
+            <article>
+                (This is <code>block main</code>)
+            </article>
+        {% endblock main %}
+        <aside>
+            {% block aside %}
+                {% include 'partials/_latest_entries.html.twig' %}
+            {% endblock aside %}
+        </aside>
+
+    </main>
+    <section>
+        <div class="block">
+            <p>Omnes enim iucundum motum, quo sensus hilaretur</p>
+            <a class="link-effect" href="">Read more</a>
+        </div>
+    </section>
+
+    {% include 'partials/_footer.html.twig' %}
+
 </body>
 
 <script defer src="js/app.js"></script>

@@ -1,0 +1,33 @@
+{% extends 'partials/_master.html.twig' %}
+
+{% block bodyclass "pagina" %}
+
+{% block pageheader %}
+  <p class="type">News</p>
+  <h1>{{ record|title }}</h1>
+  <p>{{ record.teaser|default(record|excerpt(200)) }}</p>
+  <div class="meta-info">
+    <svg height="19" viewBox="0 0 18 19" width="18" xmlns="http://www.w3.org/2000/svg">
+      <path
+              d="m3 19h12c1.6568542 0 3-1.3431458 3-3v-12c0-1.65685425-1.3431458-3-3-3h-1c0-.55228475-.4477153-1-1-1s-1 .44771525-1 1h-6c0-.55228475-.44771525-1-1-1s-1 .44771525-1 1h-1c-1.65685425 0-3 1.34314575-3 3v12c0 1.6568542 1.34314575 3 3 3zm-1-15c0-.55228475.44771525-1 1-1h1v1c0 .55228475.44771525 1 1 1s1-.44771525 1-1v-1h6v1c0 .55228475.4477153 1 1 1s1-.44771525 1-1v-1h1c.5522847 0 1 .44771525 1 1v3h-14zm0 5h14v7c0 .5522847-.4477153 1-1 1h-12c-.55228475 0-1-.4477153-1-1z"
+      />
+    </svg>
+    <p>15 oktober</p>
+  </div>
+{% endblock %}
+
+{% block main %}
+  <article>
+    <picture>
+      <source srcset="{{ record|thumbnail(1200) }}" media="(min-width: 800px)" />
+      <img src="{{ record|thumbnail(1200) }}" alt="" />
+    </picture>
+
+    {# Output all fields, in the order as defined in the contenttype.
+    To change the generated html and configure the options, see:
+    https://docs.bolt.cm/templating #}
+    {% with { 'record': record, 'exclude': [record|image.fieldname|default()] } %}
+      {{ block('sub_fields', 'helpers/_fields.twig') }}
+    {% endwith %}
+  </article>
+{% endblock %}

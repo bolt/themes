@@ -7,60 +7,15 @@
     {% for record in records %}
 
     <article>
-        <picture class="aspect-ratio-square">
-            <source srcset="../img/article-image.jpg" media="(min-width: 800px)" />
-            <img src="../img/article-image.jpg" alt="" loading="lazy" />
-        </picture>
+        {% include 'partials/_picture.html.twig' with {'image': record|image, 'size': 400 } %}
         <div>
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+            <h2>{{ record|title }}</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Re mihi non aeque satisfacit, et quidem locis pluribus. Sapiens autem semper
-                beatus est et est aliquando in dolore; Duo Reges: constructio interrete.
+                {{ record|excerpt(300) }}
             </p>
-            <a class="link-effect" href="http://" rel="noopener noreferrer">Go to article</a>
+            <a class="link-effect" href="{{ record|link() }}" rel="noopener noreferrer">Go to article</a>
         </div>
     </article>
-    <article>
-        <picture class="aspect-ratio-square">
-            <source srcset="../img/article-image.jpg" media="(min-width: 800px)" />
-            <img src="../img/article-image.jpg" alt="" loading="lazy" />
-        </picture>
-        <div>
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Re mihi non aeque satisfacit, et quidem locis pluribus. Sapiens autem semper
-                beatus est et est aliquando in dolore; Duo Reges: constructio interrete.
-            </p>
-            <a class="link-effect" href="http://" rel="noopener noreferrer">Go to article</a>
-        </div>
-    </article>
-    <article>
-        <picture class="aspect-ratio-square">
-            <source srcset="../img/article-image.jpg" media="(min-width: 800px)" />
-            <img src="../img/article-image.jpg" alt="" loading="lazy" />
-        </picture>
-        <div>
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Re mihi non aeque satisfacit, et quidem locis pluribus. Sapiens autem semper
-                beatus est et est aliquando in dolore; Duo Reges: constructio interrete.
-            </p>
-            <a class="link-effect" href="http://" rel="noopener noreferrer">Go to article</a>
-        </div>
-    </article>
-    <article>
-        <picture class="aspect-ratio-square">
-            <source srcset="../img/article-image.jpg" media="(min-width: 800px)" />
-            <img src="../img/article-image.jpg" alt="" loading="lazy" />
-        </picture>
-        <div>
-            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Re mihi non aeque satisfacit, et quidem locis pluribus. Sapiens autem semper
-                beatus est et est aliquando in dolore; Duo Reges: constructio interrete.
-            </p>
-            <a class="link-effect" href="http://" rel="noopener noreferrer">Go to article</a>
-        </div>
-    </article>
+    {% endfor %}
 
 {% endblock main %}

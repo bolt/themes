@@ -23,7 +23,6 @@
     <header>
         {% include 'partials/_header.html.twig' %}
         {% block pageheader %}
-            (The pageheader goes here)
         {% endblock %}
     </header>
     <main>
@@ -40,6 +39,11 @@
         </aside>
 
     </main>
+
+    <article>
+        {% include 'partials/_latest_few_of_everything.html.twig' %}
+    </article>
+
     <section>
         <div class="block">
             <p>Omnes enim iucundum motum, quo sensus hilaretur</p>

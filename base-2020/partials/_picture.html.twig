@@ -1,0 +1,6 @@
+{% set size = size|default(400) %}
+
+<picture class="aspect-ratio-square">
+    <source srcset="{{ image|thumbnail(size) }}" media="(min-width: {{ size }}px)" />
+    <img src="image|thumbnail({{ size }})" alt="(alt goes here)" loading="lazy" />
+</picture>

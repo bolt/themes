@@ -2,12 +2,16 @@
 
 {% block main %}
     <article>
+
         <h1>{{ record|title }}</h1>
+
+        {# Remove this include if you don't need it anymore. #}
+        {{ include('partials/_fresh_install.html.twig') }}
+
         {% include 'partials/_social.html.twig' %}
-        <picture>
-            <source srcset="{{ record|thumbnail(1280, 700) }}" media="(min-width: 800px)" />
-            <img src="{{ record|thumbnail(1280, 700) }}" alt="" />
-        </picture>
+
+        {% include 'partials/_picture.html.twig' with {'image': record|image, 'size': 800 } %}
+
         <div class="copy">
             <div class="meta">
                 (something that goes here)
@@ -18,4 +22,7 @@
             <a class="btn" href="{{ record|link }}">{{ __('general.phrase.read-more') }}</a>
         </div>
     </article>
+
+
+
 {% endblock main %}

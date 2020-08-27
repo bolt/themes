@@ -353,7 +353,7 @@ article a {
   width: 100%;
   height: 100%;
   background-position: center;
-  background-image: url(/../img/switcher.svg);
+  background-image: url(../img/switcher.svg);
   background-repeat: no-repeat;
   filter: invert(100%);
   -webkit-filter: invert(100%);
@@ -365,7 +365,7 @@ article a {
   width: 100%;
   height: 100%;
   background-position: center;
-  background-image: url(/../img/switcher.svg);
+  background-image: url(../img/switcher.svg);
   background-repeat: no-repeat;
 }
 
@@ -390,7 +390,8 @@ header p {
 }
 
 header nav {
-  display: flex;
+  /*display: flex;*/
+  display: none;
   flex-direction: column;
   left: 0;
   right: 0;
@@ -1116,4 +1117,20 @@ footer nav a {
     grid-column: span 1;
     margin-bottom: 1rem;
   }
+}
+
+
+/*
+/* Notification message (New install)
+/* */
+
+.notification.is-info {
+  background-color: var(--color-success-lighter);
+  border: 1px solid var(--color-success-light);
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  left: 1rem;
+  padding: var(--space-md);
+  z-index: 2001;
 }

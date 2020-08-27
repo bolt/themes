@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html class="no-js" lang="nl_NL" data-theme="light">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
         {%- if record|default and record.title -%}
-            {{- record.title ~ ' | ' -}}
+        {{- record.title ~ ' | ' -}}
         {%- endif -%}
         {{- config.get('general/sitename') -}}
         {%- if record|default == null and config.has('general/payoff') -%}
-            {{- ' | ' ~ config.get('general/payoff') -}}
+        {{- ' | ' ~ config.get('general/payoff') -}}
         {%- endif -%}
     </title>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -28,13 +29,13 @@
     <main>
 
         {% block main %}
-            <article>
-                (This is <code>block main</code>)
-            </article>
+        <article>
+            (This is <code>block main</code>)
+        </article>
         {% endblock main %}
         <aside>
             {% block aside %}
-                {% include 'partials/_latest_entries.html.twig' %}
+            {% include 'partials/_latest_entries.html.twig' %}
             {% endblock aside %}
         </aside>
 
@@ -55,6 +56,6 @@
 
 </body>
 
-<script defer src="js/app.js"></script>
+<script defer src="{{ asset('js/app.js') }}"></script>
 
 </html>

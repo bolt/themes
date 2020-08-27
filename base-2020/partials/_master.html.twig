@@ -33,24 +33,21 @@
             (This is <code>block main</code>)
         </article>
         {% endblock main %}
-        <aside>
-            {% block aside %}
-            {% include 'partials/_latest_entries.html.twig' %}
-            {% endblock aside %}
-        </aside>
+
+        {% if app.request.pathInfo == '/' %}
+            <aside>
+                {% block aside %}
+                {% include 'partials/_latest_entries.html.twig' %}
+                {% endblock aside %}
+            </aside>
+        {% endif %}
 
     </main>
 
-    <article>
-        {% include 'partials/_latest_few_of_everything.html.twig' %}
-    </article>
 
-    <section>
-        <div class="block">
-            <p>Omnes enim iucundum motum, quo sensus hilaretur</p>
-            <a class="link-effect" href="">Read more</a>
-        </div>
-    </section>
+    {% if app.request.pathInfo == '/' %}
+        {% include 'partials/_homepage_extra_blocks.html.twig' %}
+    {% endif %}
 
     {% include 'partials/_footer.html.twig' %}
 

@@ -820,17 +820,17 @@ aside .card:nth-child(4) p {
 }
 
 /*
-/*  Pagina
+/*  Page
 /* */
 
-.pagina header {
+.page header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: var(--space-xxxl);
 }
 
-.pagina h1 {
+.page h1 {
   color: var(--color-contrast-higher);
   font-size: var(--text-xxl);
   font-weight: 800;
@@ -857,22 +857,22 @@ aside .card:nth-child(4) p {
   margin-right: var(--space-xs);
 }
 
-.pagina main {
+.page main {
   background: var(--color-contrast-lower);
 }
 
-.pagina main article {
+.page main article {
   display: grid;
   grid-template-columns: repeat(12, 1fr [col-start]);
   grid-column: 2 / 12;
   padding: var(--space-xxl) 0;
 }
 
-.pagina main article p {
+.page main article p {
   grid-column: 2 / 12;
 }
 
-.pagina main picture {
+.page main picture {
   position: relative;
   grid-column: 1 / 13;
   height: 400px;
@@ -890,12 +890,12 @@ picture img {
   animation: present-yourself 0.2s ease forwards;
 }
 
-.pagina main article p:first-of-type {
+.page main article p:first-of-type {
   font-size: var(--text-md);
   font-weight: 700;
 }
 
-.pagina main article blockquote {
+.page main article blockquote {
   grid-column: 1 / 13;
   font-size: var(--text-xl);
   font-weight: 900;
@@ -903,15 +903,15 @@ picture img {
 }
 
 @media only screen and (min-width: 768px) {
-  .pagina main article p {
+  .page main article p {
     grid-column: 3 / 11;
   }
-  .pagina main picture {
+  .page main picture {
     position: relative;
     grid-column: 2 / 12;
     height: 500px;
   }
-  .pagina main article blockquote {
+  .page main article blockquote {
     grid-column: 4 / 10;
   }
 }

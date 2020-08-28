@@ -868,7 +868,19 @@ aside .card:nth-child(4) p {
   padding: var(--space-xxl) 0;
 }
 
-.page main article p {
+article ul,
+article ol {
+  padding: 0;
+  list-style-position: inside;
+  font-size: 1.1rem;
+  margin: 0 0 var(--space-unit);
+  line-height: var(--component-body-line-height);
+}
+
+.page main article [data-bolt-field],
+.page main article p,
+.page main article ul,
+.page main article ol {
   grid-column: 2 / 12;
 }
 
@@ -890,29 +902,33 @@ picture img {
   animation: present-yourself 0.2s ease forwards;
 }
 
-.page main article p:first-of-type {
+[data-bolt-field=teaser] {
   font-size: var(--text-md);
   font-weight: 700;
 }
 
 .page main article blockquote {
   grid-column: 1 / 13;
+
+}
+
+blockquote > p {
   font-size: var(--text-xl);
   font-weight: 900;
   color: var(--color-primary);
 }
 
 @media only screen and (min-width: 768px) {
-  .page main article p {
+  .page main article [data-bolt-field],
+  .page main article p,
+  .page main article ul,
+  .page main article ol {
     grid-column: 3 / 11;
   }
   .page main picture {
     position: relative;
     grid-column: 2 / 12;
     height: 500px;
-  }
-  .page main article blockquote {
-    grid-column: 4 / 10;
   }
 }
 

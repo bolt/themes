@@ -1,6 +1,11 @@
 {% set size = size|default(400) %}
 
 <picture class="aspect-ratio-square">
-    <source srcset="{{ image|thumbnail(size) }}" media="(min-width: {{ size }}px)" />
-    <img src="image|thumbnail({{ size }})" alt="(alt goes here)" loading="lazy" />
+    <source
+        srcset="{{ image|thumbnail(size) }} 320w, 
+                {{ image|thumbnail(size) }} 800w, 
+                {{ image|thumbnail(size) }} 1200w"
+        sizes="(min-width: 320px) 100vw"
+        alt="(Image description)">
+        <img src="image|thumbnail({{ size }})" alt="(Image description)" loading="lazy" >
 </picture>

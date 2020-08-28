@@ -3,8 +3,11 @@
     </article>
 
     <section>
+
+        {% setcontent record = 'page/2' %}
+
         <div class="block">
-            <p>Omnes enim iucundum motum, quo sensus hilaretur</p>
-            <a class="link-effect" href="">Read more</a>
+            <p>{{ record|title }}</p>
+            <a class="link-effect" href="{{ record|link }}">Read more</a>
         </div>
     </section>

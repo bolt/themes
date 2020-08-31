@@ -390,19 +390,9 @@ header p {
 }
 
 header nav {
-  /*display: flex;*/
-  display: none;
-  flex-direction: column;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  opacity: 1;
-  background: #fff;
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: fixed;
-  z-index: 99;
+  display: flex;
+  /*display: none;
+  flex-direction: column;*/
   padding: var(--space-unit);
 }
 
@@ -418,18 +408,22 @@ header li a.link-effect {
 }
 
 @media only screen and (min-width: 768px) {
-  header nav {
+ /* header nav {
     all: unset;
     margin-bottom: var(--space-xl);
   }
   nav {
     display: flex;
   }
+  */
   nav .logo {
     margin-right: auto;
-    font-weight: 800;
-    text-transform: uppercase;
   }
+
+  .logo img {
+    width: 100%;
+  }
+
   nav ul {
     display: flex;
     list-style: none;
@@ -506,11 +500,13 @@ p {
 /*  Homepage
 /* */
 
+/*
 .home header {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+*/
 
 @media only screen and (min-width: 768px) {
   .home header {
@@ -751,7 +747,7 @@ aside .card:nth-child(4) p {
   display: grid;
   grid-template-columns: 1fr;
   background-color: var(--color-bg);
-  margin-bottom: var(--space-xxl);
+  padding-bottom: var(--space-xxl);
 }
 
 .recent-overview h5 {

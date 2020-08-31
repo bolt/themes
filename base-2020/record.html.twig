@@ -3,7 +3,12 @@
 {% block bodyclass "page" %}
 
 {% block pageheader %}
-    <p class="type">News</p>
+
+    {% for type, taxonomies in record|taxonomies %}
+        {% for taxonomy in taxonomies %}
+            <p class="type">{{ taxonomy.name }}</p>
+        {% endfor %}
+    {% endfor %}
     <h1>{{ record|title }}</h1>
     <p>{{ record.teaser|default(record|excerpt(200)) }}</p>
     <div class="meta-info">

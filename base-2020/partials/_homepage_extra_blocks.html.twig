@@ -1,13 +1,13 @@
+<section>
     <article>
         {% include 'partials/_latest_few_of_everything.html.twig' %}
     </article>
+</section>
 
-    <section>
-
-        {% setcontent record = 'page/2' %}
-
-        <div class="block">
-            <p>{{ record|title }}</p>
-            <a class="link-effect" href="{{ record|link }}">Read more</a>
-        </div>
-    </section>
+<section>
+    {% setcontent record = 'page/2' %}
+    <div class="block">
+        <p>{{ record|title }}</p>
+        <a class="link-effect" href="{{ record|link }}">Read more</a>
+    </div>
+</section>

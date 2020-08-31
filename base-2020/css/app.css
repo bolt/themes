@@ -747,6 +747,43 @@ aside .card:nth-child(4) p {
   }
 }
 
+.recent-overview {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--color-bg);
+  margin-bottom: var(--space-xxl);
+}
+
+.recent-overview h5 {
+  color: var(--color-contrast-higher);
+  font-size: var(--text-md);
+}
+
+@media only screen and (min-width: 1024px) {
+  .recent-overview {
+    grid-template-columns: repeat(15, 1fr [col-start]);
+    grid-gap: 1.5rem;
+  }
+
+  .recent-overview div {
+    padding: var(--space-unit)
+  }
+
+  .recent-overview div:nth-child(1) {
+    grid-column: 1 / span 5;
+  }
+
+  .recent-overview div:nth-child(2) {
+    grid-column: 6 / span 5;
+  }
+
+  .recent-overview div:nth-child(3) {
+    grid-column: 11 / span 5;
+  }
+
+}
+
+
 /*
 /*  Card details
 /* */

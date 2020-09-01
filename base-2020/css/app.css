@@ -664,7 +664,14 @@ article picture img {
 }
 
 .social a {
-  margin-top: var(--space-unit);
+  margin-right: var(--space-unit);
+}
+
+@media only screen and (min-width: 768px) {
+  .social a {
+    margin-top: var(--space-unit);
+    margin-right: 0;
+  }
 }
 
 .copy {
@@ -856,7 +863,7 @@ aside .card:nth-child(4) p {
   display: grid;
   grid-template-columns: 1fr;
   background-color: var(--color-bg);
-  padding-bottom: var(--space-xxl);
+  padding: var(--space-unit) var(--space-unit) var(--space-xxl);
 }
 
 .recent-overview h5 {

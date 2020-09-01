@@ -429,22 +429,13 @@ header li .link-effect {
 }
 
 @media only screen and (min-width: 768px) {
- /* header nav {
-    all: unset;
-    margin-bottom: var(--space-xl);
-  }
-  nav {
-    display: flex;
-  }
-  */
+
   nav .logo {
     margin-right: auto;
   }
-
-  .logo img {
-    width: 100%;
+  .logo svg {
+    fill: var(--color-contrast-high);
   }
-
   nav ul {
     display: flex;
     list-style: none;

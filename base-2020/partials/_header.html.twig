@@ -7,6 +7,20 @@
 		</a>
 	</div>
 	{{ menu(template = 'partials/_sub_menu.twig') }}
+
+
+    {#
+    Create a sperate page with the Mobile menu template. This gives the flexability to create
+    large menu's without javascript.
+    #}
+
+    <a class="show-on-mobile menu" href="/page/menu">
+        Menu
+    <div class="nav-icon">
+        <div></div>
+    </div>
+    </a>
+
 	<div class="theme-switch-wrapper">
 		<label class="theme-switch" for="checkbox">
 			<input type="checkbox" id="checkbox"/>

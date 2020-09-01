@@ -19,39 +19,21 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 </head>
 
-<body class="{% block bodyclass %}home{% endblock %}">
+<body class="mobile_menu">
     <header>
-        {% include 'partials/_header.html.twig' %}
-        {% block pageheader %}
-        {% endblock %}
+        <a class="show-on-mobile menu" href="#" onclick="window.history.go(-1); return false;">
+        Close
+        <div class="nav-icon">
+            <div></div>
+        </div>
+    </a>
+
     </header>
     <main>
-
         {% block main %}
-        <article>
-            (This is <code>block main</code>)
-        </article>
+            {{ menu(template = 'partials/_sub_menu.twig') }}
         {% endblock main %}
-
-        {% if app.request.pathInfo == '/' %}
-            <aside>
-                {% block aside %}
-                {% include 'partials/_latest_entries.html.twig' %}
-                {% endblock aside %}
-            </aside>
-        {% endif %}
-
     </main>
-
-
-    {% if app.request.pathInfo == '/' %}
-        {% include 'partials/_homepage_extra_blocks.html.twig' %}
-    {% endif %}
-
-    {% include 'partials/_footer.html.twig' %}
-
 </body>
-
-<script defer src="{{ asset('js/app.js') }}"></script>
 
 </html>

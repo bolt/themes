@@ -4,12 +4,14 @@
         <img src="{{ asset('img/logo.svg', 'theme') }}" alt="Logo" />
     </a>
     </div>
-    <ul>
+    <!--<ul>
         <li><a class="link-effect" href="">Menu</a></li>
         <li><a class="link-effect" href="">Menu</a></li>
         <li><a class="link-effect" href="">Menu</a></li>
         <li><a class="link-effect" href="">Menu</a></li>
     </ul>
+    -->
+    {{ menu(template = 'partials/_sub_menu.twig') }}
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox" />

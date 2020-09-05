@@ -552,7 +552,7 @@ code {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: 2rem;
-    grid-row-gap: 1rem;
+    grid-row-gap: 0rem;
 }
 
 .article-grid + .article-grid {
@@ -561,6 +561,8 @@ code {
 
 .article-grid figure, .article-grid img {
     margin: 0;
+    width: 100%;
+    max-width: 100%;
 }
 
 .article-grid .col-1 { grid-column: span 1; }
@@ -576,11 +578,27 @@ code {
 .article-grid .col-11 { grid-column: span 11; }
 .article-grid .col-12 { grid-column: span 12; }
 
+.article-grid div p {
+    margin-top: 0;
+}
+
 @media only screen and (max-width: 600px) {
     .article-grid {
         grid-template-columns: repeat(1, 1fr);
     }
-    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+
+    .article-grid .col-1,
+    .article-grid .col-2,
+    .article-grid .col-3,
+    .article-grid .col-4,
+    .article-grid .col-5,
+    .article-grid .col-6,
+    .article-grid .col-7,
+    .article-grid .col-8,
+    .article-grid .col-9,
+    .article-grid .col-10,
+    .article-grid .col-11,
+    .article-grid .col-12 {
         grid-column: span 1;
         margin-bottom: 1rem;
     }

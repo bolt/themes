@@ -6,7 +6,7 @@
 <section class="section section-pages hero is-primary is-bold">
     <div class="container">
         <div class="columns">
-            {% for ct in config.get('contenttypes')|filter(ct => not ct.viewless) %}
+            {% for ct in config.get('contenttypes')|filter(ct => not ct.viewless and not ct.singleton) %}
                 {% setcontent records = ct.slug latest limit 5 %}
                 {% if records|length %}
                     <div class="column">

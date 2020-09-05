@@ -1,9 +1,9 @@
 <div class="tags">
     {% for type, taxonomies in record|taxonomies %}
         <span class="label">
-            {% if taxonomies|length < 2 %}
+            {% if taxonomies|length == 1 %}
                 {{ config.get('taxonomies')[type].singular_name }}:
-            {% else %}
+            {% elseif taxonomies|length > 1 %}
                 {{ config.get('taxonomies')[type].name }}:
             {% endif %}
         </span>

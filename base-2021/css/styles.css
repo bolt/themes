@@ -22241,6 +22241,10 @@ video {
           animation: bounce 1s infinite;
 }
 
+.article [data-bolt-field="teaser"] {
+  font-size: clamp(1.25rem, 1.75vw, 1.5rem)
+}
+
 .article>p {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -43872,6 +43876,10 @@ video {
   .sm\:animate-bounce {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
+  }
+
+  .sm\:article [data-bolt-field="teaser"] {
+    font-size: clamp(1.25rem, 1.75vw, 1.5rem)
   }
 
   .sm\:article>p {
@@ -65508,6 +65516,10 @@ video {
             animation: bounce 1s infinite;
   }
 
+  .md\:article [data-bolt-field="teaser"] {
+    font-size: clamp(1.25rem, 1.75vw, 1.5rem)
+  }
+
   .md\:article>p {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -87142,6 +87154,10 @@ video {
             animation: bounce 1s infinite;
   }
 
+  .lg\:article [data-bolt-field="teaser"] {
+    font-size: clamp(1.25rem, 1.75vw, 1.5rem)
+  }
+
   .lg\:article>p {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -108774,6 +108790,10 @@ video {
   .xl\:animate-bounce {
     -webkit-animation: bounce 1s infinite;
             animation: bounce 1s infinite;
+  }
+
+  .xl\:article [data-bolt-field="teaser"] {
+    font-size: clamp(1.25rem, 1.75vw, 1.5rem)
   }
 
   .xl\:article>p {

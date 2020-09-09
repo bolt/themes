@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Bolt 4 basic template 2020</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+
+	<!-- Font Awesome if you need it
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  -->
+	<link rel="stylesheet" href="css/styles.css">
+	<!--Replace with your tailwind.css once created-->
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+
+	<!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+	<style>
+		.gradient {
+			background: linear-gradient(to right, #314755, #26a0da);
+		}
+	</style>
+
+</head>
+
+<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+
+<!--Nav-->
+
+
+<div id="header" class="text-white fixed top-0 w-full z-30">
+  <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-4">
+    <div class="p-4 flex flex-row items-center justify-between">
+      <a href="#" class="text-lg font-semibold tracking-widest currentColor uppercase rounded-lg focus:outline-none focus:shadow-outline">
+				<svg class="fill-current inline" height="28" viewBox="0 0 27 28" width="27" xmlns="http://www.w3.org/2000/svg"><g><path d="m20.419 12.371c-.7672726.7719606-1.1507036 1.8456406-1.046 2.929l-.018-.018c.1076182 1.2748854-.352247 2.5323804-1.2569333 3.4370667s-2.1621813 1.3645515-3.4370667 1.2569333l.018.018c-1.5435943-.1436721-3.0115496.6959556-3.6702944 2.0993016-.6587449 1.4033461-.3668293 3.069075.7298696 4.1647832 1.0966988 1.0957082 2.7626909 1.3861182 4.165441.7261054 1.4027502-.6600129 2.2410509-2.1287264 2.0959838-3.6721902l.019.018c-.1076182-1.2748854.352247-2.5323804 1.2569333-3.4370667s2.1621813-1.3645515 3.4370667-1.2569333l-.019-.018c1.6964586.1525656 3.2750261-.8818408 3.8123604-2.4981699.5373342-1.6163292-.107726-3.3899608-1.5578694-4.2834551-1.4501435-.8934944-3.3244079-.6721245-4.526491.534625z"/><path d="m13.042 17.636-.019-.018c1.0840461.1092294 2.1598469-.2741065 2.9305553-1.0442336.7707084-.770127 1.1548561-1.8456381 1.0464447-2.9297664l.019.018c-.1076182-1.2748854.352247-2.5323804 1.2569333-3.4370667.9046863-.90468627 2.1621813-1.36455147 3.4370667-1.2569333l-.019-.018c1.5437265.14497146 3.0125722-.69373762 3.6723214-2.0968909.6597491-1.40315329.3686878-3.06935375-.7276945-4.16573601-1.0963823-1.09638225-2.7625827-1.38744363-4.165736-.72769446-1.4031533.65974918-2.2418624 2.12859491-2.0968909 3.67232137l-.018-.019c.107976 1.27497519-.3517733 2.53268501-1.2565441 3.43745585-.9047709.90477084-2.1624807 1.36452015-3.4374559 1.25654415l.018.019c-1.0840461-.1092294-2.1598469.2741065-2.9305553 1.0442336-.77070838.770127-1.15485605 1.8456381-1.0464447 2.9297664l-.018-.018c.10726069 1.2747957-.3527203 2.5320761-1.2573221 3.4366779-.90460179.9046018-2.16188225 1.3645828-3.4366779 1.2573221l.018.018c-1.54372646-.1449715-3.01257219.6937376-3.67232137 2.0968909-.65974917 1.4031533-.36868779 3.0693537.72769446 4.165736 1.09638226 1.0963823 2.76258272 1.3874436 4.16573601.7276945 1.40315328-.6597492 2.24186236-2.1285949 2.0968909-3.6723214l.019.018c-.10761817-1.2748854.35224703-2.5323804 1.2569333-3.4370667.9046863-.9046863 2.1621813-1.3645515 3.4370667-1.2569333z"/><path d="m6.34 15.629c.76739358-.7718335 1.15053379-1.845726 1.045-2.929l.019.018c-.10770064-1.2752631.35242319-2.5331269 1.25757322-3.43789139.90515002-.90476452 2.16320968-1.36435249 3.43842678-1.25610861l-.019-.018c1.5431882.14457018 3.0113272-.69406435 3.6706744-2.09677298.6593471-1.40270864.3683039-3.06825178-.7276729-4.16422856-1.0959767-1.09597678-2.7615199-1.38702-4.1642285-.72767283-1.40270865.65934718-2.24134318 2.12748622-2.096773 3.67067437l-.018-.018c.10761817 1.27488541-.35224703 2.53238043-1.2569333 3.4370667s-2.16218129 1.36455147-3.4370667 1.2569333l.018.018c-1.69639698-.15213074-3.27463341.8825426-3.81164846 2.4988722s.10825125 3.3897474 1.55840295 4.2830371c1.45015171.8932897 3.32427143.6718072 4.52624551-.5349093z"/></g></svg>
+				Bolt 2020 theme
+			</a>
+      <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+		</div>
+		
+    <nav :class="{'flex': open, 'hidden': !open}" class="z-30 top-0 currentColor flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+      <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Portfolio</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
+      <div @click.away="open = false" class="relative" x-data="{ open: false }">
+        <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <span>Dropdown</span>
+          <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+          <div class="px-2 py-2 bg-white rounded-md shadow text-black">
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #1</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #2</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #3</a>
+          </div>
+        </div>
+      </div>    
+		</nav>
+
+  </div>
+
+	<div id="progress" class="bg-white h-1 z-40"
+	style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
+
+</div>
+
+
+
+
+
+
+	<!--Container-->
+
+	<section class="bg-gray-100 mt-16 w-full">
+
+      <div class="mb-4 md:mb-0 w-full mx-auto relative" style="height: 24em;">
+        <div class="absolute left-0 bottom-0 w-full h-full z-10"
+					style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));">
+				</div>
+        <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="absolute left-0 top-0 w-full h-full z-0 object-cover" />
+				
+				<div class="flex flex-col p-4 w-full absolute bottom-0 left-0 z-20">
+					<div class="w-2/3 md:mx-auto pb-12">
+          <a href="#"
+						class="px-4 py-1 gradient text-gray-200 inline-flex items-center justify-center mb-2 rounded-md">
+						Nutrition
+					</a>
+          <h1 class="text-2xl lg:text-4xl font-semibold leading-tight">
+            Pellentesque a consectetur velit, ac molestie ipsum. Donec sodales, massa et auctor.
+          </h1>
+          <div class="flex mt-3">
+            <img src="https://randomuser.me/api/portraits/men/97.jpg"
+              class="h-10 w-10 rounded-full mr-2 object-cover" />
+            <div>
+              <p class="font-semibold text-gray-200 text-sm"> Mike Sullivan </p>
+              <p class="font-semibold text-gray-400 text-xs"> 14 Aug </p>
+						</div>
+					</div>
+          </div>
+				</div>
+				
+				<div class="absolute bottom-0 left-0 w-full z-20  -mt-12 lg:-mt-24">
+					<svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<g transform="translate(-2.000000, 44.000000)" fill="#f7fafc" fill-rule="nonzero">
+					<path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
+					<path d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z" opacity="0.100000001"></path>
+					<path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" id="Path-4" opacity="0.200000003"></path>
+					</g>
+					<g transform="translate(-4.000000, 76.000000)" fill="#f7fafc" fill-rule="nonzero">
+					<path d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"></path>
+					</g>
+					</g>
+					</svg>
+				</div>
+
+			</div>
+
+			<div class="container w-full max-w-3xl  mx-auto text-black pt-20">
+
+			<div class="w-full px-4 md:px-6 text-xl text-grey-darkest leading-normal">
+
+				<!--Title-->
+				<!--
+				<div class="font-sans">
+					<span class="text-base md:text-sm text-teal font-bold">&lt;<span> <a href="#"
+								class="text-base md:text-sm text-teal font-bold no-underline hover:underline">BACK TO BLOG</a></p>
+							<h1 class="font-sans break-normal text-black pt-6 pb-2 text-3xl md:text-4xl">Title of blog</h1>
+							<p class="text-sm md:text-base font-normal text-grey-dark">Published 19 February 2019</p>
+				</div>
+				-->
+
+
+				<!--Post Content-->
+
+
+				<!--Lead Para-->
+				<p class="py-6">
+					👋 Welcome fellow <a class="text-teal no-underline hover:underline"
+						href="https://www.tailwindcss.com">Tailwind CSS</a> and miminal monochrome blog fan. This starter template
+					provides a starting point to create your own minimal monochrome blog using Tailwind CSS and vanilla
+					Javascript.
+				</p>
+
+				<p class="py-6">The basic blog page layout is available and all using the default Tailwind CSS classes (although
+					there are a few hardcoded style tags). If you are going to use this in your project, you will want to convert
+					the classes into components.</p>
+
+
+				<h1 class="py-2 font-sans text-3xl md:text-4xl">Heading 1</h1>
+				<h2 class="py-2 font-sans text-2xl md:text-3xl">Heading 2</h2>
+				<h3 class="py-2 font-sans text-xl md:text-2xl">Heading 3</h3>
+				<h4 class="py-2 font-sans text-lg md:text-xl">Heading 4</h4>
+				<h5 class="py-2 font-sans text-base md:text-lg">Heading 5</h5>
+				<h6 class="py-2 font-sans text-sm md:text-base">Heading 6</h6>
+
+				<p class="py-6">Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis tortor
+					sollicitudin pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam,
+					pulvinar ut molestie eget, eleifend ac magna. Sed at lorem condimentum, dignissim lorem eu, blandit massa.
+					Phasellus eleifend turpis vel erat bibendum scelerisque. Maecenas id risus dictum, rhoncus odio vitae, maximus
+					purus.
+				</p>
+				<img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="my-5" />
+				<p>Etiam efficitur dolor in dolor molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae
+					molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent
+					taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum
+					elementum.</p>
+
+				<ol>
+					<li class="py-3">Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus. Fusce vehicula
+						dictum mi. In non dolor at sem ullamcorper venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam,
+						commodo sit amet placerat in, interdum a ipsum. Morbi sit amet tellus scelerisque tortor semper posuere.
+					</li>
+					<li class="py-3">Morbi varius posuere blandit. Praesent gravida bibendum neque eget commodo. Duis auctor
+						ornare mauris, eu accumsan odio viverra in. Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus
+						ut odio tempus, ultrices aliquet ex. Nam id quam eget ipsum luctus hendrerit. Ut eros magna, eleifend ac
+						ornare vulputate, pretium nec felis.</li>
+					<li class="py-3">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc
+						vitae pretium elit. Cras leo mauris, tristique in risus ac, tristique rutrum velit. Mauris accumsan tempor
+						felis vitae gravida. Cras egestas convallis malesuada. Etiam ac ante id tortor vulputate pretium. Maecenas
+						vel sapien suscipit, elementum odio et, consequat tellus.</li>
+				</ol>
+
+				<blockquote class="border-l-4 border-teal italic text-2xl my-8 pl-8 lg:-mx-24 md:pl-12">Example of blockquote - Lorem ipsum dolor
+					sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.
+				</blockquote>
+
+				<p class="py-6">Example code block:</p>
+				<pre class="bg-black rounded text-white font-mono text-base p-2 md:p-4">
+				<code class="break-words whitespace-pre-wrap">
+&lt;header class="site-header outer"&gt;
+&lt;div class="inner"&gt;
+{{&gt; "site-nav"}}
+&lt;/div&gt;
+&lt;/header&gt;
+				</code>
+			</pre>
+
+
+				<!--/ Post Content-->
+
+			</div>
+
+			<!--Tags -->
+			<div class="text-base md:text-sm text-grey px-4 py-6">
+				Tags: <a href="#" class="text-base md:text-sm text-teal no-underline hover:underline">Link</a> . <a href="#"
+					class="text-base md:text-sm text-teal no-underline hover:underline">Link</a>
+			</div>
+
+			<!--Divider-->
+			<hr class="border-b-2 border-grey-light mb-8 mx-4">
+
+
+			<!--Subscribe-->
+			<div class="container px-4">
+				<div class="font-sans bg-white rounded-lg shadow-md p-4 text-center">
+					<h2 class="break-normal text-xl md:text-3xl">Subscribe to my Newsletter</h2>
+					<h3 class="break-normal font-normal text-grey-dark text-sm md:text-base">Get the latest posts delivered right
+						to your inbox</h3>
+					<div class="w-full text-center pt-4">
+						<form action="#">
+							<div class="max-w-sm mx-auto p-1 pr-0 flex flex-wrap items-center">
+								<input type="email" placeholder="youremail@example.com"
+									class="flex-1 mt-4 appearance-none border border-grey-light rounded shadow-md p-3 text-grey-dark mr-2 focus:outline-none">
+								<button type="submit"
+									class="flex-1 mt-4 block md:inline-block appearance-none bg-teal text-white text-base font-semibold tracking-wide uppercase py-4 rounded shadow hover:bg-teal-light">Subscribe</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- /Subscribe-->
+
+
+
+			<!--Author-->
+			<div class="flex w-full items-center font-sans px-4 py-12">
+				<img class="w-10 h-10 rounded-full mr-4" src="https://randomuser.me/api/portraits/men/97.jpg" alt="Avatar of Author">
+				<div class="flex-1 px-2">
+					<p class="text-base font-bold text-base md:text-xl leading-none mb-2">Jo Bloggerson</p>
+					<p class="text-grey-dark text-xs md:text-base">Minimal Blog Tailwind CSS template by <a
+							class="text-teal no-underline hover:underline"
+							href="https://www.tailwindtoolbox.com">TailwindToolbox.com</a></p>
+				</div>
+				<div class="justify-end">
+					<button
+						class="bg-transparent border border-grey hover:border-teal text-xs text-grey hover:text-teal font-bold py-2 px-4 rounded-full">Read
+						More</button>
+				</div>
+			</div>
+			<!--/Author-->
+
+			<!--Divider-->
+			<hr class="border-b-2 border-grey-light mb-8 mx-4">
+
+			<!--Next & Prev Links-->
+			<div class="font-sans flex justify-between content-center px-4 pb-12">
+				<div class="text-left">
+					<span class="text-xs md:text-sm font-normal text-grey-dark">&lt; Previous Post</span><br>
+					<p><a href="#" class="break-normal text-base md:text-sm text-teal font-bold no-underline hover:underline">Blog
+							title</a></p>
+				</div>
+				<div class="text-right">
+					<span class="text-xs md:text-sm font-normal text-grey-dark">Next Post &gt;</span><br>
+					<p><a href="#" class="break-normal text-base md:text-sm text-teal font-bold no-underline hover:underline">Blog
+							title</a></p>
+				</div>
+			</div>
+
+
+			<!--/Next & Prev Links-->
+
+		</div>
+	</section>
+	<!--/container-->
+
+
+
+	<!--Footer-->
+	<footer class="bg-white text-gray-700 body-font">
+		<div class="container px-5 py-24 mx-auto">
+			<div class="flex flex-wrap md:text-left text-center order-first">
+				<div class="lg:w-1/4 md:w-1/2 w-full px-4">
+					<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+					<nav class="list-none mb-10">
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">First Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Second Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Third Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+						</li>
+					</nav>
+				</div>
+				<div class="lg:w-1/4 md:w-1/2 w-full px-4">
+					<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+					<nav class="list-none mb-10">
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">First Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Second Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Third Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+						</li>
+					</nav>
+				</div>
+				<div class="lg:w-1/4 md:w-1/2 w-full px-4">
+					<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+					<nav class="list-none mb-10">
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">First Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Second Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Third Link</a>
+						</li>
+						<li>
+							<a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+						</li>
+					</nav>
+				</div>
+				<div class="lg:w-1/4 md:w-1/2 w-full px-4">
+					<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SUBSCRIBE</h2>
+					<div class="flex xl:flex-no-wrap md:flex-no-wrap lg:flex-wrap flex-wrap justify-center md:justify-start">
+						<input class="w-40 sm:w-auto bg-gray-100 rounded xl:mr-4 lg:mr-0 sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4" placeholder="Placeholder" type="text">
+						<button class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
+					</div>
+					<p class="text-gray-500 text-sm mt-2 md:text-left text-center">Bitters chicharrones fanny pack
+						<br class="lg:block hidden">waistcoat green juice
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="bg-gray-200">
+			<div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+				<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+					<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+						<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+					</svg>
+					<span class="ml-3 text-xl">tailblocks</span>
+				</a>
+				<p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© 2020 tailblocks —
+					<a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@knyttneve</a>
+				</p>
+				<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+					<a class="text-gray-500">
+						<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+							<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+						</svg>
+					</a>
+					<a class="ml-3 text-gray-500">
+						<svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+							<path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+						</svg>
+					</a>
+					<a class="ml-3 text-gray-500">
+						<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+							<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+							<path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+						</svg>
+					</a>
+					<a class="ml-3 text-gray-500">
+						<svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+							<path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+							<circle cx="4" cy="4" r="2" stroke="none"></circle>
+						</svg>
+					</a>
+				</span>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+	<!-- jQuery if you need it
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  -->
+
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+	<script>
+	
+		var scrollpos = window.scrollY;
+		var header = document.getElementById("header");
+		var navcontent = document.getElementById("nav-content");
+		var navaction = document.getElementById("navAction");
+		var brandname = document.getElementById("brandname");
+		var toToggle = document.querySelectorAll(".toggleColour");
+	
+		document.addEventListener('scroll', function() {
+	
+		/*Apply classes for slide in bar*/
+		scrollpos = window.scrollY;
+	
+			if(scrollpos > 10){
+				header.classList.add("bg-white");
+			header.classList.remove("text-white");
+			header.classList.add("text-black");
+			//Use to switch toggleColour colours
+				for (var i = 0; i < toToggle.length; i++) {
+				 toToggle[i].classList.add("text-black");
+			 toToggle[i].classList.remove("text-white");
+			}
+			header.classList.add("shadow");
+	
+			}
+			else {
+			header.classList.remove("bg-white");
+			header.classList.remove("text-black");
+	
+			//Use to switch toggleColour colours
+				for (var i = 0; i < toToggle.length; i++) {
+				 toToggle[i].classList.add("text-white");
+			 toToggle[i].classList.remove("text-gray-800");
+			}
+			
+			header.classList.remove("shadow");
+	
+			
+			}
+	
+		});
+	
+		
+	</script>
+
+	<script>
+		/*Toggle dropdown list*/
+		/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+		var navMenuDiv = document.getElementById("nav-content");
+		var navMenu = document.getElementById("nav-toggle");
+
+		document.onclick = check;
+
+		function check(e) {
+			var target = (e && e.target) || (event && event.srcElement);
+
+			//Nav Menu
+			if (!checkParent(target, navMenuDiv)) {
+				// click NOT on the menu
+				if (checkParent(target, navMenu)) {
+					// click on the link
+					if (navMenuDiv.classList.contains("hidden")) {
+						navMenuDiv.classList.remove("hidden");
+					} else {
+						navMenuDiv.classList.add("hidden");
+					}
+				} else {
+					// click both outside link and outside menu, hide menu
+					navMenuDiv.classList.add("hidden");
+				}
+			}
+
+		}
+
+		function checkParent(t, elm) {
+			while (t.parentNode) {
+				if (t == elm) {
+					return true;
+				}
+				t = t.parentNode;
+			}
+			return false;
+		}
+
+		/* Progress bar */
+		//Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+		var h = document.documentElement,
+			b = document.body,
+			st = 'scrollTop',
+			sh = 'scrollHeight',
+			progress = document.querySelector('#progress'),
+			scroll;
+		var scrollpos = window.scrollY;
+		var header = document.getElementById("header");
+		var navcontent = document.getElementById("nav-content");
+
+		document.addEventListener('scroll', function () {
+
+			/*Refresh scroll % width*/
+			scroll = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+			progress.style.setProperty('--scroll', scroll + '%');
+
+			/*Apply classes for slide in bar*/
+			scrollpos = window.scrollY;
+
+			if (scrollpos > 10) {
+				header.classList.add("bg-white");
+				header.classList.add("shadow");
+			} else {
+				header.classList.remove("bg-white");
+				header.classList.remove("shadow");
+			}
+
+		});
+	</script>
+
+
+</body>
+
+</html>

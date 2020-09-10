@@ -36,9 +36,9 @@
   </div>
 
   {# The progess bar is only shown on Pages and Entries #}
-  {% if record.contenttype == 'pages' %}
+  {% if record.contenttype|default == 'pages' %}
     <div id="progress" class="bg-white h-1 z-40" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
-  {% elseif record.contenttype == 'entries' %}
+  {% elseif record.contenttype|default == 'entries' %}
     <div id="progress" class="bg-white h-1 z-40" style="background:linear-gradient(to right, #4dc0b5 var(--scroll), transparent 0);"></div>
   {% endif %}
 

@@ -2,63 +2,61 @@
 
 {% block main %}
 
-        {# This template is used for 'listings': Generic pages that list a number of
-           records from a certain content type. These records are available as an array
-           called 'records'. In the for-loop below, we iterate over the records that
-           are on this page. It can be used for overview pages like 'all entries', or
-           'all records tagged with kittens'. #}
+	{# This template is used for 'listings': Generic pages that list a number of
+	           records from a certain content type. These records are available as an array
+	           called 'records'. In the for-loop below, we iterate over the records that
+	           are on this page. It can be used for overview pages like 'all entries', or
+	           'all records tagged with kittens'. #}
 
-        {# If used for listing a taxonomy, we add a heading #}
-        {% if taxonomy is defined %}
-            <h1>
-                {{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
-            </h1>
-        {% endif %}
+	{# If used for listing a taxonomy, we add a heading #}
+		{% if taxonomy is defined %}
+			<h1>
+		{{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
+	</h1>
+	{% endif %}
 
-        	<section class="bg-gray-100 text-gray mt-16 w-full">
-            <div class="container px-5 py-24 mx-auto">
-              <div class="-my-8">
+		<section class="bg-gray-100 text-gray mt-16 w-full"> <div class="container px-5 py-24 mx-auto">
+			<div class="-my-8">
 
-              {% for record in records %}
+				{% for record in records %}
 
-                <div class="py-8 flex flex-wrap md:flex-no-wrap">
-                  <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                    <span class="tracking-widest font-medium title-font text-gray-900">
-                      {% for type, taxonomies in record|taxonomies %}
-                        {% for taxonomy in taxonomies %}
-                          {{ taxonomy.name }}
-                        {% endfor %}
-                      {% endfor %}
-                    </span>
-                    <span class="mt-1 text-gray-500 text-sm">{{ record.publishedAt|date("d M Y")}} </span>
-                  </div>
-                  <div class="md:flex-grow">
-                    <h2 class="text-2xl font-medium text-black title-font mb-2">{{ record|title }}</h2>
-                    <p class="leading-relaxed text-black">
-                      {{ record|excerpt(300, false, search|default('')) }}
-                    </p>
-                    <a href="{{ record|link }}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
-                      <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+					<div class="py-8 flex flex-wrap md:flex-no-wrap">
+						<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+							<span class="tracking-widest font-medium title-font text-gray-900">
+								{% for type, taxonomies in record|taxonomies %}
+									{% for taxonomy in taxonomies %}
+										{{ taxonomy.name }}
+									{% endfor %}
+								{% endfor %}
+							</span>
+							<span class="mt-1 text-gray-500 text-sm">{{ record.publishedAt|date("d M Y")}}
+							</span>
+						</div>
+						<div class="md:flex-grow">
+							<h2 class="text-2xl font-medium text-black title-font mb-2">{{ record|title }}</h2>
+							<p class="leading-relaxed text-black">
+								{{ record|excerpt(300, false, search|default('')) }}
+							</p>
+							<a href="{{ record|link }}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
+								<svg class="w-4 h-4 ml-2" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<path d="M5 12h14"></path>
+									<path d="M12 5l7 7-7 7"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
 
-                {% else %}
+				{% else %}
 
-                <h2 class="text-2xl font-medium text-black title-font mb-2">{{ __('general.phrase.no-content-found') }}</h2>
-                <p class="leading-relaxed text-black">
-                    {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
-                </p>
+					<h2 class="text-2xl font-medium text-black title-font mb-2">{{ __('general.phrase.no-content-found') }}</h2>
+					<p class="leading-relaxed text-black">
+						{{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
+					</p>
 
+				{% endfor %}
 
-              {% endfor %}
-
-              </div>
-            </div>
-          </section>
-
+			</div>
+		</div>
+	</section>
 
 {% endblock main %}

@@ -20,8 +20,8 @@ Tailwind CSS is a highly customizable, low-level CSS framework that gives you al
 
 2 Resources
 --------------
-[Tailwind Cheat Sheet](https://nerdcave.com/tailwind-cheat-sheet)
-[Tailwind components](https://tailwindcomponents.com/)
-[Tailwind Toolbox](https://www.tailwindtoolbox.com/)
-[Awsome Tailwind CSS - Large resource of links](https://github.com/aniftyco/awesome-tailwindcss)
+- [Tailwind Cheat Sheet](https://nerdcave.com/tailwind-cheat-sheet)
+- [Tailwind components](https://tailwindcomponents.com/)
+- [Tailwind Toolbox](https://www.tailwindtoolbox.com/)
+- [Awsome Tailwind CSS - Large resource of links](https://github.com/aniftyco/awesome-tailwindcss)
 

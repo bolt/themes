@@ -1,0 +1,54 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer utilities {
+  @responsive {
+    .article [data-bolt-field="teaser"] {
+      font-size: clamp(1.25rem, 1.75vw, 1.5rem) 
+    }
+
+    .article>p {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    .article>ul {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+    .article h1 {
+      font-size: clamp(1.875rem, 2.5vw, 2.25rem)
+    }
+    .article h2 {
+      font-size: clamp(1.5rem, 2vw, 1.875rem)
+    }
+    .article h3 {
+      font-size: clamp(1.25rem, 1.75vw, 1.5rem);
+      font-weight: 700;
+    }
+    .article h4 {
+      font-size: clamp(1.125rem, 1.5vw, 1.25rem)
+    }
+    .article h5 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .article h6 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .article blockquote>p {
+      border-left-width: 4px;
+      border-color: #b2f5ea;
+      font-style: italic;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+      font-size: clamp(1.875rem, 2.5vw, 2.25rem);
+    }
+
+  }
+}

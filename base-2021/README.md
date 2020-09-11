@@ -41,4 +41,9 @@ You can edit these files to your liking. The themes come with the development bu
 These makes the development as productive as possible, but when you are ready for production, make sure you 'purge' the CSS.
 See the Tailwind documentation for information about [controling the file size](https://tailwindcss.com/docs/controlling-file-size).
 
+  ```
+**Important note**
+In the folder "tailwind css" is the base css file for generating the Tailwind CSS.
+In this file are also some custom CSS rules for the record template.
+  ```
 

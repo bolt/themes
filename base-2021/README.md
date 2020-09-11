@@ -25,6 +25,8 @@ Tailwind CSS is a highly customizable, low-level CSS framework that gives you al
 - [Tailwind components](https://tailwindcomponents.com/)
 - [Tailwind Toolbox](https://www.tailwindtoolbox.com/)
 - [Awsome Tailwind CSS - Large resource of links](https://github.com/aniftyco/awesome-tailwindcss)
+- [Bolt CMS documentation](https://docs.bolt.cm/4.0/getting-started/introduction)
+- [Twig documentation](https://twig.symfony.com/)
 
 3 About this theme
 ------------------

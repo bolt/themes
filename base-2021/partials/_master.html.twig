@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +27,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   -->
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/theme_extras.css') }}" />
   <!--Replace with your tailwind.css once created-->
 
   <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
@@ -39,7 +39,7 @@
 
 </head>
 
-<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+<body class="leading-normal tracking-normal gradient" style="font-family: 'Source Sans Pro', sans-serif;">
   {% include 'partials/_navigation.html.twig' %}
 
   {% block main %}

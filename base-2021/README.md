@@ -33,9 +33,9 @@ Tailwind CSS is a highly customizable, low-level CSS framework that gives you al
 
 The base-2021 theme consists of:
 
-- Homepage (index.html.twig)
-- Record page (record.html.twig)
-- Listing page (listing.html.twig)
+- Homepage (index.twig)
+- Record page (record.twig)
+- Listing page (listing.twig)
 
 You can edit these files to your liking. The themes come with the development build of Tailwind CSS which is 2380.4kB.
 These makes the development as productive as possible, but when you are ready for production, make sure you 'purge' the CSS.

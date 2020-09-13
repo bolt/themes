@@ -1,4 +1,4 @@
-{% extends 'partials/_master.html.twig' %}
+{% extends 'partials/_master.twig' %}
 
 {% block main %}
 
@@ -17,11 +17,11 @@
         <h1 class="text-2xl lg:text-4xl font-semibold leading-tight">
           {{ record|title }}
         </h1>
-        {% include 'partials/_record_header_author.html.twig' %}
+        {% include 'partials/_record_header_author.twig' %}
       </div>
     </div>
 
-  {% include 'partials/_record_divider_top.html.twig' %}
+  {% include 'partials/_record_divider_top.twig' %}
 
   </div>
 
@@ -66,15 +66,15 @@
     <!--Divider-->
     <hr class="border-b-2 border-grey-light mb-8 mx-4">
 
-    {% include 'partials/_record_newsletter_sub.html.twig' %}
+    {% include 'partials/_record_newsletter_sub.twig' %}
 
 
-    {% include 'partials/_record_author.html.twig' %}
+    {% include 'partials/_record_author.twig' %}
 
     <!--Divider-->
     <hr class="border-b-2 border-grey-light mb-8 mx-4">
 
-    {% include 'partials/_record_prev_next.html.twig' %}
+    {% include 'partials/_record_prev_next.twig' %}
 
   </div>
 </section>

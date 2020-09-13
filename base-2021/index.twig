@@ -1,0 +1,21 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+  {% include 'partials/_index_hero.twig' with { content: 'blocks/about' } %}
+  {% include 'partials/_index_divider_top.twig' %}
+  {% include 'partials/_index_vertical_block.twig' with { content: 'blocks/about', contenttype: 'pages' } %}
+  {% include 'partials/_index_3_column_block_images.twig' with { contenttype: 'entries' } %}
+  {% include 'partials/_index_team.twig' with { content: 'blocks/people', contenttype: 'people' } %}
+  {% include 'partials/_index_pricing_block.twig' with { content: 'blocks/products', contenttype: 'products' } %}
+
+  {% include 'partials/_index_3_column_block.twig' with { content: 'blocks/about', contenttype: 'pages' } %}
+
+  {% include 'partials/_index_divider_bottom.twig' %}
+  {% include 'partials/_index_CTA.twig' with { content: 'blocks/call-to-action' } %}
+  {% include 'partials/_index_divider_top.twig' %}
+
+
+  {% include 'partials/_index_contact_with_map.twig' %}
+
+{% endblock main %}

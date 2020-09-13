@@ -36,13 +36,13 @@
 </head>
 
 <body class="leading-normal tracking-normal gradient" style="font-family: 'Source Sans Pro', sans-serif;">
-  {% include 'partials/_navigation.html.twig' %}
+  {% include 'partials/_navigation.twig' %}
 
   {% block main %}
   (This is <code>block main</code>)
   {% endblock main %}
 
-  {% include 'partials/_footer.html.twig' %}
+  {% include 'partials/_footer.twig' %}
 
   <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
   <script defer src="{{ asset('js/app.js') }}"></script>

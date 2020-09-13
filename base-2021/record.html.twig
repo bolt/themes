@@ -15,7 +15,7 @@
     <div class="flex flex-col p-4 w-full absolute bottom-0 left-0 z-20">
       <div class="w-2/3 md:mx-auto pb-12">
         <h1 class="text-2xl lg:text-4xl font-semibold leading-tight">
-
+          {{ record|title }}
         </h1>
         {% include 'partials/_record_header_author.html.twig' %}
       </div>
@@ -27,19 +27,25 @@
 
   <div class="container w-full max-w-3xl  mx-auto text-black pt-20">
 
-    <div class="w-full px-4 md:px-6 text-xl text-grey-darkest leading-normal">
+    <div class="w-full px-4 md:px-6 text-grey-darkest leading-normal">
 
-      <!--Post Content-->
-
-      <h1>{{ record|title }}</h1>
+      <!-- Record Content-->
 
       <article class="article">
-        {% with { 'record': record, 'exclude': [record|image.fieldname|default()] } %}
+        {% if record|edit_link %}
+          <a href="{{ record|edit_link }}" class="px-4 py-1 gradient text-gray-200 inline-flex items-center justify-center mb-2 rounded-md">
+            {{ __('general.phrase.edit') }}
+          </a>
+        {% endif %}
+
+        <h1>{{ record|title }}</h1>
+
+        {% with { 'record': record, 'exclude': [record|image.fieldname|default(), 'teaser'] } %}
         {{ block('sub_fields', 'helpers/_fields.twig') }}
         {% endwith %}
       </article>
 
-      <!--/ Post Content-->
+      <!--/ Record Content-->
 
     </div>
 

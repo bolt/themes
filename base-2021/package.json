@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss css/styles.css -o public/css/styles.css"
+    "build": "postcss tailwind_css/*.css -d css/",
+    "watch": "watch 'npm run build' ./tailwind_css"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "autoprefixer": "^9.8.6",
     "postcss-cli": "^7.1.2",
-    "tailwindcss": "^1.7.6"
+    "tailwindcss": "^1.7.6",
+    "watch": "^1.0.2"
   }
 }

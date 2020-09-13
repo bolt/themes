@@ -15,7 +15,7 @@
         <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
       </div>
       <div class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
-        {{ block ? block.content|default(block|excerpt(300)) }}
+        {{ block ? block|excerpt(300) }}
       </div>
     </div>
 
@@ -31,11 +31,20 @@
             <h2 class="title-font font-bold text-lg text-gray-900 my-3">{{ record.name }}</h2>
             <h3 class="text-gray-500 my-3">{{ record.description }}</h3>
             <p class="mb-4">{{ record|excerpt(100) }}</p>
+
             <span class="inline-flex">
-              <a href="{{ relative_path(record.contentlink|e) }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+              <a href="{{ record|link }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                 {{ __('general.phrase.read-more') }}
               </a>
             </span>
+
+            {% if record.contentlink %}
+            <span class="inline-flex">
+              <a href="{{ relative_path(record.contentlink|e) }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 mx-4 focus:outline-none hover:bg-indigo-600 rounded">
+                Link
+              </a>
+            </span>
+            {% endif %}
 
           </div>
         </div>

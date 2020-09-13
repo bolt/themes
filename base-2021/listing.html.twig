@@ -32,18 +32,25 @@
 							<span class="mt-1 text-gray-500 text-sm">{{ record.publishedAt|date("d M Y")}}
 							</span>
 						</div>
+
 						<div class="md:flex-grow">
 							<h2 class="text-2xl font-medium text-black title-font mb-2">{{ record|title }}</h2>
 							<p class="leading-relaxed text-black">
 								{{ record|excerpt(300, false, search|default('')) }}
 							</p>
-							<a href="{{ record|link }}" class="text-indigo-500 inline-flex items-center mt-4">Learn More
-								<svg class="w-4 h-4 ml-2" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path d="M5 12h14"></path>
-									<path d="M12 5l7 7-7 7"></path>
-								</svg>
+
+
+							<a href="{{ record|link }}" class="text-indigo-500 inline-flex items-center mt-4">
+								{{ __('general.phrase.read-more') }} &raquo;
 							</a>
 						</div>
+
+						<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+							{% if record|image %}
+								<img src="{{ record|thumbnail(400, 300, fit="crop") }}">
+							{% endif %}
+						</div>
+
 					</div>
 
 				{% else %}

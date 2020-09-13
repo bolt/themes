@@ -1,0 +1,5 @@
+{# We've put this in a separate partial, because this is needed for correct
+behaviour: The Twig parser parses the entire document, and _then_ executes it.
+This means we can't parse a template that checks if a tag might exist or not.
+By putting this in a separate file, we circumvent that limitation. #}
+{{ boltforms('contact') }}

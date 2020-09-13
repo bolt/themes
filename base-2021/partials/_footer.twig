@@ -11,7 +11,7 @@
 					<form method="get" action="{{ path('search') }}" enctype="text/plain">
 						<input class="w-30 bg-gray-100 rounded xl:mr-4 lg:mr-0 sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4"
 							   value="{{ search|default|escape }}" placeholder="{{ __('general.phrase.search-ellipsis') }}"
-							   type="search">
+							   type="search" name="search">
 						<button class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
 							{{ __('action.search') }}
 						</button>

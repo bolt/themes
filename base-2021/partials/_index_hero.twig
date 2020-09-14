@@ -8,7 +8,7 @@
 		<div class="flex flex-col w-full md:w-1/2 justify-center items-start text-center md:text-left">
 			<h1 class="my-4 text-5xl font-bold leading-tight">{{ block|title }}</h1>
 			<p class="leading-normal text-2xl mb-8">{{ block|excerpt }}</p>
-			<a href="{{ relative_path(record.contentlink|e) }}"
+			<a href="{{ block ? relative_path(block.contentlink|e) }}"
 				class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">
 				{{ __('general.phrase.read-more') }}
 			</a>

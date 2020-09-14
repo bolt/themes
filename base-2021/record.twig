@@ -51,16 +51,14 @@
 
     <!--Tags -->
     <div class="text-base md:text-sm text-grey px-4 py-6">
-      <a href="#" class="px-4 py-1 gradient text-gray-200 inline-flex items-center justify-center mb-2 rounded-md">
+    Tags:
+      <a href="#" class="text-base md:text-sm text-teal no-underline hover:underline">
         {% for type, taxonomies in record|taxonomies %}
           {% for taxonomy in taxonomies %}
-            {{ taxonomy.name }}
+            {{ taxonomy.name }}, 
           {% endfor %}
         {% endfor %}
       </a>
-
-      Tags: <a href="#" class="text-base md:text-sm text-teal no-underline hover:underline">Link</a> . <a href="#"
-        class="text-base md:text-sm text-teal no-underline hover:underline">Link</a>
     </div>
 
     <!--Divider-->

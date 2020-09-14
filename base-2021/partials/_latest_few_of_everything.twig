@@ -9,11 +9,11 @@
             <nav class="list-none mb-10">
                 <ul>
                     {% for record in records %}
-                        <li><a href="{{ record|link }}">{{ record|title }}</a></li>
+                        <li><a class"hover:underline" href="{{ record|link }}">{{ record|title }}</a></li>
                     {% endfor %}
                 </ul>
             </nav>
-            <p><a href="{{ path('listing', {'contentTypeSlug': ct.slug}) }}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct.name}) }} &raquo;</a></p>
+            <p><a class"no-underline hover:underline" href="{{ path('listing', {'contentTypeSlug': ct.slug}) }}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct.name}) }} &raquo;</a></p>
         {% else %}
             <p>{{ __('contenttypes.generic.no-recent', {'%contenttype%': ct.slug}) }}</p>
         {% endif %}

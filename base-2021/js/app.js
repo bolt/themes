@@ -19,7 +19,7 @@ scrollpos = window.scrollY;
   //Use to switch toggleColour colours
     for (var i = 0; i < toToggle.length; i++) {
      toToggle[i].classList.add("text-black");
-   toToggle[i].classList.remove("text-white");
+     toToggle[i].classList.remove("text-white");
   }
   header.classList.add("shadow");
 
@@ -27,6 +27,7 @@ scrollpos = window.scrollY;
   else {
   header.classList.remove("bg-white");
   header.classList.remove("text-black");
+  header.classList.add("text-white");
 
   //Use to switch toggleColour colours
     for (var i = 0; i < toToggle.length; i++) {

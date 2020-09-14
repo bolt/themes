@@ -22,7 +22,7 @@
 			{% if loop.index is odd %}
 				<div class="w-full sm:w-1/2 p-6">
 					<img class="w-full object-cover object-center"
-						 src="{{ record|thumbnail(500, 300, fit="crop") }}" alt="{{ record|image.title }}">
+						 src="{{ record|thumbnail(500, 300, fit="crop") }}" {#alt="{{ record|image.title }}#}">
 				</div>
 			{% endif %}
 

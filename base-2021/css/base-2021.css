@@ -85,16 +85,19 @@ html {
 
 .article>p {
   margin: 1rem 0;
+  font-size: clamp(1.1rem, 1.1vw, 1.6rem);
 }
 
 .article > ol {
   list-style-type: decimal;
   list-style-position: inside;
+  font-size: clamp(1.1rem, 1.1vw, 1.6rem);
 }
 
 .article > ul {
   list-style-type: disc;
   list-style-position: inside;
+  font-size: clamp(1.1rem, 1.1vw, 1.6rem);
 }
 
 .article h1 {
@@ -139,16 +142,19 @@ html {
 @media (min-width: 640px) {
   .sm\:article>p {
     margin: 1rem 0;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .sm\:article > ol {
     list-style-type: decimal;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .sm\:article > ul {
     list-style-type: disc;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .sm\:article h1 {
@@ -192,16 +198,19 @@ html {
 @media (min-width: 768px) {
   .md\:article>p {
     margin: 1rem 0;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .md\:article > ol {
     list-style-type: decimal;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .md\:article > ul {
     list-style-type: disc;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .md\:article h1 {
@@ -245,16 +254,19 @@ html {
 @media (min-width: 1024px) {
   .lg\:article>p {
     margin: 1rem 0;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .lg\:article > ol {
     list-style-type: decimal;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .lg\:article > ul {
     list-style-type: disc;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .lg\:article h1 {
@@ -298,16 +310,19 @@ html {
 @media (min-width: 1280px) {
   .xl\:article>p {
     margin: 1rem 0;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .xl\:article > ol {
     list-style-type: decimal;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .xl\:article > ul {
     list-style-type: disc;
     list-style-position: inside;
+    font-size: clamp(1.1rem, 1.1vw, 1.6rem);
   }
 
   .xl\:article h1 {

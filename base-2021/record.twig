@@ -8,13 +8,13 @@
 
   <div class="mb-4 md:mb-0 w-full mx-auto relative" style="height: 32em;">
     <div class="absolute left-0 bottom-0 w-full h-full z-10"
-      style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));">
+      style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.3));">
     </div>
     <img src="{{ record|image }}" class="absolute left-0 top-0 w-full h-full z-0 object-cover" />
 
     <div class="flex flex-col p-4 w-full absolute bottom-0 left-0 z-20">
-      <div class="w-2/3 md:mx-auto pb-12">
-        <h1 class="text-2xl lg:text-4xl text-white font-semibold leading-tight">
+      <div class="w-full max-w-4xl mx-auto pb-20">
+        <h1 class="text-2xl lg:text-5xl text-white font-semibold leading-tight" style="text-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.25);">
           {{ record|title }}
         </h1>
         {% include 'partials/_record_header_author.twig' %}
@@ -25,7 +25,7 @@
 
   </div>
 
-  <div class="container w-full max-w-3xl  mx-auto text-black pt-20">
+  <div class="container w-full max-w-3xl mx-auto text-black pt-20">
 
     <div class="w-full px-4 md:px-6 text-grey-darkest leading-normal">
 

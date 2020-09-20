@@ -5,8 +5,8 @@
 {% setcontent records = (contenttype) limit 3 random %}
 
 <!-- 3 column block -->
-<section class="bg-white border-b py-8">
-	<div class="container mx-auto flex flex-wrap pt-4 pb-12">
+<section class="bg-white py-8">{# no `border-b` (border-bottom) #}
+	<div class="container mx-auto flex flex-wrap pt-6 pb-12">
 		{% include 'partials/_block_header.twig' %}
 
 		{% for record in records %}

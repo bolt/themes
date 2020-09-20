@@ -22,9 +22,11 @@
     {% include 'partials/_index_3_column_block.twig' with { content: 'blocks/about', contenttype: 'pages' } %}
   {% endif %}
 
-  {% include 'partials/_index_divider_bottom.twig' %}
+  {% include 'partials/_index_divider_bottom.twig' with { background: '#FFF' } %}
+
   {% include 'partials/_index_CTA.twig' with { content: 'blocks/call-to-action' } %}
-  {% include 'partials/_index_divider_top.twig' %}
+
+  {% include 'partials/_index_divider_top.twig' with { background: '#f8fafc' } %}
 
   {% include 'partials/_index_contact_with_map.twig' %}
 

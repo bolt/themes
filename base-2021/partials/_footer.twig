@@ -1,0 +1,40 @@
+<!--Footer-->
+<footer class="bg-white text-gray-700 body-font">
+	<div class="container px-5 py-24 mx-auto">
+		<div class="flex flex-wrap md:text-left text-center order-first">
+
+			{% include 'partials/_latest_few_of_everything.twig' %}
+
+			<div class="lg:w-1/4 md:w-1/2 w-full px-4">
+				<h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SEARCH</h2>
+				<div class="flex xl:flex-no-wrap md:flex-no-wrap lg:flex-wrap flex-wrap justify-center md:justify-start">
+					<form method="get" action="{{ path('search') }}" enctype="text/plain">
+						<input class="w-30 bg-gray-100 rounded xl:mr-4 lg:mr-0 sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4"
+							   value="{{ search|default|escape }}" placeholder="{{ __('general.phrase.search-ellipsis') }}"
+							   type="search" name="search">
+						<button class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+							{{ __('action.search') }}
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bg-gray-200">
+		<div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
+			<a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+				{% include 'img/logo.svg' %}
+				<span class="ml-3 text-xl">{{ config.get('general/sitename') }}</span>
+			</a>
+
+			<p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© {{ "now"|date('Y') }} —
+				<a href="https://boltcms.io" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Built with Bolt</a>
+			</p>
+
+			<span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+				{% include 'partials/_socials.twig' %}
+			</span>
+		</div>
+	</div>
+</footer>

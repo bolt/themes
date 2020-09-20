@@ -1,0 +1,21 @@
+{# The name of the `content` is passed in from the index, i.e. "blocks/hero" #}
+{% setcontent block = (content) returnsingle %}
+
+<!--Hero-->
+<div class="pt-24">
+	<div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+		<!--Left Col-->
+		<div class="flex flex-col w-full md:w-1/2 justify-center items-start text-center md:text-left">
+			<h1 class="my-4 text-5xl font-bold leading-tight text-white">{{ block|title }}</h1>
+			<p class="leading-normal text-2xl mb-8 text-white">{{ block|excerpt }}</p>
+			<a href="{{ block ? relative_path(block.contentlink|e) }}"
+				class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">
+				{{ __('general.phrase.read-more') }}
+			</a>
+		</div>
+		<!--Right Col-->
+		<div class="w-full md:w-1/2 py-12 text-center">
+			<img class="w-full md:w-4/5 z-50" style="border-radius: 1.5rem;" src="{{ block|thumbnail(600, 400, fit="crop") }}">
+		</div>
+	</div>
+</div>

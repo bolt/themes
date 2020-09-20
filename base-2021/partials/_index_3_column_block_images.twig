@@ -1,0 +1,44 @@
+{# The name of `contenttype` is passed in from the index, i.e. "entries" #}
+{% setcontent records = (contenttype) limit 3 latest  %}
+
+<!-- 3 column block with images -->
+<section class="bg-gray-200 border-b py-8">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+
+      {% for record in records %}
+      <div class="p-4 md:w-1/3">
+        <div class="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center"
+               src="{{ record|thumbnail(720, 400, fit="crop") }}" alt="{{ record|image.title }}">
+          <div class="p-6">
+            <p class="tracking-wide text-s title-font font-medium text-gray-500 mb-1">
+              {% for taxonomy in record|taxonomies['categories']|default([]) %}
+                {{ taxonomy.name }}
+                {%- if not loop.last %}, {% endif %}
+              {% endfor %}
+            </p>
+            <h1 class="title-font text-lg font-bold text-gray-900 mb-3">
+              {{ record|title }}
+            </h1>
+            <p class="leading-relaxed mb-3">
+              {{ record|excerpt(200) }}
+            </p>
+            <div class="flex items-center flex-wrap ">
+              <a href="{{ record|link() }}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                {{ __('general.phrase.read-more') }} &raquo;
+              </a>
+
+              <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1">
+                {{ record.author }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</section>

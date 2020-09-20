@@ -1,0 +1,11 @@
+{% set author = record|related('people')|first %}
+
+{% if author %}
+<div class="flex mt-3">
+    <img src="{{ author|thumbnail(200, 200, fit="crop") }}" class="h-10 w-10 rounded-full mr-2 object-cover" />
+    <div>
+        <p class="font-semibold text-gray-200 text-sm"> By {{ author.name }} </p>
+        <p class="font-semibold text-gray-400 text-xs"> {{ record.publishedAt|date("d M")}} </p>
+    </div>
+</div>
+{% endif %}

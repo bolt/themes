@@ -1,0 +1,16 @@
+# location for the embedded map
+location:
+    map_query: "Two Kings, the Hague"
+    address: |
+        Prins Hendrikstraat 91
+        2518 HL The Hague
+        Netherlands
+    email: support@example.org
+    phone: "+31 1-123456789"
+
+socials:
+    facebook: ~
+    twitter: https://twitter.com/twokings
+    instagram: https://www.instagram.com/bopp
+    linkedin: https://www.linkedin.com/company/two-kings
+    youtube: ~

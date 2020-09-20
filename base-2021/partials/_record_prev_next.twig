@@ -1,0 +1,28 @@
+<!--Next & Prev Links-->
+
+{% set previous = record|previous('id') %}
+    {% set next = record|next('id') %}
+    {% if previous or next %}
+        <div class="font-sans flex justify-between content-center px-4 pb-12">
+            <div class="text-left">
+                {% if previous %}
+                    <span class="text-xs md:text-sm font-normal text-grey-dark">&laquo; Previous {{ record.definition.singular_name }}</span><br>
+                    <p><a href="{{ previous|link }}"
+                          class="break-normal text-base md:text-sm text-teal font-bold no-underline hover:underline">
+                            {{ previous|title|excerpt(44) }}
+                        </a></p>
+                {% endif %}
+            </div>
+            <div class="text-right">
+                {% if next %}
+                    <span class="text-xs md:text-sm font-normal text-grey-dark">Next {{ record.definition.singular_name }} &raquo;</span><br>
+                    <p><a href="{{ next|link }}"
+                          class="break-normal text-base md:text-sm text-teal font-bold no-underline hover:underline">
+                            {{ next|title|excerpt(44) }}
+                        </a></p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+<!--/Next & Prev Links-->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ htmllang() }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {# make sure we always display a proper title: The record's title if there is one, appended with the
+  sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+  <title>
+    {%- if record|default and record.title -%}
+    {{- record.title ~ ' | ' -}}
+    {%- endif -%}
+    {{- config.get('general/sitename') -}}
+    {%- if record|default == null and config.has('general/payoff') -%}
+    {{- ' | ' ~ config.get('general/payoff') -}}
+    {%- endif -%}
+  </title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/base-2021.css') }}" />
+  <!--Replace with your tailwind.css once created-->
+
+  <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+  <style>
+    .gradient {
+      background: linear-gradient(to right, #314755, #26a0da);
+    }
+  </style>
+
+</head>
+
+<body class="leading-normal tracking-normal gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+  {% include 'partials/_navigation.twig' %}
+
+  {% block main %}
+  (This is <code>block main</code>)
+  {% endblock main %}
+
+  {% include 'partials/_footer.twig' %}
+
+  <script defer src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+  <script defer src="{{ asset('js/app.js') }}"></script>
+</body>
+
+</html>

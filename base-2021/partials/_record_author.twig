@@ -1,0 +1,19 @@
+{% set author = record|related('people')|first %}
+
+{% if author %}
+<!--Author-->
+<div class="flex w-full items-center font-sans px-4 py-12">
+    <img class="w-20 h-20 rounded-full mr-4" src="{{ author|thumbnail(300, 300, fit="crop") }}"
+         alt="Avatar of Author">
+    <div class="flex-1 px-2">
+        <p class="text-base font-bold text-base md:text-xl leading-none mb-2">{{ author.name }}</p>
+        <p class="text-grey-dark text-xs md:text-base">{{ author.description }}</p>
+    </div>
+    <div class="justify-end">
+        <a href="{{ author|link }}" class="bg-transparent border border-grey hover:border-teal text-xs text-grey hover:text-teal font-bold py-2 px-4 rounded-full">
+            {{ __('general.phrase.read-more') }} &raquo;
+        </a>
+    </div>
+</div>
+<!--/Author-->
+{% endif %}

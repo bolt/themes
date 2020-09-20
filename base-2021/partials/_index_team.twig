@@ -1,0 +1,56 @@
+{# The name of the `content` is passed in from the index, i.e. "blocks/people" #}
+{% setcontent block = (content) returnsingle %}
+
+{# The name of `contenttype` is passed in from the index, i.e. "people" #}
+{% setcontent records = (contenttype) limit 4 random returnmultiple %}
+
+<!-- Team overview -->
+<section class="bg-white border-b py-8">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+        {{ block|title }}
+      </h1>
+      <div class="w-full mb-4">
+        <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+      </div>
+      <div class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
+        {{ block|excerpt(300) }}
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -m-4">
+
+    {% for record in records %}
+      <div class="p-4 lg:w-1/4 md:w-1/2">
+        <div class="h-full flex flex-col items-center text-center">
+          <img
+            src="{{ record|thumbnail(800, 800, fit="crop") }}"
+            alt="{{ record.name }} - {{ record.description }}" class="shadow rounded-full max-w-full h-auto align-middle border-none" />
+          <div class="w-full">
+            <h2 class="title-font font-bold text-lg text-gray-900 my-3">{{ record.name }}</h2>
+            <h3 class="text-gray-500 my-3">{{ record.description }}</h3>
+            <p class="mb-4">{{ record|excerpt(100) }}</p>
+
+            <span class="inline-flex">
+              <a href="{{ record|link }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                {{ __('general.phrase.read-more') }}
+              </a>
+            </span>
+
+            {% if record.contentlink %}
+            <span class="inline-flex">
+              <a href="{{ relative_path(record.contentlink|e) }}" class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 mx-4 focus:outline-none hover:bg-indigo-600 rounded">
+                Link
+              </a>
+            </span>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>

@@ -27,7 +27,7 @@
 
   <div class="container w-full max-w-3xl mx-auto text-black pt-20">
 
-    <div class="w-full px-4 md:px-6 text-grey-darkest leading-normal">
+    <div class="w-full px-4 text-grey-darkest leading-normal">
 
       <!-- Record Content-->
 
@@ -51,20 +51,20 @@
 
     <!--Tags -->
     <div class="text-base md:text-sm text-grey px-4 py-6">
-    Tags:
-      <a href="#" class="text-base md:text-sm text-teal no-underline hover:underline">
         {% for type, taxonomies in record|taxonomies %}
+          {{ config.get('taxonomies/' ~ type).name }}:
           {% for taxonomy in taxonomies %}
-            {{ taxonomy.name }}, 
+            <a href="{{ taxonomy|link }}" class="text-base md:text-sm text-teal no-underline hover:underline">{{ taxonomy.name }}</a>
+            {%- if not loop.last %}, {% endif %}
           {% endfor %}
+          <br>
         {% endfor %}
       </a>
     </div>
 
     <!--Divider-->
-    <hr class="border-b-2 border-grey-light mb-8 mx-4">
-
-    {% include 'partials/_record_newsletter_sub.twig' %}
+    {# If you have a newsletter, uncomment the following, to insert the subscription block #}
+    {# {% include 'partials/_record_newsletter_sub.twig' %} #}
 
 
     {% include 'partials/_record_author.twig' %}

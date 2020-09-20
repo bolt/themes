@@ -1,69 +1,92 @@
 {% extends 'partials/_master.twig' %}
 
 {% block main %}
-
+<article class="article">
 	{# This template is used for 'listings': Generic pages that list a number of
 	           records from a certain content type. These records are available as an array
 	           called 'records'. In the for-loop below, we iterate over the records that
 	           are on this page. It can be used for overview pages like 'all entries', or
 	           'all records tagged with kittens'. #}
 
-	{# If used for listing a taxonomy, we add a heading #}
+
+
+	<section class="bg-gray-100 text-gray mt-16 w-full">
+		{# If used for listing a taxonomy, we add a heading #}
 		{% if taxonomy is defined %}
+		<div class="container px-5 pt-12 pb-0 mx-auto">
 			<h1>
-		{{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
-	</h1>
-	{% endif %}
+				{{ __('general.phrase.overview-for', {'%slug%': taxonomy.options[slug]|default(slug) }) }}
+			</h1>
+		</div>
+		{% endif %}
 
-		<section class="bg-gray-100 text-gray mt-16 w-full"> <div class="container px-5 py-24 mx-auto">
-			<div class="-my-8">
+		{% if search is defined %}
+			<div class="container px-5 pt-12 pb-0 mx-auto">
+				<h1>
+					{% if search is not empty %}
+						{{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+					{% else %}
+						{{ __('general.phrase.search') }}
+					{% endif %}
+				</h1>
+			</div>
+		{% endif %}
 
-				{% for record in records %}
+		<div class="container px-5 py-12 mx-auto">
 
-					<div class="py-8 flex flex-wrap md:flex-no-wrap">
-						<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-							<span class="tracking-widest font-medium title-font text-gray-900">
-								{% for type, taxonomies in record|taxonomies %}
-									{% for taxonomy in taxonomies %}
-										{{ taxonomy.name }}
-									{% endfor %}
+			{% for record in records %}
+
+				<div class="py-8 flex flex-wrap md:flex-no-wrap">
+					<div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+						<span class="tracking-widest font-medium title-font text-gray-900">
+							{% for type, taxonomies in record|taxonomies %}
+								{% for taxonomy in taxonomies %}
+									{{ taxonomy.name }}
 								{% endfor %}
-							</span>
-							<span class="mt-1 text-gray-500 text-sm">{{ record.publishedAt|date("d M Y")}}
-							</span>
-						</div>
-
-						<div class="md:flex-grow">
-							<h2 class="text-2xl font-medium text-black title-font mb-2">{{ record|title }}</h2>
-							<p class="leading-relaxed text-black">
-								{{ record|excerpt(300, false, search|default('')) }}
-							</p>
-
-
-							<a href="{{ record|link }}" class="text-indigo-500 inline-flex items-center mt-4">
-								{{ __('general.phrase.read-more') }} &raquo;
-							</a>
-						</div>
-
-						<div class="md:w-64 md:mb-0 mt-4 md:ml-4 mb-6 flex-shrink-0 flex flex-col">
-							{% if record|image %}
-								<img src="{{ record|thumbnail(400, 300, fit="crop") }}">
-							{% endif %}
-						</div>
-
+							{% endfor %}
+						</span>
+						<span class="mt-1 text-gray-500 text-sm">{{ record.publishedAt|date("d M Y")}}
+						</span>
 					</div>
 
-				{% else %}
+					<div class="md:flex-grow">
+						<h2 class="text-2xl font-medium text-black title-font mb-2">{{ record|title }}</h2>
+						<p class="leading-relaxed text-black">
+							{{ record|excerpt(300, false, search|default('')) }}
+						</p>
 
-					<h2 class="text-2xl font-medium text-black title-font mb-2">{{ __('general.phrase.no-content-found') }}</h2>
-					<p class="leading-relaxed text-black">
-						{{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
-					</p>
+						<a href="{{ record|link }}" class="text-indigo-500 inline-flex items-center mt-4">
+							{{ __('general.phrase.read-more') }} &raquo;
+						</a>
+					</div>
 
-				{% endfor %}
+					<div class="md:w-64 md:mb-0 mt-4 md:ml-4 mb-6 flex-shrink-0 flex flex-col">
+						{% if record|image %}
+							<img src="{{ record|thumbnail(400, 300, fit="crop") }}">
+						{% endif %}
+					</div>
 
-			</div>
+				</div>
+
+			{% else %}
+
+				<h2 class="text-2xl font-medium text-black title-font mb-2">{{ __('general.phrase.no-content-found') }}</h2>
+				<p class="leading-relaxed text-black">
+					{{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
+				</p>
+
+				<form method="get" action="{{ path('search') }}" enctype="text/plain" class="py-12">
+					<input class="w-30 bg-gray-100 rounded xl:mr-4 lg:mr-0 sm:mr-4 mr-2 border border-gray-400 focus:outline-none focus:border-indigo-500 text-base py-2 px-4"
+						   value="{{ search|default|escape }}" placeholder="{{ __('general.phrase.search-ellipsis') }}"
+						   type="search" name="search">
+					<button class="lg:mt-2 xl:mt-0 flex-shrink-0 inline-flex text-white gradient border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+						{{ __('action.search') }}
+					</button>
+				</form>
+
+			{% endfor %}
+
 		</div>
 	</section>
-
+</article>
 {% endblock main %}

@@ -13,7 +13,7 @@
                     {% endfor %}
                 </ul>
             </nav>
-            <p><a class"no-underline hover:underline" href="{{ path('listing', {'contentTypeSlug': ct.slug}) }}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct.name}) }} &raquo;</a></p>
+            <p><a class="no-underline hover:underline" href="{{ path('listing', {'contentTypeSlug': ct.slug}) }}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct.name}) }} &raquo;</a></p>
         {% else %}
             <p>{{ __('contenttypes.generic.no-recent', {'%contenttype%': ct.slug}) }}</p>
         {% endif %}

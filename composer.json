@@ -9,19 +9,19 @@
     ],
     "license": "MIT",
     "require": {
+        "bolt/bolt": "^4.0",
         "twig/twig": "^2.0 || ^3.0"
-    },
-    "conflict": {
-        "bolt/bolt": "< 3.999"
     },
     "extra": {
         "screenshots": [
             "screenshots/screenshot1.png",
-            "screenshots/screenshot2.png"
+            "screenshots/screenshot2.png",
+            "screenshots/screenshot3.png"
         ],
         "themes": [
             "skeleton",
-            "base-2018"
+            "base-2018",
+            "base-2021"
         ]
     }
 }

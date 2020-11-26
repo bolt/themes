@@ -51,15 +51,14 @@
 
     <!--Tags -->
     <div class="text-base md:text-sm text-grey px-4 py-6">
-        {% for type, taxonomies in record|taxonomies %}
-          {{ config.get('taxonomies/' ~ type).name }}:
-          {% for taxonomy in taxonomies %}
-            <a href="{{ taxonomy|link }}" class="text-base md:text-sm text-teal no-underline hover:underline">{{ taxonomy.name }}</a>
-            {%- if not loop.last %}, {% endif %}
-          {% endfor %}
-          <br>
+      {% for type, taxonomies in record|taxonomies %}
+        {{ config.get('taxonomies/' ~ type).name }}:
+        {% for taxonomy in taxonomies %}
+          <a href="{{ taxonomy|link }}" class="text-base md:text-sm text-teal no-underline hover:underline">{{ taxonomy.name }}</a>
+          {%- if not loop.last %}, {% endif %}
         {% endfor %}
-      </a>
+        <br>
+      {% endfor %}
     </div>
 
     <!--Divider-->

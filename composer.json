@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "bolt/bolt": "^4.0",
+        "bolt/core": "^4.1",
         "twig/twig": "^2.0 || ^3.0"
     },
     "extra": {

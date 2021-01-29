@@ -46,12 +46,9 @@
     }
 }
 
-* {
+html {
     /* Set the font globally */
     font-family: var(--sans-font);
-}
-
-html {
     font-size: 16px;
 }
 
@@ -391,9 +388,13 @@ code,
 pre,
 kbd,
 samp {
-    font-size: 1.075rem;
+    font-size: 1rem;
     font-family: var(--mono-font);
     color: var(--code);
+}
+
+code {
+    font-size: 1.075rem;
 }
 
 kbd {
@@ -480,4 +481,10 @@ pre code {
 .pagination .disabled {
     border-color: #c0dbe0;
     color: #abcfd6;
+}
+
+/* Some tweaks to keep Symfony dumps in check */
+.sf-dump {
+    font-size: 1rem !important;
+    line-height: 1.4rem !important;
 }

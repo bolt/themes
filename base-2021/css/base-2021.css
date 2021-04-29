@@ -2,11 +2,6 @@ html {
   font-size: 18px;
 }
 
-section a {
-  text-decoration: underline;
-  color: #667eea;
-}
-
 /* Default grid, as used by the Article field type */
 
 .article-grid {
@@ -95,20 +90,14 @@ section a {
 
 .article > ol {
   list-style-type: decimal;
-  list-style-position: outside;
+  list-style-position: inside;
   font-size: clamp(1.1rem, 1.1vw, 1.6rem);
-  margin-left: 1.25rem;
 }
 
 .article > ul {
   list-style-type: disc;
-  list-style-position: outside;
+  list-style-position: inside;
   font-size: clamp(1.1rem, 1.1vw, 1.6rem);
-  margin-left: 1.25rem;
-}
-
-.article li > p {
-  display: inline;
 }
 
 .article h1 {
@@ -145,7 +134,7 @@ section a {
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-left: 2rem;
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.875rem, 2.5vw, 2.25rem);
 }
 
 /* Base grid for "Article" powered Fields */

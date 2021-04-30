@@ -2,7 +2,7 @@
     "name": "bolt/themes",
     "description": "🎨 Starter themes for Bolt",
     "type": "bolt-theme",
-    "homepage": "http://boltcms.io",
+    "homepage": "https://boltcms.io",
     "keywords": [
         "CMS",
         "Twig"

@@ -53,7 +53,7 @@
                         <a href="{{ record|link }}">{{ __('general.phrase.permalink') }}</a> &bullet;
                         {{ __('general.phrase.written-by-on', {
                             '%name%': record.author.displayname|default(__('Unknown')),
-                            '%date%': record.datepublish|localdate("%A %B %e, %Y")
+                            '%date%': record.datepublish|localdate("l F j, Y")
                         }) }}
                     </p>
 

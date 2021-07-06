@@ -1,19 +1,16 @@
 {
   "name": "current",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "build": "postcss tailwind_css/*.css -d css/",
-    "watch": "watch 'npm run build' ./tailwind_css"
+    "build-tailwind": "postcss css/tailwind/*.css -d css/",
+    "watch": "chokidar '*.config.js' 'css/tailwind/*.css' '**/*.twig' -i 'node_modules' -c 'yarn build-tailwind' --initial"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "autoprefixer": "^9.8.6",
-    "postcss-cli": "^7.1.2",
-    "tailwindcss": "^1.7.6",
-    "watch": "^1.0.2"
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "chokidar-cli": "^2.1.0",
+    "cssnano": "^5.0.6",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.2"
   }
 }

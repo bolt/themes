@@ -12,11 +12,18 @@ To check out Bolt and set up your first Bolt installation, read
 
 ---
 
-1 Tailwind css
+1 Tailwind CSS
 --------------
 
 This theme is based on the framework [Tailwind CSS](https://tailwindcss.com/).
 Tailwind CSS is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.
+
+1.1 Development
+---------------
+
+The raw Tailwind-flavoured CSS-file lives in `css/tailwind/`. In this setup the CSS will be processed, purged and minified by default. You can disable purging by setting `purge.enabled`to `false` in `tailwind.config.js` and minificaion by commenting out all `cssnano`-related lines in `postcss.config.js`. Read more about the process in the [Tailwind CSS / Optimizing for Production](https://tailwindcss.com/docs/optimizing-for-production) docs.
+
+During development you can use `yarn watch` to automatically regenerate all css files. When purging is enabled, this process scrapes all `.twig` files in the theme folder and tries to find all used selectors. In doing so, all unused selectors are purged and the final size of tailwind reduces from a couple of megabytes to some kilobytes.
 
 2 Resources
 -----------
@@ -29,7 +36,7 @@ Tailwind CSS is a highly customizable, low-level CSS framework that gives you al
 - [Twig documentation](https://twig.symfony.com/)
 
 3 Editing this theme
-------------------
+--------------------
 
 The base-2021 theme consists of:
 

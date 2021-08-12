@@ -15,10 +15,12 @@
 
 			</div>
 
-			<div class="w-full sm:w-1/2 p-6">
-				<img class="w-full object-cover object-center"
-					 src="{{ block|thumbnail(500, 300, fit="crop") }}" alt="{{ record|image.title }}">
-			</div>
+			{% if record|image %}
+				<div class="w-full sm:w-1/2 p-6">
+					<img class="w-full object-cover object-center"
+						 src="{{ block|thumbnail(500, 300, fit="crop") }}" alt="{{ record|image.title }}">
+				</div>
+			{% endif %}
 
             <div class="w-full  p-6">
                 {{ block.content }}

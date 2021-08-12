@@ -1,7 +1,7 @@
 Bolt 4 - Base-2021 theme
 ========================
 
-This is the base theme that comes with the installation of Bolt 4.
+This is the base theme that comes with the installation of Bolt 5.
 
 Bolt CMS is an open source, adaptable platform for building and running modern
 websites. Built on PHP, Symfony and more. [Read the site](https://boltcms.io)

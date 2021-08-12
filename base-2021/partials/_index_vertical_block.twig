@@ -13,10 +13,10 @@
 
 		{% for record in records %}
 		<div class="flex flex-wrap {% if loop.index is even %}flex-col-reverse sm:flex-row{% endif %}">
-			{% if loop.index is odd %}
+			{% if loop.index is odd and record|image %}
 				<div class="w-full sm:w-1/2 p-6">
 					<img class="w-full object-cover object-center"
-						 src="{{ record|thumbnail(500, 300, fit="crop") }}" {#alt="{{ record|image.title }}#}">
+						 src="{{ record|thumbnail(500, 300, fit="crop") }}" alt="{{ record|image.title }}">
 				</div>
 			{% endif %}
 
@@ -29,7 +29,7 @@
 				</a>
 
 			</div>
-			{% if loop.index is even %}
+			{% if loop.index is even and record|image %}
 			<div class="w-full sm:w-1/2 p-6">
 				<img class="w-full object-cover object-center"
 					 src="{{ record|thumbnail(500, 300, fit="crop") }}" alt="{{ record|image.title }}">

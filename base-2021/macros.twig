@@ -1,0 +1,6 @@
+{% macro edit(content, label = "✏️") %}{% apply spaceless %}
+    {% if content|edit_link %}
+        {% set title = __('general.phrase.edit') ~ ' ' ~ content.definition.singular_name ~ ' "' ~ content|title ~ '"'  %}
+        <a href="{{ content|edit_link }}" class="pencil-editlink" title='{{ title }}'>{{ label }}</a>
+    {% endif %}
+{% endapply %}{% endmacro %}

@@ -1,3 +1,5 @@
+{% from 'macros.twig' import edit as edit %}
+
 {# The name of the `content` is passed in from the index, i.e. "blocks/introduction" #}
 {% setcontent block = (content) returnsingle %}
 
@@ -19,10 +21,10 @@
 			{% endif %}
 
 			<div class="w-5/6 sm:w-1/2 p-6">
-				<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">{{ record|title }}</h3>
+				<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">{{ record|title }} {{ edit(block) }}</h3>
 				{{ record|excerpt(300, wrap=true) }}
 
-				<a href="{{ record|link() }}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 py-6">
+				<a href="{{ record|link() }}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 py-6 underline">
 					{{ __('general.phrase.read-more') }} &raquo;
 				</a>
 

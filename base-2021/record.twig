@@ -1,3 +1,5 @@
+{% from 'macros.twig' import edit as edit %}
+
 {% extends 'partials/_master.twig' %}
 
 {% block main %}
@@ -32,13 +34,7 @@
       <!-- Record Content-->
 
       <article class="article">
-        {% if record|edit_link %}
-          <a href="{{ record|edit_link }}" class="px-4 py-1 gradient text-gray-200 inline-flex items-center justify-center mb-2 rounded-md">
-            {{ __('general.phrase.edit') }}
-          </a>
-        {% endif %}
-
-        <h1>{{ record|title }}</h1>
+        <h1>{{ record|title }} {{ edit(record) }}</h1>
 
         {% with { 'record': record, 'exclude': [record|image.fieldname|default(), 'teaser'] } %}
         {{ block('sub_fields', 'helpers/_fields.twig') }}

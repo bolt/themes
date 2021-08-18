@@ -1,3 +1,5 @@
+{% from 'macros.twig' import edit as edit %}
+
 {# The name of the `content` is passed in from the index, i.e. "blocks/people" #}
 {% setcontent block = (content) returnsingle %}
 
@@ -18,7 +20,7 @@
             src="{{ record|thumbnail(800, 800, fit="crop") }}"
             alt="{{ record.name }} - {{ record.description }}" class="shadow rounded-full max-w-full h-auto align-middle border-none" />
           <div class="w-full">
-            <h2 class="title-font font-bold text-lg text-gray-900 my-3">{{ record.name }}</h2>
+            <h2 class="title-font font-bold text-lg text-gray-900 my-3">{{ record.name }} {{ edit(block) }}</h2>
             <h3 class="text-gray-500 my-3">{{ record.description }}</h3>
             <p class="mb-4">{{ record|excerpt(100) }}</p>
 

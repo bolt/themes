@@ -55,19 +55,20 @@ function check(e){
   var target = (e && e.target) || (event && event.srcElement);
   
   //Nav Menu
-  if (!checkParent(target, navMenuDiv)) {
-  // click NOT on the menu
-  if (checkParent(target, navMenu)) {
-    // click on the link
-    if (navMenuDiv.classList.contains("hidden")) {
-    navMenuDiv.classList.remove("hidden");
-    } else {navMenuDiv.classList.add("hidden");}
-  } else {
-    // click both outside link and outside menu, hide menu
-    navMenuDiv.classList.add("hidden");
+  if (!checkParent(target, navMenuDiv) && navMenuDiv) {
+    // click NOT on the menu
+    if (checkParent(target, navMenu)) {
+      // click on the link
+      if (navMenuDiv.classList.contains("hidden")) {
+        navMenuDiv.classList.remove("hidden");
+      } else {
+        navMenuDiv.classList.add("hidden");
+      }
+    } else {
+      // click both outside link and outside menu, hide menu
+      navMenuDiv.classList.add("hidden");
+    }
   }
-  }
-  
 }
 function checkParent(t, elm) {
   while(t.parentNode) {
@@ -79,32 +80,31 @@ function checkParent(t, elm) {
 
 
 /* Progress bar */
-		//Source: https://alligator.io/js/progress-bar-javascript-css-variables/
-		var h = document.documentElement,
-			b = document.body,
-			st = 'scrollTop',
-			sh = 'scrollHeight',
-			progress = document.querySelector('#progress'),
-			scroll;
-		var scrollpos = window.scrollY;
-		var header = document.getElementById("header");
-		var navcontent = document.getElementById("nav-content");
+//Source: https://alligator.io/js/progress-bar-javascript-css-variables/
+var h = document.documentElement,
+  b = document.body,
+  st = 'scrollTop',
+  sh = 'scrollHeight',
+  progress = document.querySelector('#progress'),
+  scroll;
+var scrollpos = window.scrollY;
+var header = document.getElementById("header");
+var navcontent = document.getElementById("nav-content");
 
-		document.addEventListener('scroll', function () {
+document.addEventListener('scroll', function () {
+  if(progress) {
+    /*Refresh scroll % width*/
+    scroll = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+    progress.style.setProperty('--scroll', scroll + '%');
 
-			/*Refresh scroll % width*/
-			scroll = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
-			progress.style.setProperty('--scroll', scroll + '%');
-
-			/*Apply classes for slide in bar*/
-			scrollpos = window.scrollY;
-
-			if (scrollpos > 10) {
-				header.classList.add("bg-white");
-				header.classList.add("shadow");
-			} else {
-				header.classList.remove("bg-white");
-				header.classList.remove("shadow");
-			}
-
-		});
+    /*Apply classes for slide in bar*/
+    scrollpos = window.scrollY;
+    if (scrollpos > 10) {
+      header.classList.add("bg-white");
+      header.classList.add("shadow");
+    } else {
+      header.classList.remove("bg-white");
+      header.classList.remove("shadow");
+    }
+  }
+});

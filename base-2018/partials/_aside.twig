@@ -17,7 +17,7 @@
             output a default text, telling the user to create the 'blocks' in the backend. #}
         {% if block %}
 
-            <img src="{{ block|thumbnail(480, 320) }}" alt="block|image.alt">
+            <img src="{{ block|thumbnail(480, 320) }}" alt="{{ block|image.alt }}">
 
             <h2 class="title">{{ block|title }}</h2>
             <p>{{ block.content|default(block|excerpt) }}</p>
